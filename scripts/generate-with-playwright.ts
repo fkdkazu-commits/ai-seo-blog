@@ -89,6 +89,7 @@ const INTERRUPT_MARKERS = [
 
 interface Keyword {
   keyword: string;
+  slug?: string;   // 明示指定スラッグ（日本語キーワードでの文字化け防止）
   intent: string;
   target: string;
   tags: string[];
@@ -768,13 +769,19 @@ async function main() {
   console.log(`\n✓ タイトル取得: ${title}`);
 
   await fs.mkdir(BLOG_DIR, { recursive: true });
-  const baseSlug = target.keyword
-    .replace(/\s+/g, '-')
-    .toLowerCase()
-    .replace(/[^\w-]/g, '')
-    .replace(/-+$/g, '');
   const today = new Date().toISOString().split('T')[0];
-  const slug = baseSlug.length >= 3 ? baseSlug : `post-${today}`;
+  const slug = (() => {
+    // keywords.json に slug フィールドがあればそれを優先（日本語キーワード対応）
+    if (target.slug) return target.slug;
+    // 自動生成：日本語文字除去後に先頭ハイフンも除去
+    const auto = target.keyword
+      .replace(/\s+/g, '-')
+      .toLowerCase()
+      .replace(/[^\w-]/g, '')
+      .replace(/^-+/, '')   // 先頭ハイフン除去
+      .replace(/-+$/g, ''); // 末尾ハイフン除去
+    return auto.length >= 3 ? auto : `post-${today}`;
+  })();
   const mdxPath = path.join(BLOG_DIR, `${slug}.mdx`);
   await fs.writeFile(mdxPath, buildMdx(target, slug, title, body, description), 'utf-8');
   console.log(`✓ MDX保存: src/content/blog/${slug}.mdx`);

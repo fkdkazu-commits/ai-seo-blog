@@ -1,6 +1,7 @@
 [
   {
     "keyword": "副業 AI",
+    "slug": "fukugyou-ai",
     "intent": "AIを活用して副業で稼ぎたい",
     "target": "AI初心者で副業で稼ぎたい人",
     "tags": [
@@ -11,6 +12,7 @@
   },
   {
     "keyword": "副業　月5万",
+    "slug": "fukugyou-5man",
     "intent": "副業で月5万稼ぐための方法が知りたい",
     "target": "副業初心者",
     "tags": [
@@ -21,6 +23,7 @@
   },
   {
     "keyword": "Claude Code 使い方",
+    "slug": "claude-code",
     "intent": "Claude Codeの具体的な使い方・コマンドや活用方法を知りたい",
     "target": "エンジニア・プログラマー・AI開発ツールに興味がある人",
     "tags": [
@@ -33,6 +36,7 @@
   },
   {
     "keyword": "ChatGPT ブログ 収益化",
+    "slug": "chatgpt",
     "intent": "ChatGPTを使ってブログで収益を上げる方法を知りたい",
     "target": "ブログ運営者・AIツールを副業に活かしたい初心者",
     "tags": [
@@ -45,6 +49,7 @@
   },
   {
     "keyword": "キーワード選定 SEO やり方",
+    "slug": "keyword-seo",
     "intent": "SEOに強いキーワードの選び方・調べ方を具体的に知りたい",
     "target": "SEO初心者・ブログ記事のテーマ選びに悩んでいる人",
     "tags": [
@@ -56,6 +61,7 @@
   },
   {
     "keyword": "アフィリエイト 始め方 初心者",
+    "slug": "affiliate-beginner",
     "intent": "アフィリエイトを0から始めて稼ぐまでの流れを知りたい",
     "target": "副業・在宅収入を探しているブログ未経験者",
     "tags": [
@@ -68,6 +74,7 @@
   },
   {
     "keyword": "Perplexity AI 使い方",
+    "slug": "perplexity-ai",
     "intent": "Perplexity AIの使い方・活用シーン・ChatGPTとの違いを知りたい",
     "target": "AIツールに興味がある人・リサーチ効率を上げたいビジネスパーソン",
     "tags": [
@@ -80,6 +87,7 @@
   },
   {
     "keyword": "ブログ PV 増やし方",
+    "slug": "blog-pv",
     "intent": "ブログのページビューを増やす具体的な方法・施策を知りたい",
     "target": "ブログ運営中でアクセスが伸び悩んでいる人",
     "tags": [
