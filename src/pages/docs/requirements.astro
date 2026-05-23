@@ -6,8 +6,8 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   title="要件定義書"
   description="AI SEO自動運用ブログシステムの目的・機能要件・非機能要件・コスト・開発フェーズを定義します。"
   docType="要件定義書"
-  version="1.2"
-  date="2026年5月10日"
+  version="1.3"
+  date="2026年5月24日"
 >
 
   <!-- 目次 -->
@@ -48,7 +48,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
               ['対象サイト', 'GitHub Pages（fkdkazu-commits.github.io/ai-seo-blog/）'],
               ['想定運用開始', '2026年5月（Phase 1 完了・稼働中）'],
               ['作成日', '2026年5月10日'],
-              ['バージョン', 'v1.1'],
+              ['バージョン', 'v1.3'],
             ].map(([label, value]) => (
               <tr>
                 <td class="py-3 pr-6 text-gray-500 font-medium w-40 shrink-0">{label}</td>
@@ -134,14 +134,16 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
         {[
           {
             id: 'F-01',
-            category: '記事生成（Playwright）',
+            category: '記事生成パイプライン（Playwright）',
             priority: '必須',
             requirements: [
-              'キーワードリスト（keywords.json）から未生成キーワードを1件取得する',
-              'PlaywrightがChromiumを起動しClaude.ai Webにセッションで自動ログインする',
-              'プロンプトを自動入力・送信し、タイトル・見出し・本文・FAQを生成する',
+              'キーワードリスト（keywords.json）から generated: false のキーワードを1件取得する',
+              'PlaywrightがChromiumを起動し永続プロファイルでClaude.ai Webに自動ログインする',
+              '5ステップのプロンプトを同一会話セッション内で順次実行する（前ステップの出力を次ステップに引き継ぐ）',
+              '各ステップの出力をタグ（[SEO_RESEARCH_REPORT] / [ARTICLE_DRAFT]）でDOM Range APIを使いMarkdown形式で抽出する',
               'meta descriptionを自動生成する（120字以内）',
-              '生成結果をMDX形式でsrc/content/blog/に保存する',
+              '生成結果をMDX形式でsrc/content/blog/{slug}.mdxに保存する',
+              '完了後にkeywords.jsonのgeneratedフラグをtrueに更新しコミットする',
             ],
           },
           {
@@ -181,7 +183,8 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
             requirements: [
               '記事タイトルをもとにOGP画像（1200×630px）を自動生成する',
               '生成画像を public/og/ に保存し、記事と紐付ける',
-              'sharpライブラリで実装しAPIコスト不要',
+              'sharpライブラリで実装しAPIコスト不要（Unsplash API優先・失敗時はSVGフォールバック）',
+              '既存ファイルが存在する場合はスキップ（冪等性を確保）',
             ],
           },
           {
@@ -192,6 +195,32 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
               '表示回数100以上・CTR1.5%未満の記事のタイトル・descriptionを改善する',
               '掲載順位10位以下の記事の本文をリライトする（Phase 2以降）',
               'リライト後の記事を自動でGitHubへpush・公開する',
+            ],
+          },
+          {
+            id: 'F-07',
+            category: '記事品質仕様（プロンプト設計）',
+            priority: '必須',
+            requirements: [
+              'リード文冒頭50字以内に数値・期限・条件のいずれかを含める（インテントファースト）',
+              'E-E-A-T準拠：体験談・具体数値を2件以上引用（URL付き）し、PRIMARY_SOURCESは.go.jp/.or.jp/大手メディアに限定する',
+              '実務ノウハウを5個以上掲載し、隣接する2ハックは同一パターンを禁止する（A:失敗起点型 / B:データ起点型 / C:比較型）',
+              'チェックリスト・2軸マトリクス・成熟度モデル・スコアリングのいずれか1つ以上の独自フレームを必須とする',
+              'AIの常套句を禁止する（「〜とされています」「〜と言われています」「ぜひ〜してみてください」等）',
+              '記事構成：H1 → リード文（400字以内）→ H2×3〜6（H3可）→ FAQ（3〜5問）→ まとめ（具体的行動）',
+            ],
+          },
+          {
+            id: 'F-08',
+            category: 'チェーン整合性検証・自動回復',
+            priority: '必須',
+            requirements: [
+              '各ステップ完了後に出力の文字数を検証する（Step1：300字以上 / Step2以降：1,500字以上）',
+              'Step2以降：ターゲットキーワードが出力に含まれることを確認する',
+              'Step2以降：Markdown見出し（##）が1つ以上含まれることを確認する',
+              'DOM Range APIの成功 / plaintextフォールバック のどちらで抽出したかを記録・警告する',
+              '各ステップの出力をdata/debug/にタイムスタンプ付きで保存する（.gitignore済み）',
+              'Claude.aiが質問返し（「どこから着手しましょうか」等）をした場合を検知し、回復プロンプトを自動送信する',
             ],
           },
         ].map(({ id, category, priority, requirements }) => (
@@ -214,6 +243,46 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
           </div>
         ))}
       </div>
+
+      <!-- 5ステップパイプライン詳細 -->
+      <div class="mt-6 bg-white rounded-xl border border-gray-200 overflow-hidden">
+        <div class="px-6 py-4 bg-gray-50 border-b border-gray-200">
+          <h3 class="font-bold text-gray-900">F-01 補足：5ステップパイプライン仕様</h3>
+          <p class="text-xs text-gray-500 mt-1">同一Claude.ai会話内で順次実行し、前ステップの出力を次ステップの文脈として引き継ぐ</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="text-left px-6 py-3 text-gray-600 font-semibold w-20">Step</th>
+                <th class="text-left px-6 py-3 text-gray-600 font-semibold">処理内容</th>
+                <th class="text-left px-6 py-3 text-gray-600 font-semibold w-40">出力タグ</th>
+                <th class="text-left px-6 py-3 text-gray-600 font-semibold w-28">タイムアウト</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              {[
+                ['Step 1', 'SEOリサーチ（競合分析・一次情報収集・検索意図分類）', '[SEO_RESEARCH_REPORT]', '10分'],
+                ['Step 2', '記事生成（8,000字以上・E-E-A-T準拠・独自フレーム含む）', '[ARTICLE_DRAFT]', '30分'],
+                ['Step 3', 'ファクトチェック（URL検証・数値・固有名詞の確認）', '[ARTICLE_DRAFT]', '20分'],
+                ['Step 4', '品質向上（AI文体除去・テンプレ感排除・まとめ改善）', '[ARTICLE_DRAFT]', '15分'],
+                ['Step 5', '内部リンク挿入（既存記事との相互リンク追加）', '[ARTICLE_DRAFT]', '10分'],
+              ].map(([step, desc, tag, timeout]) => (
+                <tr>
+                  <td class="px-6 py-4 font-medium text-blue-700">{step}</td>
+                  <td class="px-6 py-4 text-gray-700">{desc}</td>
+                  <td class="px-6 py-4 font-mono text-xs text-gray-500">{tag}</td>
+                  <td class="px-6 py-4 text-gray-700">{timeout}</td>
+                </tr>
+              ))}
+              <tr class="bg-gray-50">
+                <td class="px-6 py-4 font-bold text-gray-900" colspan="3">GitHub Actions ジョブ全体タイムアウト</td>
+                <td class="px-6 py-4 font-bold text-gray-900">150分</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
     <!-- 5. 非機能要件 -->
@@ -231,10 +300,13 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
             {[
               ['可用性', 'GitHub Pages の SLA に準拠（月次 99.9% 以上を目標）'],
               ['パフォーマンス', 'Core Web Vitals: LCP 2.5秒以下、CLS 0.1以下（Astro静的生成で達成）'],
+              ['タイムアウト', '各ステップ個別タイムアウトあり（Step1:10分 / Step2:30分 / Step3:20分 / Step4:15分 / Step5:10分）。GitHub Actionsジョブ全体は150分'],
+              ['ブラウザ設定', 'ヘッドレスOFF・User-Agent偽装（Chrome/124 Windows NT 10.0）・自動化検出フラグ無効・ロケールja-JP・ビューポート1280×900px'],
               ['スケーラビリティ', 'キーワードリストを追加するだけで記事数を無制限に拡張可能'],
-              ['セキュリティ', 'Claude.aiセッションCookieはGitHub Secretsで管理。コードへの埋め込み禁止'],
+              ['セキュリティ', 'APIキー・セッション情報はプロジェクトフォルダ外の専用フォルダで管理。コードへの埋め込み禁止。ダッシュボードはlocalhost（127.0.0.1）のみバインド'],
               ['保守性', 'すべての自動化はGitHub Actionsで管理。設定変更はYAMLファイルのみ'],
               ['コスト管理', 'Claude Proサブスクリプション（月額固定）のため従量課金リスクなし'],
+              ['デバッグ', 'ステップ出力をdata/debug/に保存（タイムスタンプ・DOM Range成功 / PLAINTEXTフォールバックをファイル名で区別）。.gitignore済みのためリポジトリには含まれない'],
               ['ログ・監視', 'GitHub Actionsのログで自動化の実行状況をリアルタイム確認可能'],
             ].map(([label, value]) => (
               <tr>
@@ -273,7 +345,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
             items: [
               'Playwright 1.44+（Chromiumブラウザ自動化）',
               'Claude.ai Web（Claude Proサブスクリプション）',
-              'セッションCookieによる認証（GitHub Secrets管理）',
+              'Playwright永続プロファイルによる認証（セッション自動再利用）',
             ],
           },
           {
@@ -381,9 +453,11 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
             items: [
               'Astro + GitHub Pages 環境構築',
               'MDX記事の表示・ルーティング',
-              'Playwright + Claude.ai による記事自動生成',
+              'Playwright + Claude.ai による5ステップ記事自動生成',
               'GitHub Actions による自動投稿・デプロイ',
               'OG画像自動生成・内部リンク自動追加',
+              'チェーン整合性検証・デバッグ出力機能',
+              'プロンプト品質改善（E-E-A-T・A/B/Cパターン・独自フレーム必須化）',
             ],
           },
           {
@@ -462,9 +536,12 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
             {[
               'GitHub Pages はサーバーサイド処理不可（静的サイトのみ）',
               'Google Search Console APIはサイト認証後（Googleサーチコンソールへの登録）が必要',
-              'Claude.aiのセッションCookieは定期的に期限切れとなり、再取得が必要（目安：数週間〜数ヶ月）',
+              'Claude.aiのPlaywright永続プロファイルは定期的に期限切れとなり、再ログインが必要（目安：数週間〜数ヶ月）',
               '生成記事の品質はキーワードの精度・プロンプト設計に依存する',
               'GitHub Actions の実行時間は月2,000分まで無料（通常の運用では超過しない）',
+              'DOM Range APIによるMarkdown抽出が失敗した場合、見出し（##）が消えたプレーンテキストとなる（チェーン整合性検証で検知・警告）',
+              'パイプライン中断時はkeywords.jsonのgeneratedフラグを手動でfalseに戻して再実行が必要',
+              '質問返し検知は1回の回復プロンプト送信のみ対応（複数回の質問返しが続く場合はタイムアウト）',
             ].map((item) => (
               <li class="flex gap-2">
                 <span class="text-red-400 shrink-0">!</span>
@@ -480,8 +557,9 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
               'GitHubアカウントが存在すること',
               'Claude Proサブスクリプションを契約済みであること（APIキー不要）',
               'Google Search Console にサイトが登録済みであること（Phase 2以降）',
-              'Claude.aiのセッションCookieをGitHub Secretsに登録済みであること',
+              'Playwright永続プロファイルの初回セットアップ（Claude.aiへの手動ログイン）が完了していること',
               'キーワードリスト（data/keywords/keywords.json）を定期的に更新すること',
+              'セルフホストランナー（actions-runner/）が起動済みであること',
             ].map((item) => (
               <li class="flex gap-2">
                 <span class="text-green-500 shrink-0">✓</span>
