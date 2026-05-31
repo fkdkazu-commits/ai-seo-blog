@@ -782,6 +782,15 @@ async function main() {
       .replace(/-+$/g, ''); // 末尾ハイフン除去
     return auto.length >= 3 ? auto : `post-${today}`;
   })();
+  // Markdownフォーマット検証
+  const h2Count = (body.match(/^## /gm) || []).length;
+  if (h2Count < 2) {
+    console.warn(`⚠️  H2見出し（##）が${h2Count}件しかありません。見出しがプレーンテキストになっている可能性があります。`);
+    console.warn('   data/debug/ フォルダの最終ステップ出力を確認してください。');
+  } else {
+    console.log(`✓ Markdown構造チェック: H2見出し ${h2Count}件`);
+  }
+
   const mdxPath = path.join(BLOG_DIR, `${slug}.mdx`);
   await fs.writeFile(mdxPath, buildMdx(target, slug, title, body, description), 'utf-8');
   console.log(`✓ MDX保存: src/content/blog/${slug}.mdx`);
