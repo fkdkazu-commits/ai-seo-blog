@@ -264,6 +264,25 @@ const jsonLd = {
     background-color: #eff6ff;
   }
 
+  /* ─── コードブロック ─── */
+  #article-body :global(pre) {
+    background-color: #1e293b !important;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    border: 1px solid #334155;
+  }
+
+  #article-body :global(pre code) {
+    background: none !important;
+    border: none !important;
+    color: #e2e8f0 !important;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    padding: 0 !important;
+    font-weight: 400;
+  }
+
   /* ─── 箇条書き（枠あり） ─── */
   #article-body :global(ul) {
     background-color: #f8fafc;
