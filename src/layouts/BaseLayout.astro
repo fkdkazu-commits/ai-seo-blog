@@ -35,15 +35,30 @@ const gscVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
     <meta name="twitter:image" content={og} />
 
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+      body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; }
+    </style>
   </head>
-  <body class="bg-white text-gray-900 font-sans">
-    <header class="border-b border-gray-200 py-4 px-6 sticky top-0 bg-white/95 backdrop-blur z-10">
-      <div class="max-w-5xl mx-auto flex items-center justify-between">
-        <a href={import.meta.env.BASE_URL} class="text-xl font-bold hover:text-blue-600 transition-colors">
-          AIメディア
+  <body class="bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+      <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href={import.meta.env.BASE_URL} class="flex items-center gap-2 group">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs font-black">AI</span>
+          <span class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">AIメディア</span>
         </a>
-        <nav class="flex gap-6 text-sm text-gray-600">
-          <a href={`${import.meta.env.BASE_URL}blog/`} class="hover:text-blue-600 transition-colors">記事一覧</a>
+        <nav class="flex items-center gap-1 text-sm">
+          <a href={`${import.meta.env.BASE_URL}blog/`}
+            class="px-3 py-1.5 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium">
+            記事一覧
+          </a>
         </nav>
       </div>
     </header>
@@ -52,13 +67,16 @@ const gscVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
       <slot />
     </main>
 
-    <footer class="border-t border-gray-200 py-8 mt-16">
-      <div class="max-w-5xl mx-auto px-6 text-center text-sm text-gray-500">
-        <p class="mb-2">
-          <a href={import.meta.env.BASE_URL} class="hover:text-blue-600 font-semibold">AIメディア</a>
-          &nbsp;—&nbsp;AI・SEO・業務効率化の実践情報
-        </p>
-        <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center text-white text-xs font-black">AI</span>
+            <span class="font-bold text-white">AIメディア</span>
+          </div>
+          <p class="text-sm text-center">AI・SEO・業務効率化の実践情報メディア</p>
+          <p class="text-xs">&copy; {new Date().getFullYear()} All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </body>
