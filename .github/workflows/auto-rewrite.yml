@@ -7,7 +7,7 @@ on:
 
 jobs:
   rewrite:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: write
 
@@ -15,20 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
       - name: Install dependencies
         run: npm install
 
-      - name: Install Playwright Chromium
-        run: npx playwright install chromium --with-deps
-
       - name: Run AI rewrite via Claude.ai (Playwright)
         env:
-          CLAUDE_COOKIES: ${{ secrets.CLAUDE_COOKIES }}
           SITE_URL: https://fkdkazu-commits.github.io/ai-seo-blog
         run: npm run rewrite
 
@@ -37,6 +28,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "refactor: AIリライト $(date '+%Y-%m-%d')"
+          git diff --staged --quiet || git commit -m "refactor: AIリライト $(Get-Date -Format 'yyyy-MM-dd')"
           git push
       # mainへのpushでdeploy.ymlが自動起動し、GitHub Pagesへデプロイされる

@@ -3,13 +3,16 @@
  * analyze-gsc.tsが出力したrewrite-candidates.jsonを読み込み、
  * Playwright経由でClaude.ai Webを操作して記事をリライトする
  */
-import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
+import { chromium, type BrowserContext, type Page } from 'playwright';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
+
+// generate-with-playwright.ts と同じプロファイルを共有する
+const PROFILE_DIR = 'C:\\Users\\fkdka\\.claude-profiles\\ai-seo-blog';
 
 const INPUT_SELECTORS = ['div[contenteditable="true"]', 'textarea', 'div[contenteditable]'];
 const SUBMIT_SELECTORS = ['button[aria-label*="Send"]', 'button[type="submit"]'];
@@ -42,15 +45,24 @@ function pageToFilePath(pageUrl: string): string {
 
 // ─── Playwright ───────────────────────────────────────────────────────────────
 
-async function buildContext(browser: Browser): Promise<BrowserContext> {
-  const context = await browser.newContext({
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36',
+async function buildContext(): Promise<BrowserContext> {
+  await fs.mkdir(PROFILE_DIR, { recursive: true });
+
+  for (const lockFile of ['SingletonLock', 'SingletonCookie', 'Default/LOCK']) {
+    await fs.unlink(path.join(PROFILE_DIR, lockFile)).catch(() => {});
+  }
+
+  return await chromium.launchPersistentContext(PROFILE_DIR, {
+    headless: false,
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--disable-dev-shm-usage',
+    ],
+    userAgent:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    viewport: { width: 1280, height: 900 },
     locale: 'ja-JP',
   });
-  const cookiesJson = process.env.CLAUDE_COOKIES;
-  if (!cookiesJson) throw new Error('CLAUDE_COOKIES が未設定です');
-  await context.addCookies(JSON.parse(cookiesJson));
-  return context;
 }
 
 async function sendPromptAndWait(page: Page, prompt: string, maxWaitMs = 120_000): Promise<string> {
@@ -190,24 +202,11 @@ async function main() {
     return;
   }
 
-  const chromePaths = [
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    process.env.CHROME_PATH,
-  ].filter(Boolean) as string[];
-  const executablePath = chromePaths.find((p) => {
-    try { return require('fs').existsSync(p); } catch { return false; }
-  });
-  const browser: Browser = await chromium.launch({
-    headless: false,
-    executablePath,
-    args: ['--disable-blink-features=AutomationControlled'],
-  });
+  const context = await buildContext();
   try {
-    const context = await buildContext(browser);
     const page = await context.newPage();
     await page.goto('https://claude.ai/new', { waitUntil: 'domcontentloaded', timeout: 60_000 });
-    await page.waitForSelector('div[contenteditable="true"]', { timeout: 30_000 });
+    await page.waitForSelector('div[contenteditable="true"]', { timeout: 60_000 });
 
     let updated: string;
     if (target.reason === 'low-ctr') {
@@ -218,7 +217,6 @@ async function main() {
       console.log('本文リライト完了');
     }
 
-    await context.close();
     await fs.writeFile(filePath, updated, 'utf-8');
 
     await fs.writeFile(
@@ -229,7 +227,7 @@ async function main() {
 
     console.log(`更新完了: ${filePath}`);
   } finally {
-    await browser.close();
+    await context.close();
   }
 }
 
