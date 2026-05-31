@@ -3,6 +3,7 @@ const base = import.meta.env.BASE_URL;
 const REPO = 'fkdkazu-commits/ai-seo-blog';
 const KW_PATH = 'data/keywords/keywords.json';
 const WF_PATH = '.github/workflows/daily-generate.yml';
+const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
 ---
 
 <!doctype html>
@@ -95,6 +96,19 @@ const WF_PATH = '.github/workflows/daily-generate.yml';
         </div>
       </div>
 
+      <!-- GSC Site -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-6" id="section-gsc" style="display:none">
+        <h2 class="text-base font-bold text-gray-900 mb-1">GSC 分析対象サイト</h2>
+        <p class="text-xs text-gray-500 mb-4">Search Consoleで分析するサイトを選択します。<code class="bg-gray-100 px-1 rounded">npm run analyze</code> の対象になります</p>
+        <div class="flex items-center gap-4">
+          <select id="gsc-site" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-400">
+            <option value="">読み込み中...</option>
+          </select>
+          <button onclick="saveGscSite()" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">保存</button>
+        </div>
+        <p id="gsc-status" class="text-xs mt-2 text-gray-400"></p>
+      </div>
+
       <!-- Trigger -->
       <div class="bg-white rounded-2xl border border-gray-200 p-6" id="section-trigger" style="display:none">
         <h2 class="text-base font-bold text-gray-900 mb-1">手動実行</h2>
@@ -105,12 +119,14 @@ const WF_PATH = '.github/workflows/daily-generate.yml';
 
     </div>
 
-    <script define:vars={{ REPO, KW_PATH, WF_PATH }}>
+    <script define:vars={{ REPO, KW_PATH, WF_PATH, GSC_SETTINGS_PATH }}>
       const API = 'https://api.github.com';
       let token = '';
       let kwSha = '';
       let wfSha = '';
+      let gscSha = '';
       let keywords = [];
+      let gscSettings = { selectedSite: '', sites: [] };
 
       function pat() { return document.getElementById('pat').value.trim(); }
       function status(id, msg, color = 'gray') {
@@ -147,7 +163,7 @@ const WF_PATH = '.github/workflows/daily-generate.yml';
           if (!me.login) throw new Error('認証失敗');
           status('conn-status', `✓ ${me.login} として接続しました`, 'green');
           await loadSettings();
-          ['section-schedule','section-keywords','section-trigger'].forEach(id => {
+          ['section-schedule','section-keywords','section-gsc','section-trigger'].forEach(id => {
             document.getElementById(id).style.display = '';
           });
         } catch(e) {
@@ -162,6 +178,16 @@ const WF_PATH = '.github/workflows/daily-generate.yml';
           kwSha = kwFile.sha;
           keywords = JSON.parse(atob(kwFile.content.replace(/\n/g,'')));
           renderKeywords();
+
+          // GSC Settings
+          try {
+            const gscFile = await githubGet(GSC_SETTINGS_PATH);
+            gscSha = gscFile.sha;
+            gscSettings = JSON.parse(atob(gscFile.content.replace(/\n/g,'')));
+            renderGscSites();
+          } catch(e) {
+            console.warn('GSC設定ファイルが見つかりません:', e);
+          }
 
           // Schedule
           const wfFile = await githubGet(WF_PATH);
@@ -247,6 +273,26 @@ const WF_PATH = '.github/workflows/daily-generate.yml';
         keywords[i].generated = false;
         renderKeywords();
         await saveKeywords(`chore: キーワード「${keywords[i].keyword}」を再生成キューに戻す`);
+      }
+
+      function renderGscSites() {
+        const sel = document.getElementById('gsc-site');
+        sel.innerHTML = gscSettings.sites.map(s =>
+          `<option value="${s.url}" ${s.url === gscSettings.selectedSite ? 'selected' : ''}>${s.url} (${s.permission})</option>`
+        ).join('');
+      }
+
+      async function saveGscSite() {
+        const selected = document.getElementById('gsc-site').value;
+        if (!selected) return;
+        gscSettings.selectedSite = selected;
+        status('gsc-status', '保存中...', 'gray');
+        try {
+          const f = await githubGet(GSC_SETTINGS_PATH);
+          gscSha = f.sha;
+          await githubPut(GSC_SETTINGS_PATH, gscSha, JSON.stringify(gscSettings, null, 2), `chore: GSC分析対象サイトを${selected}に変更`);
+          status('gsc-status', `✓ ${selected} に設定しました`, 'green');
+        } catch(e) { status('gsc-status', `エラー: ${e.message}`, 'red'); }
       }
 
       async function saveSchedule() {

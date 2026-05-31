@@ -59,10 +59,24 @@ async function buildAuth() {
   }
 }
 
+async function resolveSiteUrl(): Promise<string> {
+  if (process.env.SITE_URL) return process.env.SITE_URL;
+  const settingsFile = path.join(ROOT, 'data', 'gsc-settings.json');
+  try {
+    const raw = await fs.readFile(settingsFile, 'utf-8');
+    const settings = JSON.parse(raw) as { selectedSite: string };
+    if (settings.selectedSite) return settings.selectedSite;
+  } catch {
+    // fall through
+  }
+  throw new Error('分析対象サイトが設定されていません。\n' +
+    'SITE_URL 環境変数を指定するか、設定画面でサイトを選択してください。');
+}
+
 async function fetchSearchConsoleData(): Promise<PageMetrics[]> {
   const auth = await buildAuth();
   const sc = google.searchconsole({ version: 'v1', auth });
-  const siteUrl = process.env.SITE_URL!;
+  const siteUrl = await resolveSiteUrl();
 
   const endDate = new Date();
   const startDate = new Date();
@@ -111,6 +125,8 @@ function detectCandidates(metrics: PageMetrics[]): RewriteCandidate[] {
 }
 
 async function main() {
+  const siteUrl = await resolveSiteUrl();
+  console.log(`分析対象: ${siteUrl}`);
   console.log('Search Consoleデータ取得中...');
   const metrics = await fetchSearchConsoleData();
   console.log(`取得件数: ${metrics.length}`);

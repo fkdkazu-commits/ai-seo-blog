@@ -1,0 +1,10 @@
+{
+  "selectedSite": "https://kyoyupublish-onde.com/",
+  "sites": [
+    { "url": "https://kyoyupublish-onde.com/", "permission": "siteFullUser" },
+    { "url": "https://wide-fron-tage.com/", "permission": "siteFullUser" },
+    { "url": "https://weeeb.jp/", "permission": "siteFullUser" },
+    { "url": "https://fkdkazu-commits.github.io/ai-seo-blog/", "permission": "siteOwner" },
+    { "url": "https://fkdkazu-commits.github.io/ai-consulting-lp/", "permission": "siteOwner" }
+  ]
+}
