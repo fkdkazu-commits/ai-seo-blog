@@ -24,13 +24,43 @@ interface RewriteCandidate {
   metrics: PageMetrics;
 }
 
-async function fetchSearchConsoleData(): Promise<PageMetrics[]> {
-  const auth = new google.auth.OAuth2(
-    process.env.GSC_CLIENT_ID,
-    process.env.GSC_CLIENT_SECRET
-  );
-  auth.setCredentials({ refresh_token: process.env.GSC_REFRESH_TOKEN });
+const SECRETS_DIR = 'C:\\Users\\fkdka\\.secrets';
 
+async function buildAuth() {
+  const clientFile = `${SECRETS_DIR}\\gsc-client.json`;
+  const tokensFile = `${SECRETS_DIR}\\gsc-tokens.json`;
+
+  // ローカル実行: シークレットフォルダのファイルから認証情報を読む
+  try {
+    const [clientRaw, tokensRaw] = await Promise.all([
+      fs.readFile(clientFile, 'utf-8'),
+      fs.readFile(tokensFile, 'utf-8'),
+    ]);
+    const client = JSON.parse(clientRaw) as { client_id: string; client_secret: string };
+    const tokens = JSON.parse(tokensRaw);
+    const oauth2 = new google.auth.OAuth2(client.client_id, client.client_secret);
+    oauth2.setCredentials(tokens);
+    return oauth2;
+  } catch {
+    // CI実行: 環境変数から認証情報を取得
+    if (!process.env.GSC_CLIENT_ID || !process.env.GSC_CLIENT_SECRET || !process.env.GSC_REFRESH_TOKEN) {
+      throw new Error(
+        'GSC認証情報が設定されていません。\n' +
+        'ローカル: npm run setup:gsc を実行してください。\n' +
+        'CI: GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN を設定してください。'
+      );
+    }
+    const oauth2 = new google.auth.OAuth2(
+      process.env.GSC_CLIENT_ID,
+      process.env.GSC_CLIENT_SECRET
+    );
+    oauth2.setCredentials({ refresh_token: process.env.GSC_REFRESH_TOKEN });
+    return oauth2;
+  }
+}
+
+async function fetchSearchConsoleData(): Promise<PageMetrics[]> {
+  const auth = await buildAuth();
   const sc = google.searchconsole({ version: 'v1', auth });
   const siteUrl = process.env.SITE_URL!;
 
