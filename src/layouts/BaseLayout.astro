@@ -4,9 +4,10 @@ interface Props {
   description: string;
   ogImage?: string;
   canonicalUrl?: string;
+  wide?: boolean;
 }
 
-const { title, description, ogImage, canonicalUrl } = Astro.props;
+const { title, description, ogImage, canonicalUrl, wide = false } = Astro.props;
 const siteUrl = 'https://fkdkazu-commits.github.io';
 const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString();
 const og = ogImage || `${siteUrl}/og-default.png`;
@@ -37,7 +38,7 @@ const gscVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
   </head>
   <body class="bg-white text-gray-900 font-sans">
     <header class="border-b border-gray-200 py-4 px-6 sticky top-0 bg-white/95 backdrop-blur z-10">
-      <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <div class="max-w-5xl mx-auto flex items-center justify-between">
         <a href={import.meta.env.BASE_URL} class="text-xl font-bold hover:text-blue-600 transition-colors">
           AIメディア
         </a>
@@ -47,12 +48,12 @@ const gscVerification = import.meta.env.GOOGLE_SITE_VERIFICATION;
       </div>
     </header>
 
-    <main class="max-w-3xl mx-auto px-6 py-10">
+    <main class={`${wide ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-6 py-10`}>
       <slot />
     </main>
 
     <footer class="border-t border-gray-200 py-8 mt-16">
-      <div class="max-w-3xl mx-auto px-6 text-center text-sm text-gray-500">
+      <div class="max-w-5xl mx-auto px-6 text-center text-sm text-gray-500">
         <p class="mb-2">
           <a href={import.meta.env.BASE_URL} class="hover:text-blue-600 font-semibold">AIメディア</a>
           &nbsp;—&nbsp;AI・SEO・業務効率化の実践情報

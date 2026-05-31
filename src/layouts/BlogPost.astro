@@ -9,7 +9,6 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, pubDate, updatedDate, tags, ogImage, canonicalUrl } = post.data;
 
-// OG画像: frontmatterに指定があればそれを、なければスラッグから自動生成
 const heroImage = ogImage ?? `${import.meta.env.BASE_URL}og/${post.slug}.png`;
 
 const jsonLd = {
@@ -19,26 +18,31 @@ const jsonLd = {
   description,
   datePublished: pubDate.toISOString(),
   ...(updatedDate && { dateModified: updatedDate.toISOString() }),
-  author: { '@type': 'Organization', name: 'ブログ' },
+  author: { '@type': 'Organization', name: 'AIメディア' },
 };
 ---
 
-<BaseLayout title={title} description={description} ogImage={heroImage} canonicalUrl={canonicalUrl}>
+<BaseLayout title={title} description={description} ogImage={heroImage} canonicalUrl={canonicalUrl} wide={true}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Breadcrumb -->
   <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb">
-    <ol class="flex gap-2">
+    <ol class="flex gap-2 flex-wrap items-center">
       <li><a href={import.meta.env.BASE_URL} class="hover:text-blue-600">ホーム</a></li>
-      <li>/</li>
-      <li class="text-gray-900">{title}</li>
+      <li class="text-gray-300">/</li>
+      <li><a href={`${import.meta.env.BASE_URL}blog/`} class="hover:text-blue-600">記事一覧</a></li>
+      <li class="text-gray-300">/</li>
+      <li class="text-gray-700 truncate max-w-xs">{title}</li>
     </ol>
   </nav>
 
-  <article class="prose prose-gray max-w-none">
-    <header class="not-prose mb-8">
-      <!-- ヒーロー画像 -->
-      <div class="mb-6 rounded-xl overflow-hidden">
+  <div class="lg:grid lg:grid-cols-[1fr_260px] lg:gap-10 items-start">
+
+    <!-- ─── Main Article ─── -->
+    <article>
+
+      <!-- Hero Image -->
+      <div class="mb-6 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
         <img
           src={heroImage}
           alt={title}
@@ -49,26 +53,326 @@ const jsonLd = {
         />
       </div>
 
+      <!-- Tags -->
       <div class="flex gap-2 flex-wrap mb-3">
         {tags.map((tag) => (
-          <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">{tag}</span>
+          <span class="text-xs bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full font-medium">{tag}</span>
         ))}
       </div>
-      <h1 class="text-3xl font-bold leading-tight mb-4">{title}</h1>
-      <div class="text-sm text-gray-500">
-        <time datetime={pubDate.toISOString()}>
-          {pubDate.toLocaleDateString('ja-JP')} 公開
-        </time>
+
+      <!-- Title -->
+      <h1 class="text-2xl md:text-3xl font-bold leading-snug mb-4 text-gray-900">{title}</h1>
+
+      <!-- Meta bar -->
+      <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 pb-5 mb-6 border-b border-gray-200">
+        <span class="flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('ja-JP')} 公開</time>
+        </span>
         {updatedDate && (
-          <span class="ml-4">
-            <time datetime={updatedDate.toISOString()}>
-              {updatedDate.toLocaleDateString('ja-JP')} 更新
-            </time>
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <time datetime={updatedDate.toISOString()}>{updatedDate.toLocaleDateString('ja-JP')} 更新</time>
           </span>
         )}
+        <span id="reading-time" class="flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          計算中...
+        </span>
       </div>
-    </header>
 
-    <slot />
-  </article>
+      <!-- Mobile TOC -->
+      <details class="lg:hidden bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8">
+        <summary class="font-bold text-blue-800 cursor-pointer text-sm select-none">📋 目次を開く</summary>
+        <nav id="toc-mobile" class="mt-3"></nav>
+      </details>
+
+      <!-- Article Content -->
+      <div id="article-body" class="prose prose-gray max-w-none
+        prose-p:leading-relaxed prose-p:text-gray-700
+        prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+        prose-strong:text-gray-900
+        prose-li:text-gray-700
+        prose-table:text-sm prose-th:bg-gray-50 prose-th:text-gray-700
+        prose-img:rounded-xl prose-img:shadow-md
+        prose-pre:!bg-gray-900 prose-pre:rounded-xl prose-pre:shadow-lg
+        prose-code:before:content-none prose-code:after:content-none
+      ">
+        <slot />
+      </div>
+
+      <!-- Share Buttons -->
+      <div class="mt-12 pt-6 border-t border-gray-200">
+        <p class="text-sm font-bold text-gray-700 mb-3">この記事をシェアする</p>
+        <div class="flex gap-3 flex-wrap">
+          <a id="share-x" href="#" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-2 bg-black text-white text-sm px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-colors font-medium">
+            𝕏 でシェア
+          </a>
+          <a id="share-line" href="#" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-2 bg-green-500 text-white text-sm px-5 py-2.5 rounded-lg hover:bg-green-600 transition-colors font-medium">
+            LINE でシェア
+          </a>
+        </div>
+      </div>
+
+      <!-- Tags Footer -->
+      <div class="mt-6 pt-5 border-t border-gray-100">
+        <p class="text-xs text-gray-400 mb-2 uppercase tracking-wide">タグ</p>
+        <div class="flex gap-2 flex-wrap">
+          {tags.map((tag) => (
+            <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full hover:bg-gray-200 transition-colors">{tag}</span>
+          ))}
+        </div>
+      </div>
+
+    </article>
+
+    <!-- ─── Sidebar ─── -->
+    <aside class="hidden lg:block">
+      <div class="sticky top-24 space-y-6">
+
+        <!-- TOC -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+          <p class="font-bold text-gray-800 text-sm mb-4 flex items-center gap-2 pb-3 border-b border-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+            </svg>
+            目次
+          </p>
+          <nav id="toc-desktop"></nav>
+        </div>
+
+        <!-- Article Info Card -->
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 text-sm text-gray-600 space-y-2">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <time datetime={pubDate.toISOString()}>{pubDate.toLocaleDateString('ja-JP')}</time>
+          </div>
+          <div id="sidebar-reading-time" class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>計算中...</span>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
 </BaseLayout>
+
+<style>
+  /* ─── 見出しスタイル ─── */
+  #article-body :global(h2) {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 0.6rem 0 0.6rem 0.875rem;
+    border-left: 4px solid #3b82f6;
+    background-color: #eff6ff;
+    border-radius: 0 8px 8px 0;
+    color: #1e3a5f;
+    scroll-margin-top: 96px;
+  }
+
+  #article-body :global(h3) {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid #94a3b8;
+    color: #1e293b;
+    scroll-margin-top: 96px;
+  }
+
+  #article-body :global(h4) {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    scroll-margin-top: 96px;
+  }
+
+  /* ─── 引用ブロック ─── */
+  #article-body :global(blockquote) {
+    border-left: 4px solid #60a5fa;
+    background-color: #f0f9ff;
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    font-style: normal;
+    color: #1e3a5f;
+    margin: 1.5rem 0;
+  }
+
+  #article-body :global(blockquote p) {
+    margin: 0;
+  }
+
+  /* ─── インラインコード ─── */
+  #article-body :global(code:not(pre code)) {
+    background-color: #fdf2f8;
+    color: #9d174d;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 500;
+    border: 1px solid #fce7f3;
+  }
+
+  /* ─── テーブル ─── */
+  #article-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  #article-body :global(thead tr) {
+    background-color: #1e3a8a;
+    color: white;
+  }
+
+  #article-body :global(th) {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  #article-body :global(td) {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #374151;
+  }
+
+  #article-body :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  #article-body :global(tbody tr:nth-child(even)) {
+    background-color: #f8fafc;
+  }
+
+  #article-body :global(tbody tr:hover) {
+    background-color: #eff6ff;
+  }
+
+  /* ─── リスト ─── */
+  #article-body :global(ul > li::marker) {
+    color: #3b82f6;
+  }
+
+  #article-body :global(ol > li::marker) {
+    color: #3b82f6;
+    font-weight: 600;
+  }
+
+  /* ─── TOC リンク ─── */
+  #toc-desktop a,
+  #toc-mobile a {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding: 3px 0 3px 10px;
+    border-left: 2px solid transparent;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.15s;
+    margin-bottom: 2px;
+  }
+
+  #toc-desktop a:hover,
+  #toc-mobile a:hover {
+    color: #2563eb;
+    border-left-color: #93c5fd;
+  }
+
+  #toc-desktop a.active,
+  #toc-mobile a.active {
+    color: #1d4ed8;
+    border-left-color: #3b82f6;
+    font-weight: 600;
+  }
+
+  #toc-desktop a[data-level="h3"],
+  #toc-mobile a[data-level="h3"] {
+    padding-left: 20px;
+    color: #94a3b8;
+    font-size: 0.7rem;
+  }
+</style>
+
+<script>
+  // ── 読了時間 ──
+  const body = document.getElementById('article-body');
+  if (body) {
+    const chars = body.innerText.replace(/\s+/g, '').length;
+    const min = Math.max(1, Math.ceil(chars / 600));
+    const label = `約${min}分で読めます`;
+    const rt = document.getElementById('reading-time');
+    const srt = document.getElementById('sidebar-reading-time');
+    if (rt) rt.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>${label}`;
+    if (srt) srt.querySelector('span')!.textContent = label;
+  }
+
+  // ── TOC 生成 ──
+  const headings = Array.from(
+    document.querySelectorAll<HTMLElement>('#article-body h2, #article-body h3')
+  );
+
+  function buildToc(container: HTMLElement | null) {
+    if (!container || headings.length === 0) return;
+    const ul = document.createElement('ul');
+    ul.style.listStyle = 'none';
+    ul.style.margin = '0';
+    ul.style.padding = '0';
+    headings.forEach((h, i) => {
+      if (!h.id) h.id = `h-${i}`;
+      const a = document.createElement('a');
+      a.href = `#${h.id}`;
+      a.textContent = h.textContent ?? '';
+      a.dataset.level = h.tagName.toLowerCase();
+      const li = document.createElement('li');
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    container.appendChild(ul);
+  }
+
+  buildToc(document.getElementById('toc-desktop'));
+  buildToc(document.getElementById('toc-mobile'));
+
+  // ── スクロールハイライト ──
+  const allLinks = document.querySelectorAll<HTMLAnchorElement>('#toc-desktop a, #toc-mobile a');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          allLinks.forEach((link) => {
+            const active = link.hash === `#${entry.target.id}`;
+            link.classList.toggle('active', active);
+          });
+        }
+      });
+    },
+    { rootMargin: '-15% 0px -70% 0px' }
+  );
+
+  headings.forEach((h) => observer.observe(h));
+
+  // ── シェアボタン ──
+  const url = encodeURIComponent(location.href);
+  const text = encodeURIComponent(document.title);
+  const xLink = document.getElementById('share-x') as HTMLAnchorElement | null;
+  const lineLink = document.getElementById('share-line') as HTMLAnchorElement | null;
+  if (xLink) xLink.href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+  if (lineLink) lineLink.href = `https://line.me/R/msg/text/?${text}%0A${url}`;
+</script>
