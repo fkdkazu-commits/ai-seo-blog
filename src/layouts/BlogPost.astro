@@ -264,14 +264,56 @@ const jsonLd = {
     background-color: #eff6ff;
   }
 
-  /* ─── リスト ─── */
+  /* ─── 箇条書き（枠あり） ─── */
+  #article-body :global(ul) {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #93c5fd;
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1rem 1rem 2.25rem;
+    margin: 1.25rem 0;
+  }
+
+  #article-body :global(ul > li) {
+    margin: 0.3rem 0;
+    color: #374151;
+  }
+
   #article-body :global(ul > li::marker) {
     color: #3b82f6;
   }
 
+  /* ─── 番号付きリスト（枠あり） ─── */
+  #article-body :global(ol) {
+    background-color: #fafaf9;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #fbbf24;
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1rem 1rem 2.5rem;
+    margin: 1.25rem 0;
+  }
+
+  #article-body :global(ol > li) {
+    margin: 0.3rem 0;
+    color: #374151;
+  }
+
   #article-body :global(ol > li::marker) {
-    color: #3b82f6;
-    font-weight: 600;
+    color: #d97706;
+    font-weight: 700;
+  }
+
+  /* ネストしたリストは枠なし */
+  #article-body :global(ul ul),
+  #article-body :global(ul ol),
+  #article-body :global(ol ul),
+  #article-body :global(ol ol) {
+    background: none;
+    border: none;
+    border-left: 2px solid #e2e8f0;
+    border-radius: 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 0.25rem 0;
   }
 
   /* ─── TOC リンク ─── */
