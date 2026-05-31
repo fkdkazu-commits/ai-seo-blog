@@ -307,34 +307,95 @@ const jsonLd = {
   }
 
   /* ─── 記事内TOC ─── */
-  #toc-inline a {
-    display: block;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    padding: 4px 8px 4px 12px;
-    border-left: 2px solid #bfdbfe;
-    color: #1e40af;
+  #toc-inline ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: toc-h2;
+  }
+
+  /* H2 行 */
+  #toc-inline li.toc-h2 {
+    counter-increment: toc-h2;
+    counter-reset: toc-h3;
+  }
+
+  #toc-inline li.toc-h2 > a {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 10px 6px 14px;
+    border-left: 3px solid #3b82f6;
+    color: #1e3a8a;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-decoration: none;
+    border-radius: 0 6px 6px 0;
     transition: all 0.15s;
     margin-bottom: 2px;
-    border-radius: 0 4px 4px 0;
   }
 
-  #toc-inline a:hover {
+  #toc-inline li.toc-h2 > a::before {
+    content: counter(toc-h2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    background: #3b82f6;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 800;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  #toc-inline li.toc-h2 > a:hover {
     background-color: #dbeafe;
-    border-left-color: #3b82f6;
+    border-left-color: #1d4ed8;
     color: #1d4ed8;
   }
 
-  #toc-inline a[data-level="h3"] {
-    padding-left: 24px;
-    font-size: 0.75rem;
-    color: #3b82f6;
-    border-left-color: #dbeafe;
+  /* H3 行 */
+  #toc-inline li.toc-h3 {
+    counter-increment: toc-h3;
   }
 
-  #toc-inline a[data-level="h3"]:hover {
-    color: #1d4ed8;
+  #toc-inline li.toc-h3 > a {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 4px 10px 4px 30px;
+    color: #4b5563;
+    font-size: 0.78rem;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.15s;
+    margin-bottom: 1px;
+    position: relative;
+  }
+
+  #toc-inline li.toc-h3 > a::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #9ca3af;
+    flex-shrink: 0;
+  }
+
+  #toc-inline li.toc-h3 > a:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
+  }
+
+  #toc-inline li.toc-h3 > a:hover::before {
+    background: #3b82f6;
   }
 </style>
 
@@ -355,13 +416,7 @@ const jsonLd = {
 
   const toc = document.getElementById('toc-inline');
   if (toc && headings.length > 0) {
-    const ul = document.createElement('ul');
-    ul.style.cssText = 'list-style:none;margin:0;padding:0;columns:1';
-    // H2が多い場合は2列表示
-    if (headings.filter(h => h.tagName === 'H2').length >= 5) {
-      ul.style.cssText = 'list-style:none;margin:0;padding:0';
-      ul.className = 'grid grid-cols-1 sm:grid-cols-2 gap-x-4';
-    }
+    const ol = document.createElement('ol');
     headings.forEach((h, i) => {
       if (!h.id) h.id = `h-${i}`;
       const a = document.createElement('a');
@@ -369,12 +424,12 @@ const jsonLd = {
       a.textContent = h.textContent ?? '';
       a.dataset.level = h.tagName.toLowerCase();
       const li = document.createElement('li');
+      li.className = h.tagName === 'H2' ? 'toc-h2' : 'toc-h3';
       li.appendChild(a);
-      ul.appendChild(li);
+      ol.appendChild(li);
     });
-    toc.appendChild(ul);
+    toc.appendChild(ol);
   } else if (toc) {
-    // 見出しがない場合はTOCボックスを非表示
     const tocBox = toc.closest('.toc-box') as HTMLElement | null;
     if (tocBox) tocBox.style.display = 'none';
   }
