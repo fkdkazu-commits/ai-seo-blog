@@ -4,10 +4,7 @@
     "slug": "fukugyou-ai",
     "intent": "AIを活用して副業で稼ぎたい",
     "target": "AI初心者で副業で稼ぎたい人",
-    "tags": [
-      "副業",
-      "AI"
-    ],
+    "tags": ["副業", "AI"],
     "generated": true
   },
   {
@@ -15,10 +12,7 @@
     "slug": "fukugyou-5man",
     "intent": "副業で月5万稼ぐための方法が知りたい",
     "target": "副業初心者",
-    "tags": [
-      "副業",
-      "月5万"
-    ],
+    "tags": ["副業", "月5万"],
     "generated": true
   },
   {
@@ -26,12 +20,7 @@
     "slug": "claude-code",
     "intent": "Claude Codeの具体的な使い方・コマンドや活用方法を知りたい",
     "target": "エンジニア・プログラマー・AI開発ツールに興味がある人",
-    "tags": [
-      "Claude Code",
-      "AI",
-      "開発ツール",
-      "プログラミング"
-    ],
+    "tags": ["Claude Code", "AI", "開発ツール", "プログラミング"],
     "generated": true
   },
   {
@@ -39,12 +28,7 @@
     "slug": "chatgpt",
     "intent": "ChatGPTを使ってブログで収益を上げる方法を知りたい",
     "target": "ブログ運営者・AIツールを副業に活かしたい初心者",
-    "tags": [
-      "ChatGPT",
-      "AI",
-      "ブログ",
-      "収益化"
-    ],
+    "tags": ["ChatGPT", "AI", "ブログ", "収益化"],
     "generated": true
   },
   {
@@ -52,11 +36,7 @@
     "slug": "keyword-seo",
     "intent": "SEOに強いキーワードの選び方・調べ方を具体的に知りたい",
     "target": "SEO初心者・ブログ記事のテーマ選びに悩んでいる人",
-    "tags": [
-      "SEO",
-      "キーワード選定",
-      "ブログ"
-    ],
+    "tags": ["SEO", "キーワード選定", "ブログ"],
     "generated": true
   },
   {
@@ -64,12 +44,7 @@
     "slug": "affiliate-beginner",
     "intent": "アフィリエイトを0から始めて稼ぐまでの流れを知りたい",
     "target": "副業・在宅収入を探しているブログ未経験者",
-    "tags": [
-      "アフィリエイト",
-      "副業",
-      "初心者",
-      "収益化"
-    ],
+    "tags": ["アフィリエイト", "副業", "初心者", "収益化"],
     "generated": true
   },
   {
@@ -77,12 +52,7 @@
     "slug": "perplexity-ai",
     "intent": "Perplexity AIの使い方・活用シーン・ChatGPTとの違いを知りたい",
     "target": "AIツールに興味がある人・リサーチ効率を上げたいビジネスパーソン",
-    "tags": [
-      "Perplexity",
-      "AI",
-      "ツール",
-      "リサーチ"
-    ],
+    "tags": ["Perplexity", "AI", "ツール", "リサーチ"],
     "generated": true
   },
   {
@@ -90,12 +60,87 @@
     "slug": "blog-pv",
     "intent": "ブログのページビューを増やす具体的な方法・施策を知りたい",
     "target": "ブログ運営中でアクセスが伸び悩んでいる人",
-    "tags": [
-      "ブログ",
-      "SEO",
-      "アクセスアップ",
-      "PV"
-    ],
+    "tags": ["ブログ", "SEO", "アクセスアップ", "PV"],
     "generated": true
+  },
+  {
+    "keyword": "ChatGPT 使い方 初心者",
+    "slug": "chatgpt-beginner",
+    "intent": "ChatGPTを初めて使う人向けに基本操作から実践活用法を知りたい",
+    "target": "ChatGPT未使用〜使い始めの初心者",
+    "tags": ["ChatGPT", "AI", "初心者", "使い方"],
+    "generated": false
+  },
+  {
+    "keyword": "Gemini 使い方",
+    "slug": "gemini-howto",
+    "intent": "GoogleのGeminiの使い方・ChatGPTとの違い・活用シーンを知りたい",
+    "target": "AI初心者・Google系サービスを使っているビジネスパーソン",
+    "tags": ["Gemini", "Google", "AI", "使い方"],
+    "generated": false
+  },
+  {
+    "keyword": "ブログ 書き方 SEO",
+    "slug": "blog-writing-seo",
+    "intent": "SEOで上位表示されるブログ記事の書き方・構成を知りたい",
+    "target": "ブログ初心者〜中級者・SEOライティングを学びたい人",
+    "tags": ["ブログ", "SEO", "ライティング", "書き方"],
+    "generated": false
+  },
+  {
+    "keyword": "WordPress 始め方 初心者",
+    "slug": "wordpress-beginner",
+    "intent": "WordPressブログを0から開設する手順を知りたい",
+    "target": "ブログ未経験者・副業でブログを始めたい人",
+    "tags": ["WordPress", "ブログ", "初心者", "副業"],
+    "generated": false
+  },
+  {
+    "keyword": "AI ライティング ツール 比較",
+    "slug": "ai-writing-tools",
+    "intent": "AI文章生成ツールの種類・違い・選び方を比較したい",
+    "target": "ライター・ブロガー・コンテンツ制作者",
+    "tags": ["AI", "ライティング", "ツール比較", "SEO"],
+    "generated": false
+  },
+  {
+    "keyword": "アドセンス 審査 通り方",
+    "slug": "adsense-review",
+    "intent": "GoogleアドセンスをなるべくはやくとおすためのTipsや条件を知りたい",
+    "target": "ブログ収益化を目指している初心者",
+    "tags": ["アドセンス", "ブログ", "収益化", "審査"],
+    "generated": false
+  },
+  {
+    "keyword": "SEO 内部リンク 効果 設置方法",
+    "slug": "internal-link-seo",
+    "intent": "内部リンクがSEOに与える効果と正しい設置方法を知りたい",
+    "target": "SEO中級者・ブログ運営者",
+    "tags": ["SEO", "内部リンク", "ブログ", "上位表示"],
+    "generated": false
+  },
+  {
+    "keyword": "Google アナリティクス 4 使い方",
+    "slug": "ga4-howto",
+    "intent": "GA4の基本的な見方・設定方法・分析方法を知りたい",
+    "target": "ブログ・サイト運営者・アクセス解析を始めたい人",
+    "tags": ["GA4", "アナリティクス", "SEO", "アクセス解析"],
+    "generated": false
+  },
+  {
+    "keyword": "Notion AI 使い方",
+    "slug": "notion-ai",
+    "intent": "Notion AIの機能・使い方・業務効率化への活用法を知りたい",
+    "target": "Notion利用者・仕事効率化に興味があるビジネスパーソン",
+    "tags": ["Notion", "AI", "ツール", "業務効率化"],
+    "generated": false
+  },
+  {
+    "keyword": "X Twitter 副業 稼ぎ方",
+    "slug": "x-twitter-fukugyou",
+    "intent": "X（Twitter）を使って副業収入を得る具体的な方法を知りたい",
+    "target": "SNSで副業収入を得たい初心者",
+    "tags": ["X", "Twitter", "副業", "SNS"],
+    "generated": false
   }
 ]
