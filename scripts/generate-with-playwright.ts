@@ -224,76 +224,27 @@ async function snapshotAssistantCandidates(page: Page): Promise<Set<string>> {
 }
 
 /**
- * DOM Range APIを使い [TAG]...[/TAG] の最後のブロックをMarkdown形式で抽出。
- * innerText では失われる ## 見出しやコードフェンスを保持する。
+ * アシスタントメッセージ要素全体のHTMLをMarkdownに変換し、[TAG]...[/TAG] 間を切り出す。
+ * DOM Range APIを使わないため、Claude.aiのDOM構造変化に強い。
  */
 async function extractLastTaggedBlockMarkdown(page: Page, tag: string): Promise<string | null> {
   return await page.evaluate((tagName: string) => {
     const openTag = `[${tagName}]`;
     const closeTag = `[/${tagName}]`;
 
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const textNodes: Text[] = [];
-    let n: Node | null;
-    while ((n = walker.nextNode())) textNodes.push(n as Text);
-
-    const opens: [Text, number][] = [];
-    const closes: [Text, number][] = [];
-    for (const tn of textNodes) {
-      const c = tn.textContent ?? '';
-      let p = 0;
-      while ((p = c.indexOf(openTag, p)) !== -1) {
-        opens.push([tn, p + openTag.length]);
-        p += openTag.length;
-      }
-      p = 0;
-      while ((p = c.indexOf(closeTag, p)) !== -1) {
-        closes.push([tn, p]);
-        p += closeTag.length;
-      }
-    }
-
-    if (opens.length === 0 || closes.length === 0) return null;
-
-    // 最後の closing tag を基準に、その直前の opening tag を探す
-    const [closeNode, closeOffset] = closes[closes.length - 1];
-    // TreeWalker は文書順なので closes の末尾が最後の closing tag
-    // それより前にある最後の opening tag を後ろから検索
-    let openPair: [Text, number] | null = null;
-    for (let i = opens.length - 1; i >= 0; i--) {
-      const [on, oo] = opens[i];
-      // closeNode と同一ノードで openOffset < closeOffset、または前のノード
-      if (on === closeNode && oo <= closeOffset) { openPair = [on, oo]; break; }
-      if (on !== closeNode) {
-        const pos = on.compareDocumentPosition(closeNode);
-        if (pos & Node.DOCUMENT_POSITION_FOLLOWING) { openPair = [on, oo]; break; }
-      }
-    }
-    if (!openPair) return null;
-    const [openNode, openOffset] = openPair;
-
-    let fragment: DocumentFragment;
-    try {
-      const range = document.createRange();
-      range.setStart(openNode, openOffset);
-      range.setEnd(closeNode, closeOffset);
-      fragment = range.cloneContents();
-    } catch {
-      return null;
-    }
-
-    function convert(node: Node): string {
+    // HTML要素をMarkdownに変換する関数
+    function convertNode(node: Node): string {
       if (node.nodeType === Node.TEXT_NODE) return node.textContent ?? '';
       if (node.nodeType !== Node.ELEMENT_NODE) return '';
       const el = node as Element;
-      const tag = el.tagName.toLowerCase();
-      const inner = () => Array.from(el.childNodes).map(convert).join('');
+      const t = el.tagName.toLowerCase();
+      const inner = () => Array.from(el.childNodes).map(convertNode).join('');
 
-      switch (tag) {
-        case 'h1': return '\n# ' + inner().trim() + '\n\n';
-        case 'h2': return '\n## ' + inner().trim() + '\n\n';
+      switch (t) {
+        case 'h1': return '\n# '   + inner().trim() + '\n\n';
+        case 'h2': return '\n## '  + inner().trim() + '\n\n';
         case 'h3': return '\n### ' + inner().trim() + '\n\n';
-        case 'h4': return '\n#### ' + inner().trim() + '\n\n';
+        case 'h4': return '\n#### '+ inner().trim() + '\n\n';
         case 'p':  return inner().trim() + '\n\n';
         case 'strong': case 'b': return '**' + inner() + '**';
         case 'em':     case 'i': return '*'  + inner() + '*';
@@ -308,20 +259,18 @@ async function extractLastTaggedBlockMarkdown(page: Page, tag: string): Promise<
           const code = (codeEl?.textContent ?? el.textContent ?? '').replace(/\n$/, '');
           return '\n```' + lang + '\n' + code + '\n```\n\n';
         }
-        case 'ul': {
-          return Array.from(el.children).map(li => '- ' + convert(li).trim()).join('\n') + '\n\n';
-        }
-        case 'ol': {
+        case 'ul':
+          return Array.from(el.children).map(li => '- ' + convertNode(li).trim()).join('\n') + '\n\n';
+        case 'ol':
           return Array.from(el.children)
-            .map((li, i) => (i + 1) + '. ' + convert(li).trim())
+            .map((li, i) => (i + 1) + '. ' + convertNode(li).trim())
             .join('\n') + '\n\n';
-        }
         case 'li': return inner();
-        case 'a': return '[' + inner() + '](' + (el.getAttribute('href') ?? '') + ')';
+        case 'a':  return '[' + inner() + '](' + (el.getAttribute('href') ?? '') + ')';
         case 'table': return '\n' + inner() + '\n';
         case 'thead': case 'tbody': return inner();
         case 'tr': {
-          const cells = Array.from(el.children).map(td => convert(td).trim());
+          const cells = Array.from(el.children).map(td => convertNode(td).trim());
           const row = '| ' + cells.join(' | ') + ' |';
           const isHeader = el.parentElement?.tagName.toLowerCase() === 'thead';
           const sep = isHeader ? '\n| ' + cells.map(() => '---').join(' | ') + ' |' : '';
@@ -335,10 +284,49 @@ async function extractLastTaggedBlockMarkdown(page: Page, tag: string): Promise<
       }
     }
 
-    const container = document.createElement('div');
-    container.appendChild(fragment);
-    const md = convert(container).trim();
-    return md.length > 0 ? md : null;
+    // アシスタントメッセージ候補セレクター（複数試す）
+    const selectors = [
+      '[data-message-role="assistant"]',
+      '[data-testid*="assistant"]',
+      '.font-claude-message',
+      'div[class*="font-claude"]',
+      'div[class*="AssistantMessage"]',
+      'div[class*="assistant-message"]',
+      'div.prose',
+      'main article',
+    ];
+
+    // closing tag を含む最後のアシスタントメッセージ要素を探す
+    let targetEl: Element | null = null;
+    for (const sel of selectors) {
+      const els = Array.from(document.querySelectorAll(sel));
+      for (let i = els.length - 1; i >= 0; i--) {
+        if ((els[i].textContent ?? '').includes(closeTag)) {
+          targetEl = els[i];
+          break;
+        }
+      }
+      if (targetEl) break;
+    }
+
+    // セレクターで見つからない場合、body全体から探す
+    if (!targetEl) {
+      const bodyText = document.body?.textContent ?? '';
+      if (!bodyText.includes(closeTag)) return null;
+      targetEl = document.body;
+    }
+
+    // 要素全体をMarkdownに変換
+    const fullMd = convertNode(targetEl);
+
+    // [TAG]...[/TAG] の最後のブロックを切り出す
+    const closeIdx = fullMd.lastIndexOf(closeTag);
+    if (closeIdx === -1) return null;
+    const openIdx = fullMd.lastIndexOf(openTag, closeIdx);
+    if (openIdx === -1) return null;
+
+    const extracted = fullMd.slice(openIdx + openTag.length, closeIdx).trim();
+    return extracted.length > 0 ? extracted : null;
   }, tag);
 }
 
