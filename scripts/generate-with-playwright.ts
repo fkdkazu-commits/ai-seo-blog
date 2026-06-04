@@ -11,6 +11,7 @@ import { chromium, type BrowserContext, type Page } from 'playwright';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { spawnSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -823,23 +824,74 @@ async function main() {
       .replace(/-+$/g, ''); // 末尾ハイフン除去
     return auto.length >= 3 ? auto : `post-${today}`;
   })();
-  // Markdownフォーマット検証
-  const h2Count = (body.match(/^## /gm) || []).length;
-  if (h2Count < 2) {
-    console.warn(`⚠️  H2見出し（##）が${h2Count}件しかありません。見出しがプレーンテキストになっている可能性があります。`);
-    console.warn('   data/debug/ フォルダの最終ステップ出力を確認してください。');
-  } else {
-    console.log(`✓ Markdown構造チェック: H2見出し ${h2Count}件`);
-  }
-
   const mdxPath = path.join(BLOG_DIR, `${slug}.mdx`);
   await fs.writeFile(mdxPath, buildMdx(target, slug, title, body, description), 'utf-8');
   console.log(`✓ MDX保存: src/content/blog/${slug}.mdx`);
+
+  // Markdownフォーマット検証 → 問題あれば Claude CLI で自動修正
+  await fixMdxIfNeeded(mdxPath);
 
   target.generated = true;
   await fs.writeFile(kwPath, JSON.stringify(keywords, null, 2), 'utf-8');
 
   console.log('\n記事生成完了');
+}
+
+/**
+ * 保存済みMDXのH2見出しが2件未満なら Claude CLI で自動修正する。
+ * Playwright の Markdown 抽出失敗による ## 欠落を確実にリカバリする。
+ */
+async function fixMdxIfNeeded(mdxPath: string): Promise<void> {
+  const content = await fs.readFile(mdxPath, 'utf-8');
+  const h2Count = (content.match(/^## /gm) || []).length;
+
+  if (h2Count >= 2) {
+    console.log(`✓ Markdown構造チェック OK: H2見出し ${h2Count}件`);
+    return;
+  }
+
+  console.warn(`⚠ H2見出し ${h2Count}件 → Claude CLI で自動修正します...`);
+
+  // フロントマターと本文を分離
+  const fm = content.match(/^(---[\s\S]*?---\n)([\s\S]*)$/);
+  if (!fm) {
+    console.warn('⚠ フロントマター解析失敗 → スキップ');
+    return;
+  }
+  const [, frontmatter, body] = fm;
+
+  const prompt =
+    `以下のブログ記事本文のMarkdownフォーマットのみを修正してください。\n` +
+    `【ルール】\n` +
+    `1. セクションタイトルの行に ## （H2）または ### （H3）を付ける\n` +
+    `2. テーブルを | 列 | 列 | 形式に修正する\n` +
+    `3. 文章・内容・数値・URLは一切変えない\n` +
+    `4. フロントマター（---〜---）は出力しない（本文のみ出力）\n` +
+    `5. コードブロック・リストはそのまま保持する\n\n` +
+    `---本文---\n${body}`;
+
+  const result = spawnSync('claude', ['-p', prompt], {
+    timeout: 180_000,
+    encoding: 'utf-8',
+    maxBuffer: 10 * 1024 * 1024,
+    windowsHide: true,
+  });
+
+  if (result.status !== 0 || !result.stdout?.trim()) {
+    console.warn('⚠ Claude CLI 修正失敗（元ファイルを保持）:', result.stderr?.slice(0, 200));
+    return;
+  }
+
+  const fixed = frontmatter + result.stdout.trim() + '\n';
+  const newH2 = (fixed.match(/^## /gm) || []).length;
+
+  if (newH2 < 2) {
+    console.warn(`⚠ 修正後もH2が${newH2}件 → 元ファイルを保持`);
+    return;
+  }
+
+  await fs.writeFile(mdxPath, fixed, 'utf-8');
+  console.log(`✓ 自動修正完了: H2見出し ${newH2}件`);
 }
 
 main().catch((err) => {
