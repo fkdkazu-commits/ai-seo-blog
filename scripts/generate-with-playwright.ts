@@ -224,6 +224,52 @@ async function snapshotAssistantCandidates(page: Page): Promise<Set<string>> {
 }
 
 /**
+ * プレーンテキストの各行をDOMの見出し要素と照合し、## / ### を前付けして返す。
+ * extractLastTaggedBlockMarkdown が失敗した場合のフォールバック後処理。
+ */
+async function restoreMarkdownHeadings(page: Page, plainText: string): Promise<string> {
+  // ページ内の全見出し要素を取得（h1〜h4）
+  const headings = await page.evaluate(() => {
+    const selectors = [
+      '[data-message-role="assistant"]',
+      '.font-claude-message',
+      'div[class*="font-claude"]',
+      'div[class*="AssistantMessage"]',
+      'main',
+    ];
+    let container: Element = document.body;
+    for (const sel of selectors) {
+      const els = document.querySelectorAll(sel);
+      if (els.length > 0) { container = els[els.length - 1]; break; }
+    }
+    return Array.from(container.querySelectorAll('h1, h2, h3, h4'))
+      .map(h => ({
+        level: parseInt(h.tagName[1], 10),
+        text: (h.textContent ?? '').trim(),
+      }))
+      .filter(h => h.text.length > 0);
+  });
+
+  if (headings.length === 0) return plainText;
+
+  // 見出しテキスト → Markdownプレフィックスのマップを作成
+  const headingMap = new Map<string, string>();
+  for (const { level, text } of headings) {
+    headingMap.set(text, '#'.repeat(level) + ' ');
+  }
+
+  // 各行を確認してマッチする行に ## を付ける
+  const lines = plainText.split('\n');
+  const result = lines.map(line => {
+    const trimmed = line.trim();
+    const prefix = headingMap.get(trimmed);
+    return prefix ? prefix + trimmed : line;
+  });
+
+  return result.join('\n');
+}
+
+/**
  * アシスタントメッセージ要素全体のHTMLをMarkdownに変換し、[TAG]...[/TAG] 間を切り出す。
  * DOM Range APIを使わないため、Claude.aiのDOM構造変化に強い。
  */
@@ -406,8 +452,15 @@ async function waitForNewOutput(
           return text.slice(startIdx, closeIdx).trim() || null;
         }, tag).catch(() => null);
         if (content) {
-          console.warn(`⚠ DOM Range 失敗 → 平文フォールバック使用 (${content.length}文字)`);
-          console.warn(`  ※ Markdown見出し(##)が失われます。extractLastTaggedBlockMarkdown のログを確認してください`);
+          // 見出しをDOMから取得して ## を後付けする
+          content = await restoreMarkdownHeadings(page, content).catch(() => content!);
+          const h2count = (content.match(/^## /gm) || []).length;
+          if (h2count > 0) {
+            console.log(`✓ 見出し復元: H2 ${h2count}件`);
+            lastExtractionMethod = 'dom-range'; // 見出し復元成功
+          } else {
+            console.warn(`⚠ 平文フォールバック使用 (${content.length}文字) ※見出し復元できず`);
+          }
         }
       }
 
