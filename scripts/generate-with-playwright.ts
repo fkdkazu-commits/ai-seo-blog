@@ -867,7 +867,9 @@ async function fixMdxIfNeeded(mdxPath: string): Promise<void> {
     `2. テーブルを | 列 | 列 | 形式に修正する\n` +
     `3. 文章・内容・数値・URLは一切変えない\n` +
     `4. フロントマター（---〜---）は出力しない（本文のみ出力）\n` +
-    `5. コードブロック・リストはそのまま保持する\n\n` +
+    `5. コードブロック・リストはそのまま保持する\n` +
+    `6. 「修正しました」「以下が修正後の本文です」等の説明文・前置き・補足コメントは一切出力しない\n` +
+    `7. 修正後の本文テキストのみを出力すること（他のテキストを含めない）\n\n` +
     `---本文---\n${body}`;
 
   const result = spawnSync('claude', ['-p', prompt], {
@@ -882,7 +884,14 @@ async function fixMdxIfNeeded(mdxPath: string): Promise<void> {
     return;
   }
 
-  const fixed = frontmatter + result.stdout.trim() + '\n';
+  let stdout = result.stdout.trim();
+  // CLIが「説明文 + --- セパレータ + 本文」を出力した場合、先頭5行以内の --- より前を除去
+  const lines = stdout.split('\n');
+  const hrIndex = lines.findIndex(l => l.trim() === '---');
+  if (hrIndex > 0 && hrIndex < 5) {
+    stdout = lines.slice(hrIndex + 1).join('\n').trim();
+  }
+  const fixed = frontmatter + stdout + '\n';
   const newH2 = (fixed.match(/^## /gm) || []).length;
 
   if (newH2 < 2) {
