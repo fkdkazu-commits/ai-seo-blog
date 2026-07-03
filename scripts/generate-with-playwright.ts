@@ -844,13 +844,15 @@ async function main() {
 async function fixMdxIfNeeded(mdxPath: string): Promise<void> {
   const content = await fs.readFile(mdxPath, 'utf-8');
   const h2Count = (content.match(/^## /gm) || []).length;
+  // 「関連記事」「よくある質問」は自動付与されるためカウント外とし、本文H2を4件以上要求
+  const bodyH2 = (content.match(/^## (?!関連記事|よくある質問)/gm) || []).length;
 
-  if (h2Count >= 2) {
-    console.log(`✓ Markdown構造チェック OK: H2見出し ${h2Count}件`);
+  if (bodyH2 >= 4) {
+    console.log(`✓ Markdown構造チェック OK: 本文H2見出し ${bodyH2}件`);
     return;
   }
 
-  console.warn(`⚠ H2見出し ${h2Count}件 → Claude CLI で自動修正します...`);
+  console.warn(`⚠ 本文H2見出し ${bodyH2}件（全H2: ${h2Count}件）→ Claude CLI で自動修正します...`);
 
   // フロントマターと本文を分離
   const fm = content.match(/^(---[\s\S]*?---\n)([\s\S]*)$/);

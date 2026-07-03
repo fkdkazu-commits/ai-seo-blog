@@ -11,6 +11,7 @@ jobs:
     timeout-minutes: 150
     permissions:
       contents: write
+      actions: write
 
     steps:
       - name: Checkout
@@ -51,4 +52,9 @@ jobs:
           git add -A
           git diff --staged --quiet; if (-not $?) { git commit -m "feat: 記事自動生成 $(Get-Date -Format 'yyyy-MM-dd')" }
           git push
-      # mainへのpushでdeploy.ymlが自動起動しGitHub Pagesへデプロイされる
+
+      - name: Trigger deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
+        # GITHUB_TOKENのpushはon:pushをトリガーしないため、workflow_dispatchで明示的に起動
