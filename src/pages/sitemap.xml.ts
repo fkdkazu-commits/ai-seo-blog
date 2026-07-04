@@ -14,7 +14,6 @@ export const GET: APIRoute = async () => {
 
   const staticPages = [
     { url: `${SITE}${BASE}/`, priority: '1.0', changefreq: 'weekly' },
-    { url: `${SITE}${BASE}/blog/`, priority: '0.8', changefreq: 'daily' },
   ];
 
   const blogPages = posts.map((post) => ({
