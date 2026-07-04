@@ -1,6 +1,12 @@
 /**
  * Google Search Console分析スクリプト
  * CTR・順位・表示回数を取得し、リライト候補をJSONで出力する
+ *
+ * 判定ロジックの参考:
+ * - First Page Sage (2026): 順位別期待CTR
+ * - Backlinko: 期待CTRの30%以上乖離でタイトル改善候補
+ * - SurferSEO: 公開3ヶ月以上経過 & 低インプレッションは再最適化対象
+ * - SEO業界通則: 11〜30位(2〜3ページ目)が最優先リライト対象（Quick Win）
  */
 import { google } from 'googleapis';
 import fs from 'fs/promises';
@@ -20,8 +26,21 @@ interface PageMetrics {
 
 interface RewriteCandidate {
   page: string;
-  reason: 'low-ctr' | 'rank-drop' | 'impression-surge';
+  reason: 'low-ctr' | 'rank-drop' | 'impression-surge' | 'no-traction';
   metrics: PageMetrics;
+}
+
+// First Page Sage 2026 データに基づく順位別期待CTR（%）
+const EXPECTED_CTR_BY_POSITION: Record<number, number> = {
+  1: 28, 2: 15, 3: 11, 4: 8, 5: 7,
+  6: 6,  7: 5,  8: 4,  9: 3.5, 10: 3,
+};
+
+function getExpectedCtr(position: number): number {
+  const rounded = Math.round(position);
+  if (rounded <= 1)  return EXPECTED_CTR_BY_POSITION[1];
+  if (rounded >= 10) return EXPECTED_CTR_BY_POSITION[10];
+  return EXPECTED_CTR_BY_POSITION[rounded] ?? 3;
 }
 
 const SECRETS_DIR = 'C:\\Users\\fkdka\\.secrets';
@@ -30,7 +49,6 @@ async function buildAuth() {
   const clientFile = `${SECRETS_DIR}\\gsc-client.json`;
   const tokensFile = `${SECRETS_DIR}\\gsc-tokens.json`;
 
-  // ローカル実行: シークレットフォルダのファイルから認証情報を読む
   try {
     const [clientRaw, tokensRaw] = await Promise.all([
       fs.readFile(clientFile, 'utf-8'),
@@ -42,7 +60,6 @@ async function buildAuth() {
     oauth2.setCredentials(tokens);
     return oauth2;
   } catch {
-    // CI実行: 環境変数から認証情報を取得
     if (!process.env.GSC_CLIENT_ID || !process.env.GSC_CLIENT_SECRET || !process.env.GSC_REFRESH_TOKEN) {
       throw new Error(
         'GSC認証情報が設定されていません。\n' +
@@ -69,8 +86,7 @@ async function resolveSiteUrl(): Promise<string> {
   } catch {
     // fall through
   }
-  throw new Error('分析対象サイトが設定されていません。\n' +
-    'SITE_URL 環境変数を指定するか、設定画面でサイトを選択してください。');
+  throw new Error('分析対象サイトが設定されていません。');
 }
 
 async function fetchSearchConsoleData(): Promise<PageMetrics[]> {
@@ -101,21 +117,84 @@ async function fetchSearchConsoleData(): Promise<PageMetrics[]> {
   }));
 }
 
-function detectCandidates(metrics: PageMetrics[]): RewriteCandidate[] {
+// MDXファイルのfrontmatterからslug→pubDateのマップを作成
+async function buildPubDateMap(): Promise<Map<string, Date>> {
+  const blogDir = path.join(ROOT, 'src', 'content', 'blog');
+  const map = new Map<string, Date>();
+  try {
+    const files = await fs.readdir(blogDir);
+    for (const file of files) {
+      if (!file.endsWith('.mdx') && !file.endsWith('.md')) continue;
+      const slug = file.replace(/\.(mdx|md)$/, '');
+      const content = await fs.readFile(path.join(blogDir, file), 'utf-8');
+      const match = content.match(/^pubDate:\s*(.+)$/m);
+      if (match) {
+        const date = new Date(match[1].trim());
+        if (!isNaN(date.getTime())) map.set(slug, date);
+      }
+    }
+  } catch {
+    // blogディレクトリが読めない場合はスキップ
+  }
+  return map;
+}
+
+function detectCandidates(
+  metrics: PageMetrics[],
+  pubDateMap: Map<string, Date>
+): RewriteCandidate[] {
   const candidates: RewriteCandidate[] = [];
+  const now = new Date();
+  const gscPageSet = new Set(metrics.map(m => m.page));
+
+  // GSCに出ていない記事（表示回数0）を公開日マップから検出
+  for (const [slug, pubDate] of pubDateMap.entries()) {
+    const daysSincePublish = (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24);
+    if (daysSincePublish < 90) continue; // 3ヶ月未満は除外
+    // GSCデータに含まれているか確認（含まれていれば後述のループで処理）
+    const matched = [...gscPageSet].some(p => p.includes(`/blog/${slug}`));
+    if (!matched) {
+      // GSCに一切出ていない = インプレッション0
+      candidates.push({
+        page: `/blog/${slug}`,
+        reason: 'no-traction',
+        metrics: { page: `/blog/${slug}`, clicks: 0, impressions: 0, ctr: 0, position: 0 },
+      });
+    }
+  }
 
   for (const m of metrics) {
-    // 条件1: 表示回数100以上 & CTR 1.5%未満 → タイトル改善
-    if (m.impressions >= 100 && m.ctr < 1.5) {
-      candidates.push({ page: m.page, reason: 'low-ctr', metrics: m });
-      continue;
-    }
-    // 条件2: 順位が10位以下かつ表示回数50以上 → 本文リライト
-    if (m.position > 10 && m.impressions >= 50) {
+    const slug = m.page.replace(/.*\/blog\/([^/]+)\/?$/, '$1');
+    const pubDate = pubDateMap.get(slug);
+    const daysSincePublish = pubDate
+      ? (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24)
+      : 999;
+
+    // 優先度1: Quick Win（2〜3ページ目）
+    // 根拠: Googleが関連性を認めているため少しの改善でpage1入りが期待できる
+    if (m.position > 10 && m.position <= 30 && m.impressions >= 50) {
       candidates.push({ page: m.page, reason: 'rank-drop', metrics: m });
       continue;
     }
-    // 条件3: 表示回数急増（500以上） → 関連記事生成候補
+
+    // 優先度2: CTR改善（1〜10位だがCTRが期待値の70%未満）
+    // 根拠: Backlinko「期待CTRの30%以上乖離はタイトル・メタディスクリプション要改善」
+    if (m.position <= 10 && m.impressions >= 100) {
+      const expectedCtr = getExpectedCtr(m.position);
+      if (m.ctr < expectedCtr * 0.7) {
+        candidates.push({ page: m.page, reason: 'low-ctr', metrics: m });
+        continue;
+      }
+    }
+
+    // 優先度3: 低インプレッション（公開3ヶ月以上 & 表示50回未満）
+    // 根拠: SurferSEO「3ヶ月経っても低インプレッションは内容・構造の見直しが必要」
+    if (daysSincePublish >= 90 && m.impressions < 50) {
+      candidates.push({ page: m.page, reason: 'no-traction', metrics: m });
+      continue;
+    }
+
+    // 優先度4: 関連記事候補（表示回数急増）
     if (m.impressions >= 500) {
       candidates.push({ page: m.page, reason: 'impression-surge', metrics: m });
     }
@@ -131,7 +210,10 @@ async function main() {
   const metrics = await fetchSearchConsoleData();
   console.log(`取得件数: ${metrics.length}`);
 
-  const candidates = detectCandidates(metrics);
+  const pubDateMap = await buildPubDateMap();
+  console.log(`記事公開日マップ: ${pubDateMap.size}件`);
+
+  const candidates = detectCandidates(metrics, pubDateMap);
   console.log(`リライト候補: ${candidates.length}件`);
 
   const outDir = path.join(ROOT, 'data');

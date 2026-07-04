@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/perplexity-ai/",
+    "reason": "rank-drop",
+    "metrics": {
+      "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/perplexity-ai/",
+      "clicks": 2,
+      "impressions": 78,
+      "ctr": 2.564102564102564,
+      "position": 10.961538461538462
+    }
+  },
+  {
+    "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/",
+    "reason": "no-traction",
+    "metrics": {
+      "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    }
+  },
+  {
+    "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/affiliate-beginner/",
+    "reason": "rank-drop",
+    "metrics": {
+      "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/affiliate-beginner/",
+      "clicks": 0,
+      "impressions": 144,
+      "ctr": 0,
+      "position": 11.42361111111111
+    }
+  },
+  {
+    "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/fukugyou-5man/",
+    "reason": "rank-drop",
+    "metrics": {
+      "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/fukugyou-5man/",
+      "clicks": 0,
+      "impressions": 417,
+      "ctr": 0,
+      "position": 19.827338129496404
+    }
+  }
+]
