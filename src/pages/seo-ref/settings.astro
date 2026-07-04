@@ -118,6 +118,29 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
         <p id="trigger-status" class="text-xs mt-2 text-gray-400"></p>
       </div>
 
+      <!-- GSC Results -->
+      <div class="bg-white rounded-2xl border border-gray-200 p-6 mt-6" id="section-gsc-results" style="display:none">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <h2 class="text-base font-bold text-gray-900">GSC 分析結果</h2>
+            <p class="text-xs text-gray-500 mt-1" id="gsc-results-meta">読み込み中...</p>
+          </div>
+          <button onclick="loadGscResults()" class="text-xs text-blue-600 hover:underline">更新</button>
+        </div>
+
+        <!-- Rewrite Candidates -->
+        <div class="mb-6">
+          <h3 class="text-sm font-bold text-gray-700 mb-3">リライト候補</h3>
+          <div id="rewrite-list"></div>
+        </div>
+
+        <!-- Metrics -->
+        <div>
+          <h3 class="text-sm font-bold text-gray-700 mb-3">ページ別パフォーマンス <span class="text-xs font-normal text-gray-400">（過去28日 / クリック順）</span></h3>
+          <div id="metrics-list"></div>
+        </div>
+      </div>
+
     </div>
 
     <script define:vars={{ REPO, KW_PATH, WF_PATH, GSC_SETTINGS_PATH }}>
@@ -164,9 +187,10 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
           if (!me.login) throw new Error('認証失敗');
           status('conn-status', `✓ ${me.login} として接続しました`, 'green');
           await loadSettings();
-          ['section-schedule','section-keywords','section-gsc','section-trigger'].forEach(id => {
+          ['section-schedule','section-keywords','section-gsc','section-trigger','section-gsc-results'].forEach(id => {
             document.getElementById(id).style.display = '';
           });
+          await loadGscResults();
         } catch(e) {
           status('conn-status', `エラー: ${e.message}`, 'red');
         }
@@ -329,11 +353,83 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
         } catch(e) { status('trigger-status', `エラー: ${e.message}`, 'red'); }
       }
 
+      const REASON_LABEL = {
+        'low-ctr':        { text: 'CTR改善',    cls: 'bg-red-50 text-red-600 border-red-200' },
+        'rank-drop':      { text: '順位改善',    cls: 'bg-yellow-50 text-yellow-700 border-yellow-200' },
+        'impression-surge':{ text: '関連記事候補', cls: 'bg-blue-50 text-blue-600 border-blue-200' },
+      };
+
+      async function loadGscResults() {
+        const meta = document.getElementById('gsc-results-meta');
+        try {
+          // リライト候補
+          const cf = await githubGet('data/rewrite-candidates.json');
+          const candidates = JSON.parse(atob(cf.content.replace(/\n/g, '')));
+          const rl = document.getElementById('rewrite-list');
+          if (!candidates.length) {
+            rl.innerHTML = '<p class="text-sm text-gray-400">候補なし</p>';
+          } else {
+            rl.innerHTML = `<table class="w-full text-sm">
+              <thead><tr class="text-left text-xs text-gray-500 border-b">
+                <th class="pb-2">ページ</th>
+                <th class="pb-2 w-28">理由</th>
+                <th class="pb-2 w-20 text-right">表示回数</th>
+                <th class="pb-2 w-16 text-right">CTR</th>
+                <th class="pb-2 w-16 text-right">順位</th>
+              </tr></thead>
+              <tbody>${candidates.map(c => {
+                const slug = c.page.replace(/.*\/blog\/([^/]+)\/?/, '$1') || c.page;
+                const rl = REASON_LABEL[c.reason] || { text: c.reason, cls: 'bg-gray-100 text-gray-500' };
+                return `<tr class="border-b border-gray-50">
+                  <td class="py-2.5 text-gray-700 truncate max-w-xs" title="${c.page}">${slug}</td>
+                  <td class="py-2.5"><span class="text-xs border rounded px-1.5 py-0.5 ${rl.cls}">${rl.text}</span></td>
+                  <td class="py-2.5 text-right text-gray-500">${c.metrics.impressions.toLocaleString()}</td>
+                  <td class="py-2.5 text-right text-gray-500">${c.metrics.ctr.toFixed(1)}%</td>
+                  <td class="py-2.5 text-right text-gray-500">${c.metrics.position.toFixed(1)}</td>
+                </tr>`;
+              }).join('')}</tbody>
+            </table>`;
+          }
+
+          // 全ページメトリクス
+          const mf = await githubGet('data/gsc-metrics.json');
+          const metrics = JSON.parse(atob(mf.content.replace(/\n/g, '')));
+          metrics.sort((a, b) => b.clicks - a.clicks);
+          const ml = document.getElementById('metrics-list');
+          ml.innerHTML = `<table class="w-full text-sm">
+            <thead><tr class="text-left text-xs text-gray-500 border-b">
+              <th class="pb-2">ページ</th>
+              <th class="pb-2 w-20 text-right">クリック</th>
+              <th class="pb-2 w-20 text-right">表示回数</th>
+              <th class="pb-2 w-16 text-right">CTR</th>
+              <th class="pb-2 w-16 text-right">順位</th>
+            </tr></thead>
+            <tbody>${metrics.slice(0, 20).map(m => {
+              const slug = m.page.replace(/.*\/blog\/([^/]+)\/?/, '$1') || m.page;
+              return `<tr class="border-b border-gray-50 hover:bg-gray-50">
+                <td class="py-2.5 text-gray-700 truncate max-w-xs" title="${m.page}">${slug}</td>
+                <td class="py-2.5 text-right font-medium text-gray-800">${m.clicks.toLocaleString()}</td>
+                <td class="py-2.5 text-right text-gray-500">${m.impressions.toLocaleString()}</td>
+                <td class="py-2.5 text-right text-gray-500">${m.ctr.toFixed(1)}%</td>
+                <td class="py-2.5 text-right text-gray-500">${m.position.toFixed(1)}</td>
+              </tr>`;
+            }).join('')}</tbody>
+          </table>
+          ${metrics.length > 20 ? `<p class="text-xs text-gray-400 mt-2 text-right">上位20件を表示（全${metrics.length}件）</p>` : ''}`;
+
+          meta.textContent = `最終更新: ${new Date().toLocaleString('ja-JP')}`;
+        } catch(e) {
+          meta.textContent = '分析データがありません。ローカルで npm run analyze を実行してください';
+          document.getElementById('rewrite-list').innerHTML = '';
+          document.getElementById('metrics-list').innerHTML = '';
+        }
+      }
+
       function clearPat() {
         localStorage.removeItem('gh_pat');
         document.getElementById('pat').value = '';
         token = '';
-        ['section-schedule','section-keywords','section-gsc','section-trigger'].forEach(id => {
+        ['section-schedule','section-keywords','section-gsc','section-trigger','section-gsc-results'].forEach(id => {
           document.getElementById(id).style.display = 'none';
         });
         status('conn-status', 'トークンをクリアしました', 'gray');
