@@ -1,0 +1,513 @@
+<title>AI記事生成ツール　機能仕様・追加開発費用のご提案</title>
+<style>
+:root {
+  --sidebar-bg:   #0f172a;
+  --sidebar-text: #94a3b8;
+  --sidebar-hover:#1e293b;
+  --sidebar-act:  #60a5fa;
+  --header-from:  #1e3a8a;
+  --header-to:    #1e40af;
+  --content-bg:   #f1f5f9;
+  --card-bg:      #ffffff;
+  --text-primary: #1e293b;
+  --text-sec:     #64748b;
+  --accent:       #1d4ed8;
+  --accent-lt:    #dbeafe;
+  --border:       #e2e8f0;
+  --code-bg:      #f8fafc;
+
+  --ok-t:  #14532d; --ok-bg:  #dcfce7; --ok-b:  #86efac;
+  --pa-t:  #78350f; --pa-bg:  #fef3c7; --pa-b:  #fcd34d;
+  --mi-t:  #7f1d1d; --mi-bg:  #fee2e2; --mi-b:  #fca5a5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP',-apple-system,'Segoe UI',sans-serif;
+  font-size: 14px; line-height: 1.75;
+  color: var(--text-primary); background: var(--content-bg);
+}
+
+.page-header {
+  background: linear-gradient(135deg, var(--header-from) 0%, var(--header-to) 100%);
+  padding: 40px 52px; color: white;
+  position: relative; overflow: hidden;
+}
+.page-header::after {
+  content: ''; position: absolute;
+  right: -60px; top: -60px;
+  width: 280px; height: 280px;
+  background: rgba(255,255,255,.04); border-radius: 50%;
+}
+.ph-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: #93c5fd; margin-bottom: 10px;
+}
+.ph-title { font-size: 26px; font-weight: 700; line-height: 1.3; margin-bottom: 14px; }
+.ph-meta  { font-size: 12px; color: #93c5fd; line-height: 1.8; }
+.ph-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.ph-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 4px; padding: 5px 12px;
+  font-size: 12px; font-weight: 600; color: #e2e8f0;
+}
+.ph-badge span { color: #93c5fd; font-size: 11px; }
+
+.content { max-width: 980px; margin: 0 auto; padding: 32px 40px 80px; }
+
+.legend-bar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 16px;
+  margin-bottom: 24px; font-size: 12px;
+}
+.legend-lbl { font-weight: 700; color: var(--text-sec); letter-spacing: .06em; margin-right: 4px; }
+.badge {
+  display: inline-flex; align-items: center;
+  font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  padding: .2em .65em; border-radius: 3px; border: 1px solid;
+}
+.b-ok { color: var(--ok-t); background: var(--ok-bg); border-color: var(--ok-b); }
+.b-pa { color: var(--pa-t); background: var(--pa-bg); border-color: var(--pa-b); }
+.b-mi { color: var(--mi-t); background: var(--mi-bg); border-color: var(--mi-b); }
+
+.sec-lbl {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-sec); margin-bottom: 14px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+
+.steps { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+
+.step-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+.step-head {
+  display: grid; grid-template-columns: 64px 1fr auto;
+  align-items: center; gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--code-bg);
+}
+.step-head.warn { background: #fff7ed; border-bottom-color: #fed7aa; }
+
+.step-num { line-height: 1; }
+.step-num .n {
+  display: block; font-size: 22px; font-weight: 800;
+  letter-spacing: -.03em; color: var(--accent);
+  font-variant-numeric: tabular-nums; line-height: 1;
+}
+.step-num .lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-sec); margin-top: 2px;
+}
+
+.step-cat  { font-size: 10px; font-weight: 700; letter-spacing: .1em;
+              text-transform: uppercase; color: var(--text-sec); margin-bottom: 3px; }
+.step-name { font-size: 15px; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+
+.step-body { display: grid; grid-template-columns: 1fr 1fr; }
+
+.col-base { padding: 14px 18px; border-right: 1px solid var(--border); }
+.col-gap  { padding: 14px 18px; background: #fafbfc; }
+
+.col-lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border); margin-bottom: 10px;
+}
+.lbl-base { color: var(--text-sec); }
+.lbl-pa   { color: var(--pa-t); }
+.lbl-mi   { color: var(--mi-t); }
+
+.base-text { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
+.base-text strong { color: var(--text-primary); }
+.base-text .tech-tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  background: var(--accent-lt); color: var(--accent);
+  border-radius: 3px; padding: 1px 6px; margin: 1px 2px;
+  vertical-align: middle;
+}
+.base-none { font-size: 13px; color: #94a3b8; font-style: italic; }
+
+.base-detail {
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-sec);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.base-detail-row {
+  display: flex; gap: 8px; align-items: baseline;
+}
+.base-detail-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: #94a3b8;
+  flex-shrink: 0; width: 48px;
+}
+
+.gap-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.gap-list li {
+  font-size: 12.5px; color: var(--text-sec); line-height: 1.5;
+  padding-left: 14px; position: relative;
+}
+.gap-list li::before { content: "–"; position: absolute; left: 0; color: #cbd5e1; }
+
+.cost-strip {
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 8px 18px;
+  background: var(--accent-lt); border-top: 1px solid #bfdbfe;
+}
+.cost-item { font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 5px; }
+.cost-item strong { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.sum-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  max-width: 480px;
+}
+.sum-head {
+  background: var(--header-from); color: #e2e8f0;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 10px 16px;
+}
+.sum-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 13px; color: var(--text-sec);
+  padding: 8px 16px; border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.sum-row:last-child { border-bottom: none; }
+.sum-row strong { font-variant-numeric: tabular-nums; color: var(--text-primary); white-space: nowrap; }
+.sum-total { font-weight: 700; background: var(--accent-lt); }
+.sum-total strong { color: var(--accent); font-size: 15px; }
+
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th {
+  background: var(--code-bg); padding: 10px 14px;
+  text-align: left; font-weight: 700; color: var(--text-sec);
+  border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+tbody td { padding: 9px 14px; color: var(--text-sec); border-bottom: 1px solid var(--border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--code-bg); }
+.td-step { font-weight: 600; color: var(--text-primary); }
+.td-cost { font-variant-numeric: tabular-nums; text-align: right; color: var(--accent); font-weight: 700; white-space: nowrap; }
+.tr-total td { background: var(--accent-lt); font-weight: 700; }
+
+@media (max-width: 680px) {
+  .step-body { grid-template-columns: 1fr; }
+  .col-base  { border-right: none; border-bottom: 1px solid var(--border); }
+  .content   { padding: 20px 16px 60px; }
+  .page-header { padding: 28px 20px; }
+  .step-head { grid-template-columns: 48px 1fr auto; }
+}
+</style>
+
+<div class="page-header">
+  <p class="ph-eyebrow">Development Proposal</p>
+  <h1 class="ph-title">AI記事生成ツール<br>機能仕様・追加開発費用のご提案</h1>
+  <p class="ph-meta">作成日：2026-07-04　／　稼働実績あり（ai-seo-blog ベース）</p>
+  <div class="ph-badges">
+    <div class="ph-badge"><span>ベース</span> 10万円</div>
+    <div class="ph-badge"><span>差分合計</span> +15万円</div>
+    <div class="ph-badge"><span>ベース込み総合計</span> 25万円</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="legend-bar">
+    <span class="legend-lbl">凡例</span>
+    <span class="badge b-ok">実装済み</span>
+    <span class="badge b-pa">一部対応</span>
+    <span class="badge b-mi">未実装</span>
+  </div>
+
+  <p class="sec-lbl">8フェーズの実装仕様と追加開発オプション</p>
+
+  <div class="steps">
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">1</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">ファクト</p><p class="step-name">情報収集</p></div>
+        <span class="badge b-pa">一部対応</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-text">Playwrightが指定キーワードでGoogle検索を自動実行し、上位競合記事のH2/H3見出し構造を抽出する。検索意図・カバレッジギャップ・差別化余地を分析し、次ステップの執筆プロンプトへ渡す入力データを自動生成する。</p>
+          <div class="base-detail">
+            <div class="base-detail-row"><span class="base-detail-label">対象</span><span>国内SERP（日本語検索結果）のみ</span></div>
+            <div class="base-detail-row"><span class="base-detail-label">出力</span><span>次ステップのプロンプト入力として内部処理（ファイル出力なし）</span></div>
+          </div>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-pa">追加仕様</p>
+          <ul class="gap-list">
+            <li>海外SERP（英語圏の論点・観点）を収集する</li>
+            <li>SNS・Yahoo知恵袋から読者の悩み・感情を収集する</li>
+            <li>医療・健康テーマでは信頼情報源（病院・大学・公的機関）を優先して収集する</li>
+            <li>成果物（リサーチメモ・上位記事分析シート・悩み感情リスト・信頼情報源リスト）を人間が読める形で出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>2万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">2</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">考察</p><p class="step-name">ユーザー理解と記事方針の設計</p></div>
+        <span class="badge b-mi">未実装</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-none">対応なし。リサーチ後そのまま執筆に進む。</p>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-mi">追加仕様</p>
+          <ul class="gap-list">
+            <li>収集情報から検索ユーザーの状況・感情・知識レベルを整理する独立フェーズを設ける</li>
+            <li>検索意図・潜在ニーズ・差別化ポイントの仮説を提示する</li>
+            <li>根拠と紐付けたユーザー像を整理する</li>
+            <li>「読者理解シート」「記事方針メモ」を出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>1万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">3</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">設計</p><p class="step-name">コンテンツブリーフ作成</p></div>
+        <span class="badge b-mi">未実装</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-none">対応なし。Step 1のリサーチ出力がそのまま執筆プロンプトに渡される。</p>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-mi">追加仕様</p>
+          <ul class="gap-list">
+            <li>各H2/H3ごとに「何を伝えるか」「どの根拠を使うか」「読者にどんな判断をしてもらうか」を明示したブリーフを作成する</li>
+            <li>執筆者が迷わず書ける状態の「執筆指示書」レベルまで設計する</li>
+            <li>「コンテンツブリーフ」「構成案」「執筆指示書」を人間が読める形で出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>1万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card" style="border-color:#fca5a5;">
+      <div class="step-head warn">
+        <div class="step-num"><span class="n" style="color:#dc2626;">4</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">判断</p><p class="step-name">人間確認・承認</p></div>
+        <span class="badge b-mi">未実装　最大差分</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-none">対応なし。全処理が完全自動のため、リサーチから執筆・公開まで人間が介入するポイントがない。</p>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-mi">追加仕様</p>
+          <ul class="gap-list">
+            <li>パイプラインを一時停止して人間の承認を待つ仕組みを実装する</li>
+            <li>承認通知（Slack等）・承認UI・再開トリガーを実装する</li>
+            <li>専門性・ブランド方針・事業目的の観点でのチェックポイントを設ける</li>
+            <li>表現リスク・引用元妥当性の確認フラグを付与する</li>
+            <li>「承認済みコンテンツブリーフ」「執筆時の注意事項」を出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>3万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">5</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">制作</p><p class="step-name">執筆</p></div>
+        <span class="badge b-pa">一部対応</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-text">Playwright × Claude.aiによる<strong>5段階パイプライン</strong>（①リサーチ → ②構成 → ③ファクトチェック → ④品質編集 → ⑤内部リンク）を順次実行し、MDX形式の記事全文を自動生成する。</p>
+          <div class="base-detail">
+            <div class="base-detail-row"><span class="base-detail-label">品質</span><span>E-E-A-T準拠・禁止表現リスト・数字整合性チェック・FAQ・まとめを組み込んだプロンプト群で制御</span></div>
+            <div class="base-detail-row"><span class="base-detail-label">出力</span><span>MDXファイル（フロントマター・本文・内部リンク含む）をGitHubへ自動コミット</span></div>
+          </div>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-pa">追加仕様</p>
+          <ul class="gap-list">
+            <li>見出し単位（H2ごと）に逐次生成する</li>
+            <li>各見出しで「結論→理由→具体例→注意点→根拠→つなぎ」を個別制御する</li>
+            <li>YMYL分野では信頼情報源を優先し、SNS・知恵袋を根拠として使用しないルールを適用する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>2万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">6</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">改善</p><p class="step-name">編集・校正・ファクトチェック</p></div>
+        <span class="badge b-pa">一部対応</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-text">Step5の品質編集フェーズが、AI典型表現・責任回避表現・冗長表現を自動検出して修正する。数字とリストの整合性（例：見出しの「7ステップ」と実際の項目数のズレ）を検出・修正する。MDX構文エラー（見出し記法・テーブル・箇条書き）も自動修正する。</p>
+          <div class="base-detail">
+            <div class="base-detail-row"><span class="base-detail-label">チェック</span><span>禁止表現パターン9カテゴリ（読者否定・主語不明・AI前置き・冗長 等）</span></div>
+            <div class="base-detail-row"><span class="base-detail-label">出力</span><span>修正済み記事全文（チェックリスト・修正メモの別途出力はなし）</span></div>
+          </div>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-pa">追加仕様</p>
+          <ul class="gap-list">
+            <li>冗長表現・論理の飛躍・重複・検索意図ズレを構造的に指摘し、改善案を提示する</li>
+            <li>「要確認箇所リスト」「修正メモ」を成果物として出力する</li>
+            <li>数値・医療情報・法規制等の人間確認が必要な箇所をフラグ付きで明示する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>1万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">7</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">実装</p><p class="step-name">マークアップ・入稿</p></div>
+        <span class="badge b-pa">一部対応</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-text">Unsplash APIでOG画像を自動取得・設定し、priority・changefreq付きの sitemap.xml を自動生成する。mainブランチへのpushでGitHub Actionsが起動し、<strong>Astroビルド → GitHub Pagesデプロイまでを無人実行</strong>する。</p>
+          <div class="base-detail">
+            <div class="base-detail-row"><span class="base-detail-label">CMS</span><span>GitHub Pages（静的サイト）固定。外部CMSへの入稿は非対応</span></div>
+            <div class="base-detail-row"><span class="base-detail-row"><span class="base-detail-label">確認</span><span>公開前の人間レビューポイントなし。pushと同時に自動公開</span></span></div>
+          </div>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-pa">追加仕様</p>
+          <ul class="gap-list">
+            <li>WordPress等の外部CMSへの入稿に対応する</li>
+            <li>画像権利・容量・alt設定を自動チェックする</li>
+            <li>計測タグ設定を補助する</li>
+            <li>人間が最終公開判断を行うフローを設ける</li>
+            <li>「公開前チェックリスト」を出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>3万円</strong></span>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-card">
+      <div class="step-head">
+        <div class="step-num"><span class="n">8</span><span class="lbl">Step</span></div>
+        <div><p class="step-cat">検証</p><p class="step-name">公開後検証・リライト</p></div>
+        <span class="badge b-pa">一部対応</span>
+      </div>
+      <div class="step-body">
+        <div class="col-base">
+          <p class="col-lbl lbl-base">ベース対応</p>
+          <p class="base-text">Google Search Console APIで過去28日間のクリック数・表示回数・平均順位・CTRを自動取得し管理ダッシュボードに表示する。<strong>3段階の自動検出</strong>でリライト候補を優先順位付けして提示する。</p>
+          <div class="base-detail">
+            <div class="base-detail-row"><span class="base-detail-label">判定1</span><span>順位ドロップ：11〜30位かつ表示50回以上（Quick Win狙い）</span></div>
+            <div class="base-detail-row"><span class="base-detail-label">判定2</span><span>CTR不足：1〜10位かつ期待CTRの70%未満（First Page Sage 2026基準）</span></div>
+            <div class="base-detail-row"><span class="base-detail-label">判定3</span><span>低インプレ：公開90日超かつ表示50回未満（SurferSEO基準）</span></div>
+          </div>
+        </div>
+        <div class="col-gap">
+          <p class="col-lbl lbl-pa">追加仕様</p>
+          <ul class="gap-list">
+            <li>想定検索意図と実際の流入キーワードのズレを自動検出する</li>
+            <li>CTR低下タイトルを自動検出する</li>
+            <li>CV（コンバージョン）連携分析を実施する</li>
+            <li>リライト指示書を自動生成する</li>
+            <li>「公開後レポート」「リライト指示書」を出力する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cost-strip">
+        <span class="cost-item">追加費用 <strong>2万円</strong></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- summary -->
+  <p class="sec-lbl">費用サマリー</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:6%">Step</th>
+          <th style="width:14%">フェーズ</th>
+          <th>追加開発オプション</th>
+          <th style="width:11%">ステータス</th>
+          <th style="width:9%;text-align:right">費用</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:var(--accent-lt);">
+          <td style="font-weight:700;color:var(--accent);">BASE</td>
+          <td style="font-weight:600;color:var(--text-primary);">ai-seo-blog</td>
+          <td style="color:var(--text-sec);">5段階Playwrightパイプライン・品質チェック（9カテゴリ禁止表現）・OG画像自動生成・GitHub Pages全自動デプロイ・GSC連携ダッシュボード（3段階リライト判定）</td>
+          <td><span class="badge b-ok">実装済み</span></td>
+          <td class="td-cost">10万円</td>
+        </tr>
+        <tr><td class="td-step">1</td><td>情報収集</td><td>海外SERP・SNS・専門情報源の収集、成果物ファイル出力</td><td><span class="badge b-pa">一部対応</span></td><td class="td-cost">2万円</td></tr>
+        <tr><td class="td-step">2</td><td>ユーザー理解</td><td>読者理解シート・記事方針メモの独立フェーズを設ける</td><td><span class="badge b-mi">未実装</span></td><td class="td-cost">1万円</td></tr>
+        <tr><td class="td-step">3</td><td>ブリーフ設計</td><td>コンテンツブリーフ・構成案・執筆指示書を出力する</td><td><span class="badge b-mi">未実装</span></td><td class="td-cost">1万円</td></tr>
+        <tr><td class="td-step">4</td><td>人間確認</td><td>承認待機・通知・再開フロー・チェックポイントを実装する</td><td><span class="badge b-mi">未実装</span></td><td class="td-cost">3万円</td></tr>
+        <tr><td class="td-step">5</td><td>執筆</td><td>見出し単位の逐次生成・YMYL情報源ルールを適用する</td><td><span class="badge b-pa">一部対応</span></td><td class="td-cost">2万円</td></tr>
+        <tr><td class="td-step">6</td><td>編集・校正</td><td>要確認箇所リスト・修正メモを成果物として出力する</td><td><span class="badge b-pa">一部対応</span></td><td class="td-cost">1万円</td></tr>
+        <tr><td class="td-step">7</td><td>マークアップ・入稿</td><td>WordPress等CMS対応・公開承認フローを設ける</td><td><span class="badge b-pa">一部対応</span></td><td class="td-cost">3万円</td></tr>
+        <tr><td class="td-step">8</td><td>公開後検証</td><td>リライト自動化・CV分析・公開後レポートを出力する</td><td><span class="badge b-pa">一部対応</span></td><td class="td-cost">2万円</td></tr>
+        <tr class="tr-total">
+          <td colspan="4" style="color:var(--text-primary);">合計</td>
+          <td class="td-cost" style="font-size:.95rem;">25万円</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
