@@ -164,7 +164,10 @@ function detectCandidates(
   }
 
   for (const m of metrics) {
+    // /blog/ や /blog など記事一覧・非記事ページを除外
     const slug = m.page.replace(/.*\/blog\/([^/]+)\/?$/, '$1');
+    if (!slug || slug === m.page || m.page.match(/\/blog\/?$/)) continue;
+
     const pubDate = pubDateMap.get(slug);
     const daysSincePublish = pubDate
       ? (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24)

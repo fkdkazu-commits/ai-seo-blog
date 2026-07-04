@@ -11,17 +11,6 @@
     }
   },
   {
-    "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/",
-    "reason": "no-traction",
-    "metrics": {
-      "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/",
-      "clicks": 0,
-      "impressions": 1,
-      "ctr": 0,
-      "position": 5
-    }
-  },
-  {
     "page": "https://fkdkazu-commits.github.io/ai-seo-blog/blog/affiliate-beginner/",
     "reason": "rank-drop",
     "metrics": {
