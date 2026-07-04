@@ -139,34 +139,38 @@ async function buildPubDateMap(): Promise<Map<string, Date>> {
   return map;
 }
 
+// URLの最後のパスセグメントをslugとして抽出（URL構造に依存しない）
+function extractSlug(pageUrl: string): string {
+  return pageUrl.replace(/\/$/, '').split('/').pop() ?? '';
+}
+
 function detectCandidates(
   metrics: PageMetrics[],
   pubDateMap: Map<string, Date>
 ): RewriteCandidate[] {
   const candidates: RewriteCandidate[] = [];
   const now = new Date();
-  const gscPageSet = new Set(metrics.map(m => m.page));
 
-  // GSCに出ていない記事（表示回数0）を公開日マップから検出
+  // GSCに出ている記事のslugセット
+  const gscSlugSet = new Set(metrics.map(m => extractSlug(m.page)));
+
+  // GSCに一切出ていない記事を公開日マップから検出（インプレッション0）
   for (const [slug, pubDate] of pubDateMap.entries()) {
+    if (gscSlugSet.has(slug)) continue; // GSCデータに含まれていれば後述のループで処理
     const daysSincePublish = (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24);
     if (daysSincePublish < 90) continue; // 3ヶ月未満は除外
-    // GSCデータに含まれているか確認（含まれていれば後述のループで処理）
-    const matched = [...gscPageSet].some(p => p.includes(`/blog/${slug}`));
-    if (!matched) {
-      // GSCに一切出ていない = インプレッション0
-      candidates.push({
-        page: `/blog/${slug}`,
-        reason: 'no-traction',
-        metrics: { page: `/blog/${slug}`, clicks: 0, impressions: 0, ctr: 0, position: 0 },
-      });
-    }
+    candidates.push({
+      page: slug,
+      reason: 'no-traction',
+      metrics: { page: slug, clicks: 0, impressions: 0, ctr: 0, position: 0 },
+    });
   }
 
   for (const m of metrics) {
-    // /blog/ や /blog など記事一覧・非記事ページを除外
-    const slug = m.page.replace(/.*\/blog\/([^/]+)\/?$/, '$1');
-    if (!slug || slug === m.page || m.page.match(/\/blog\/?$/)) continue;
+    const slug = extractSlug(m.page);
+
+    // pubDateMapに存在しないページ（記事一覧・トップページ等）は除外
+    if (!pubDateMap.has(slug)) continue;
 
     const pubDate = pubDateMap.get(slug);
     const daysSincePublish = pubDate
