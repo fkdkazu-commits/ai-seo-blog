@@ -800,7 +800,17 @@ async function main() {
       }
 
       if (i < prompts.length - 1) {
-        await page.waitForTimeout(3000);
+        // Step4→Step5の前に新規会話を開始（コンテキスト蓄積による応答劣化を防ぐ）
+        if (i === prompts.length - 2) {
+          console.log('\n  新規会話に移動（Step5はコンテキストをリセットして実行）...');
+          await page.goto(CLAUDE_NEW_CHAT, { waitUntil: 'commit', timeout: 60_000 }).catch(() => {});
+          await waitForInputBox(page, 60_000);
+          await page.waitForTimeout(2000);
+          // Step5プロンプトの先頭にStep4の出力記事を明示的に追加
+          prompts[i + 1] = `以下の記事に内部リンクを挿入してください。\n\n[ARTICLE_DRAFT]\n${stepOutput}\n[/ARTICLE_DRAFT]\n\n` + prompts[i + 1];
+        } else {
+          await page.waitForTimeout(3000);
+        }
       }
     }
   } finally {
