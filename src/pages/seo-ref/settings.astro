@@ -30,11 +30,12 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
       <!-- GitHub Token -->
       <div class="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
         <h2 class="text-base font-bold text-gray-900 mb-1">GitHub 接続</h2>
-        <p class="text-xs text-gray-500 mb-4">Personal Access Token（PAT）を入力してください。<code class="bg-gray-100 px-1 rounded">repo</code> + <code class="bg-gray-100 px-1 rounded">workflow</code> スコープが必要です。入力値はページを閉じると消えます。</p>
+        <p class="text-xs text-gray-500 mb-4">Personal Access Token（PAT）を入力してください。<code class="bg-gray-100 px-1 rounded">repo</code> + <code class="bg-gray-100 px-1 rounded">workflow</code> スコープが必要です。入力値はブラウザに保存され、次回以降は自動入力されます。</p>
         <div class="flex gap-3">
           <input id="pat" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
             class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-400" />
           <button onclick="connect()" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">接続</button>
+          <button onclick="clearPat()" class="border border-gray-300 text-gray-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50">クリア</button>
         </div>
         <p id="conn-status" class="text-xs mt-2 text-gray-400"></p>
       </div>
@@ -156,7 +157,7 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
       async function connect() {
         token = pat();
         if (!token) { status('conn-status', 'トークンを入力してください', 'red'); return; }
-        sessionStorage.setItem('gh_pat', token);
+        localStorage.setItem('gh_pat', token);
         status('conn-status', '接続中...', 'gray');
         try {
           const me = await fetch(`${API}/user`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json());
@@ -328,9 +329,19 @@ const GSC_SETTINGS_PATH = 'data/gsc-settings.json';
         } catch(e) { status('trigger-status', `エラー: ${e.message}`, 'red'); }
       }
 
-      // セッションから復元
+      function clearPat() {
+        localStorage.removeItem('gh_pat');
+        document.getElementById('pat').value = '';
+        token = '';
+        ['section-schedule','section-keywords','section-gsc','section-trigger'].forEach(id => {
+          document.getElementById(id).style.display = 'none';
+        });
+        status('conn-status', 'トークンをクリアしました', 'gray');
+      }
+
+      // ローカルストレージから自動復元
       window.addEventListener('load', () => {
-        const saved = sessionStorage.getItem('gh_pat');
+        const saved = localStorage.getItem('gh_pat');
         if (saved) {
           document.getElementById('pat').value = saved;
           connect();
