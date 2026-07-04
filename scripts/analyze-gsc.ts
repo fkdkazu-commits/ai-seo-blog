@@ -207,6 +207,22 @@ function detectCandidates(
     }
   }
 
+  // 優先順位でソート
+  const PRIORITY: Record<string, number> = {
+    'rank-drop': 1,   // Quick Win（2〜3ページ目）が最優先
+    'low-ctr': 2,     // 1ページ目なのにCTR不足
+    'no-traction': 3, // 公開済みだがGoogleに認知されていない
+    'impression-surge': 4, // 関連記事生成機会
+  };
+
+  candidates.sort((a, b) => {
+    const pa = PRIORITY[a.reason] ?? 9;
+    const pb = PRIORITY[b.reason] ?? 9;
+    if (pa !== pb) return pa - pb;
+    // 同じ理由内ではインプレッション数の多い順
+    return b.metrics.impressions - a.metrics.impressions;
+  });
+
   return candidates;
 }
 
