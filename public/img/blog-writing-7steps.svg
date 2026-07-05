@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="SEOに強い記事の7ステップ">
+  <rect width="600" height="400" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">SEOに強い記事の7ステップ（STEP 2・3が検索順位を左右する）</text>
+
+  <!-- STEP 1 (normal) -->
+  <rect x="20" y="40" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="62" r="18" fill="#2563EB"/>
+  <text x="52" y="67" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">01</text>
+  <text x="84" y="57" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">キーワードを決める</text>
+  <text x="84" y="75" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">ロングテールKW（3語以上）を選び、月間検索数と競合度を確認する</text>
+
+  <!-- STEP 2 (★ highlighted) -->
+  <rect x="20" y="90" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="112" r="18" fill="#1D4ED8"/>
+  <text x="52" y="117" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">02</text>
+  <text x="84" y="107" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">検索意図を洗い出す</text>
+  <text x="84" y="125" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 顕在ニーズ・潜在ニーズを把握する（ここが順位を左右する）</text>
+
+  <!-- STEP 3 (★ highlighted) -->
+  <rect x="20" y="140" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="162" r="18" fill="#1D4ED8"/>
+  <text x="52" y="167" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">03</text>
+  <text x="84" y="157" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">構成案（見出し）をつくる</text>
+  <text x="84" y="175" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ H2/H3の網羅性が評価に直結する（ここが順位を左右する）</text>
+
+  <!-- STEP 4 (normal) -->
+  <rect x="20" y="190" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="212" r="18" fill="#2563EB"/>
+  <text x="52" y="217" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">04</text>
+  <text x="84" y="207" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">タイトルとディスクリプションをつける</text>
+  <text x="84" y="225" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">KWを前半12文字以内に・タイトルは32文字前後に収める</text>
+
+  <!-- STEP 5 (normal) -->
+  <rect x="20" y="240" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="262" r="18" fill="#2563EB"/>
+  <text x="52" y="267" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">05</text>
+  <text x="84" y="257" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">本文とリード文を作成する</text>
+  <text x="84" y="275" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">各見出しに自分の体験談・数値を1つ以上入れる</text>
+
+  <!-- STEP 6 (normal) -->
+  <rect x="20" y="290" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="312" r="18" fill="#2563EB"/>
+  <text x="52" y="317" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">06</text>
+  <text x="84" y="307" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">入稿・装飾をする</text>
+  <text x="84" y="325" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">スマートフォン表示と誤字脱字を公開前に確認する</text>
+
+  <!-- STEP 7 (normal) -->
+  <rect x="20" y="340" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="362" r="18" fill="#2563EB"/>
+  <text x="52" y="367" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">07</text>
+  <text x="84" y="357" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">公開してインデックス登録をリクエストする</text>
+  <text x="84" y="375" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Search Consoleで公開直後にURLを送信する</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" role="img" aria-label="目的別・執筆フロー診断">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">あなたの目的は？ 優先すべきテクニックを選ぼう</text>
+
+  <!-- Card 1: 収益化優先（左上） -->
+  <rect x="20" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="155" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">収益化を目指す</text>
+  <text x="36" y="94" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ 特化ブログ ＋ ロングテールKW</text>
+  <text x="36" y="113" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">テクニック①②からASP登録まで開設初週に着手</text>
+  <text x="36" y="148" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">専門テーマを絞るほどGoogleに評価されやすい</text>
+
+  <!-- Card 2: 情報発信（右上） -->
+  <rect x="310" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#0891B2"/>
+  <rect x="310" y="58" width="270" height="14" fill="#0891B2"/>
+  <text x="445" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">情報発信・自己表現が目的</text>
+  <text x="326" y="94" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ 雑記ブログ ＋ SNS軸で展開</text>
+  <text x="326" y="113" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">検索流入は緩やかに増加する</text>
+  <text x="326" y="148" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">既存読者・SNSとの関係性を軸に伸ばす</text>
+
+  <!-- Card 3: 初めての記事（左下） -->
+  <rect x="20" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="174" width="270" height="32" rx="10" fill="#7C3AED"/>
+  <rect x="20" y="192" width="270" height="14" fill="#7C3AED"/>
+  <text x="155" y="196" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">初めて記事を書く</text>
+  <text x="36" y="228" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ テクニック①〜③だけを実践</text>
+  <text x="36" y="247" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">キーワード選定・構成案・タイトルの3つだけ</text>
+  <text x="36" y="282" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">まず1本書き切ることを最優先にする</text>
+
+  <!-- Card 4: 5記事以上（右下） -->
+  <rect x="310" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="174" width="270" height="32" rx="10" fill="#059669"/>
+  <rect x="310" y="192" width="270" height="14" fill="#059669"/>
+  <text x="445" y="196" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">5記事以上の経験がある</text>
+  <text x="326" y="228" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ テクニック④〜⑤を追加</text>
+  <text x="326" y="247" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">体験談・内部リンクの質を上げる段階</text>
+  <text x="326" y="282" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Search Consoleで順位変化を数値で確認する</text>
+</svg>

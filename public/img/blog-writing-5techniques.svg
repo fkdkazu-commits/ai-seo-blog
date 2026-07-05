@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" role="img" aria-label="SEOに強い記事を書く5つの実践テクニック">
+  <rect width="600" height="310" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">SEOに強い記事を書く5つの実践テクニック</text>
+
+  <!-- ① キーワード選定 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="700">①</text>
+  <text x="84" y="60" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">キーワード選定でつまずく典型パターン</text>
+  <text x="84" y="79" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">ビッグワードを避け、月間検索数・競合度を確認してロングテールKWを選ぶ</text>
+
+  <!-- ② 構成案・見出し -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="700">②</text>
+  <text x="84" y="112" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">構成案・見出し設計の判断基準</text>
+  <text x="84" y="131" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">上位記事の見出しを分析し、検索意図ごとにH2/H3を割り当てる</text>
+
+  <!-- ③ タイトルとリード文 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="700">③</text>
+  <text x="84" y="164" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">タイトルとリード文の比較</text>
+  <text x="84" y="183" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">KWを前半12文字以内・冒頭に読者の悩みを1文で入れる</text>
+
+  <!-- ④ 体験談・一次情報 -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="227" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="700">④</text>
+  <text x="84" y="216" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">体験談・一次情報の盛り込み方</text>
+  <text x="84" y="235" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">自分の体験を数字で語る（PV数・収益額・作業時間・期間）</text>
+
+  <!-- ⑤ 公開後の運用 -->
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="279" text-anchor="middle" fill="white" font-size="13" font-family="sans-serif" font-weight="700">⑤</text>
+  <text x="84" y="268" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">公開後の運用と内部リンク設計</text>
+  <text x="84" y="287" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">SC登録 → 順位確認 → 2〜3ヶ月後にリライトを検討する</text>
+</svg>
