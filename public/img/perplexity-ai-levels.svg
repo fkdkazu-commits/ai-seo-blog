@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">Perplexity AI 活用成熟度モデル（Level 1〜5）</text>
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" text-anchor="middle" fill="white" font-size="11" font-weight="700">L1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">基本検索ユーザー</text>
+  <text x="84" y="79" fill="#64748B" font-size="11">アカウントなし・検索バーに質問を入力するだけ。「使ったことがある」程度</text>
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" text-anchor="middle" fill="white" font-size="11" font-weight="700">L2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">Focus活用ユーザー</text>
+  <text x="84" y="131" fill="#64748B" font-size="11">Focusモードで検索範囲を絞り、Pro Searchを意識的に使い分けている</text>
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" text-anchor="middle" fill="white" font-size="11" font-weight="700">L3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">プロンプト設計ユーザー</text>
+  <text x="84" y="183" fill="#1D4ED8" font-size="11" font-weight="600">4要素プロンプト（対象・時制・出典要求・形式）を毎回の検索に適用できる</text>
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="226" text-anchor="middle" fill="white" font-size="11" font-weight="700">L4</text>
+  <text x="84" y="217" fill="#1E293B" font-size="13" font-weight="700">Deep Research ＆ Spaces 活用ユーザー</text>
+  <text x="84" y="235" fill="#64748B" font-size="11">Deep Researchでレポート生成・Spacesにナレッジ蓄積を日常的に実施</text>
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="278" text-anchor="middle" fill="white" font-size="11" font-weight="700">L5</text>
+  <text x="84" y="269" fill="#1E293B" font-size="13" font-weight="700">AIエコシステム統合ユーザー</text>
+  <text x="84" y="287" fill="#64748B" font-size="11">Perplexityで情報収集→Claude/ChatGPTで文章化、という役割分担を実践</text>
+</svg>

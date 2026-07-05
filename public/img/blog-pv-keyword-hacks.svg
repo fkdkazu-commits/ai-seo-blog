@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="キーワード・技術・権威性の3ステップ強化">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">キーワード・技術・権威性の3ステップ強化（ハック4〜6）</text>
+
+  <!-- ハック4 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">4</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ロングテールKWで競合に勝てる記事を選ぶ（ハック4）</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月間100〜1,000・個人ブログ3件以上のKWを選んで着手する</text>
+
+  <!-- ハック5 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="118" r="18" fill="#1D4ED8"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">5</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">E-E-A-T対応で権威性を高める（ハック5）</text>
+  <text x="84" y="130" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 著者プロフィール・体験数値・出典URLを記事に明記する</text>
+
+  <!-- ハック6 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">6</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">Core Web VitalsでSEO技術を最適化する（ハック6）</text>
+  <text x="84" y="182" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">PageSpeedで月1回確認・画像WebP化・不要プラグインを削減する</text>
+</svg>

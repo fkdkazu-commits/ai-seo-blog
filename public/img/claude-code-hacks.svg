@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="360" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">実務ハック1〜6：初日から使える設定と習慣</text>
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" text-anchor="middle" fill="white" font-size="11" font-weight="700">1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">CLAUDE.md作成：AIの「司令塔ファイル」</text>
+  <text x="84" y="79" fill="#1D4ED8" font-size="11" font-weight="600">禁止事項を先に書く。起動時に自動読込され毎回説明不要</text>
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" text-anchor="middle" fill="white" font-size="11" font-weight="700">2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">Plan Mode（/plan）で実装前に計画を立てる</text>
+  <text x="84" y="131" fill="#64748B" font-size="11">大きな実装前に方向性を確認。コミット単位も計画に含めると効果的</text>
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" text-anchor="middle" fill="white" font-size="11" font-weight="700">3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">Gitと組み合わせた「可逆的開発フロー」</text>
+  <text x="84" y="183" fill="#64748B" font-size="11">git init必須。意図しない変更はgit resetで即時復元できる</text>
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="226" text-anchor="middle" fill="white" font-size="11" font-weight="700">4</text>
+  <text x="84" y="217" fill="#1E293B" font-size="13" font-weight="700">permissionsで「確認」と「禁止」を事前設計</text>
+  <text x="84" y="235" fill="#64748B" font-size="11">settings.json のallowとdenyで安全性を確保しながら作業を効率化</text>
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="278" text-anchor="middle" fill="white" font-size="11" font-weight="700">5</text>
+  <text x="84" y="269" fill="#1E293B" font-size="13" font-weight="700">MCP×GitHub連携でIssue→PR自動化</text>
+  <text x="84" y="287" fill="#64748B" font-size="11">/install-github-app 後、Issueコメントから実装・PR作成が完結</text>
+  <rect x="20" y="304" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="326" r="18" fill="#2563EB"/>
+  <text x="52" y="330" text-anchor="middle" fill="white" font-size="11" font-weight="700">6</text>
+  <text x="84" y="321" fill="#1E293B" font-size="13" font-weight="700">コンテキスト管理で精度を維持</text>
+  <text x="84" y="339" fill="#64748B" font-size="11">タスク切り替えごとに /clear でリセット。/compact で長期セッション管理</text>
+</svg>

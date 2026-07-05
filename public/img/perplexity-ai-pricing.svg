@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">プラン比較：用途で選ぶ4つの選択肢</text>
+  <!-- Card TL: x=20, y=40 -->
+  <rect x="20" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#059669"/>
+  <rect x="20" y="58" width="270" height="14" fill="#059669"/>
+  <text x="155" y="62" text-anchor="middle" fill="white" font-size="12" font-weight="700">無料（Free）</text>
+  <text x="36" y="94" fill="#1E293B" font-size="12" font-weight="700">月額0円</text>
+  <text x="36" y="113" fill="#64748B" font-size="11">Pro Search 5回/日・Deep Research 3回/日</text>
+  <text x="36" y="130" fill="#64748B" font-size="11">まず試してみるなら</text>
+  <!-- Card TR: x=310, y=40 -->
+  <rect x="310" y="40" width="270" height="120" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="310" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="445" y="62" text-anchor="middle" fill="white" font-size="12" font-weight="700">Pro（推奨）</text>
+  <text x="326" y="94" fill="#1E293B" font-size="12" font-weight="700">月約3,000円（$20）</text>
+  <text x="326" y="113" fill="#1D4ED8" font-size="11" font-weight="600">Pro Search・Deep Research無制限</text>
+  <text x="326" y="130" fill="#64748B" font-size="11">毎日リサーチ業務がある方に</text>
+  <!-- Card BL: x=20, y=174 -->
+  <rect x="20" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="174" width="270" height="32" rx="10" fill="#7C3AED"/>
+  <rect x="20" y="192" width="270" height="14" fill="#7C3AED"/>
+  <text x="155" y="196" text-anchor="middle" fill="white" font-size="12" font-weight="700">Enterprise Pro</text>
+  <text x="36" y="228" fill="#1E293B" font-size="12" font-weight="700">$40/ユーザー</text>
+  <text x="36" y="247" fill="#64748B" font-size="11">チーム導入・SSO・SOC2認証</text>
+  <text x="36" y="264" fill="#64748B" font-size="11">データ7日自動削除。社内情報も安心</text>
+  <!-- Card BR: x=310, y=174 -->
+  <rect x="310" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="174" width="270" height="32" rx="10" fill="#DC2626"/>
+  <rect x="310" y="192" width="270" height="14" fill="#DC2626"/>
+  <text x="445" y="196" text-anchor="middle" fill="white" font-size="12" font-weight="700">Enterprise Max</text>
+  <text x="326" y="228" fill="#1E293B" font-size="12" font-weight="700">$325/ユーザー</text>
+  <text x="326" y="247" fill="#64748B" font-size="11">Model Council（3モデル同時実行）</text>
+  <text x="326" y="264" fill="#64748B" font-size="11">金融・法務・コンサル向け</text>
+</svg>

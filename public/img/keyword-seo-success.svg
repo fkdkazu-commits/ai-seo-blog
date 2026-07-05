@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="キーワード選定で成果を出した実例">
+  <rect width="600" height="200" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">KW選定で成果を出した実例 — 2人に共通する戦略</text>
+
+  <!-- Card 1: ヒトデさん -->
+  <rect x="20" y="40" width="265" height="142" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="265" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="265" height="14" fill="#2563EB"/>
+  <text x="152" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">ヒトデさん（ブログ歴7年）</text>
+  <text x="36" y="96" fill="#1E293B" font-size="14" font-family="'Noto Sans JP',sans-serif" font-weight="700">月間最高 158万PV 達成</text>
+  <text x="36" y="116" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">著書「ゆる副業のはじめかた」6.8万部</text>
+  <text x="36" y="150" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ ビッグKWを避け、需要ある記事づくりを徹底</text>
+
+  <!-- Card 2: Tsuzukiさん -->
+  <rect x="315" y="40" width="265" height="142" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="315" y="40" width="265" height="32" rx="10" fill="#059669"/>
+  <rect x="315" y="58" width="265" height="14" fill="#059669"/>
+  <text x="447" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Tsuzukiさん（約1年で達成）</text>
+  <text x="331" y="96" fill="#1E293B" font-size="14" font-family="'Noto Sans JP',sans-serif" font-weight="700">月収 160万円 達成</text>
+  <text x="331" y="116" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Tsuzuki Blog 開設から約1年で月160万円</text>
+  <text x="331" y="150" fill="#059669" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ スモールKWで勝利体験を積んでから拡大</text>
+</svg>

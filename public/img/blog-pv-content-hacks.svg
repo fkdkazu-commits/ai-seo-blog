@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="コンテンツ改善でPVを2倍にする3つのハック">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">コンテンツ改善でPVを2倍にする3つのハック</text>
+
+  <!-- ハック1 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">1</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">リライト対象を絞る（ハック1）</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">SC順位8〜20位＋表示回数上位の記事5〜10本に集中する</text>
+
+  <!-- ハック2 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">2</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">CTRを1記事15分で改善（ハック2）</text>
+  <text x="84" y="130" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">タイトル先頭30文字にKW再配置・メタに具体的メリットを追記する</text>
+
+  <!-- ハック3 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="170" r="18" fill="#1D4ED8"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">3</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">内部リンクで回遊率を高める（ハック3）</text>
+  <text x="84" y="182" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 本文中に1記事3〜5箇所設置で末尾リンクの3倍のクリック率</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 195" role="img" aria-label="ブログステージ別キーワード選定ロードマップ">
+  <rect width="600" height="195" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">ブログステージ別 — 狙うべきKWの難易度</text>
+
+  <!-- Card 1: 立ち上げ期 -->
+  <rect x="20" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="46" y="54" width="124" height="26" rx="13" fill="#94A3B8"/>
+  <text x="108" y="72" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif" font-weight="700">立ち上げ期</text>
+  <text x="108" y="102" text-anchor="middle" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">記事10本未満</text>
+  <text x="108" y="120" text-anchor="middle" fill="#2563EB" font-size="12" font-family="sans-serif" font-weight="700">スモールKWのみ</text>
+  <text x="108" y="140" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月間10〜100回</text>
+  <text x="108" y="160" text-anchor="middle" fill="#64748B" font-size="10" font-family="'Noto Sans JP',sans-serif">まず上位表示感覚をつかむ</text>
+
+  <!-- Card 2: 成長期 -->
+  <rect x="212" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="238" y="54" width="124" height="26" rx="13" fill="#3B82F6"/>
+  <text x="300" y="72" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif" font-weight="700">成長期</text>
+  <text x="300" y="102" text-anchor="middle" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">記事10〜30本</text>
+  <text x="300" y="120" text-anchor="middle" fill="#2563EB" font-size="12" font-family="sans-serif" font-weight="700">スモール中心</text>
+  <text x="300" y="140" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月間100〜500回</text>
+  <text x="300" y="160" text-anchor="middle" fill="#64748B" font-size="10" font-family="'Noto Sans JP',sans-serif">ミドルに一部チャレンジ</text>
+
+  <!-- Card 3: 安定期 -->
+  <rect x="404" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="430" y="54" width="124" height="26" rx="13" fill="#1D4ED8"/>
+  <text x="492" y="72" text-anchor="middle" fill="white" font-size="12" font-family="sans-serif" font-weight="700">安定期</text>
+  <text x="492" y="102" text-anchor="middle" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">記事30本以上</text>
+  <text x="492" y="120" text-anchor="middle" fill="#2563EB" font-size="12" font-family="sans-serif" font-weight="700">ミドルKW中心</text>
+  <text x="492" y="140" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月間500〜5,000回</text>
+  <text x="492" y="160" text-anchor="middle" fill="#64748B" font-size="10" font-family="'Noto Sans JP',sans-serif">ビッグKWへも挑戦可能</text>
+</svg>

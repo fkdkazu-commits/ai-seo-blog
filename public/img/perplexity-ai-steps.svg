@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 204" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="204" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">5分で始められる：3ステップ入門</text>
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" text-anchor="middle" fill="white" font-size="11" font-weight="700">1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">STEP 1：アクセスと初期設定</text>
+  <text x="84" y="79" fill="#1D4ED8" font-size="11" font-weight="600">perplexity.ai を開くだけで即日スタート。継続利用はGoogleアカウントでサインアップ</text>
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" text-anchor="middle" fill="white" font-size="11" font-weight="700">2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">STEP 2：Focusモードで検索範囲を絞る</text>
+  <text x="84" y="131" fill="#64748B" font-size="11">学術論文・ニュース・YouTube等6種から用途に合わせて選択するだけで回答精度が上がる</text>
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" text-anchor="middle" fill="white" font-size="11" font-weight="700">3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">STEP 3：フォローアップ質問で深掘り</text>
+  <text x="84" y="183" fill="#64748B" font-size="11">同一セッション内で「では〇〇の場合は？」と続け、比較→差分→示唆の3段階を1チャットで完結</text>
+</svg>

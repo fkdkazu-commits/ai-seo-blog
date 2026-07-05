@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">ハック7〜10：MCP・Skills・音声・モデル切り替え</text>
+  <!-- Card TL: x=20, y=40 -->
+  <rect x="20" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="155" y="62" text-anchor="middle" fill="white" font-size="12" font-weight="700">ハック7：MCP Tool Search</text>
+  <text x="36" y="94" fill="#1E293B" font-size="12" font-weight="700">コンテキスト消費を最大95%削減</text>
+  <text x="36" y="113" fill="#64748B" font-size="11">複数MCPサーバーを同時接続しても</text>
+  <text x="36" y="130" fill="#64748B" font-size="11">必要時だけ遅延読み込みで省コスト</text>
+  <!-- Card TR: x=310, y=40 -->
+  <rect x="310" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#7C3AED"/>
+  <rect x="310" y="58" width="270" height="14" fill="#7C3AED"/>
+  <text x="445" y="62" text-anchor="middle" fill="white" font-size="12" font-weight="700">ハック8：Agent Skills</text>
+  <text x="326" y="94" fill="#1E293B" font-size="12" font-weight="700">チーム知識をAIに蓄積・共有</text>
+  <text x="326" y="113" fill="#64748B" font-size="11">.claude/skills/ にMarkdown作成</text>
+  <text x="326" y="130" fill="#64748B" font-size="11">gitでチーム全体に展開できる</text>
+  <!-- Card BL: x=20, y=174 -->
+  <rect x="20" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="174" width="270" height="32" rx="10" fill="#0891B2"/>
+  <rect x="20" y="192" width="270" height="14" fill="#0891B2"/>
+  <text x="155" y="196" text-anchor="middle" fill="white" font-size="12" font-weight="700">ハック9：音声入力</text>
+  <text x="36" y="228" fill="#1E293B" font-size="12" font-weight="700">指示速度を約3倍に高速化</text>
+  <text x="36" y="247" fill="#64748B" font-size="11">音声150〜200語/分 vs タイピング40〜60語/分</text>
+  <text x="36" y="264" fill="#64748B" font-size="11">背景・理由も自然に含めて精度UP</text>
+  <!-- Card BR: x=310, y=174 -->
+  <rect x="310" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="174" width="270" height="32" rx="10" fill="#059669"/>
+  <rect x="310" y="192" width="270" height="14" fill="#059669"/>
+  <text x="445" y="196" text-anchor="middle" fill="white" font-size="12" font-weight="700">ハック10：モデル切り替え</text>
+  <text x="326" y="228" fill="#1E293B" font-size="12" font-weight="700">Opus×Sonnetでコスト最適化</text>
+  <text x="326" y="247" fill="#64748B" font-size="11">設計・計画フェーズ → Opus</text>
+  <text x="326" y="264" fill="#64748B" font-size="11">実装・繰り返し修正 → Sonnet</text>
+</svg>

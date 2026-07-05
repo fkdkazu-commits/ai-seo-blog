@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 256" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="256" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" fill="#1E40AF" font-size="13" font-weight="700" text-anchor="middle">アフィリエイトで報酬が発生するまでの流れ</text>
+
+  <!-- Row 1: y=44 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" fill="white" font-size="11" font-weight="700" text-anchor="middle">1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">ブログに記事を書く</text>
+  <text x="84" y="79" fill="#64748B" font-size="11">キーワードを絞った記事でSEO流入を狙う</text>
+
+  <!-- Row 2: y=96 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" fill="white" font-size="11" font-weight="700" text-anchor="middle">2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">記事内に広告リンク（ASP経由）を設置する</text>
+  <text x="84" y="131" fill="#64748B" font-size="11">クリックされると成果計測が始まる</text>
+
+  <!-- Row 3: y=148 (highlight) -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" fill="white" font-size="11" font-weight="700" text-anchor="middle">3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">読者が商品を購入・申し込む</text>
+  <text x="84" y="183" fill="#1D4ED8" font-size="11" font-weight="600">成果確定まで数十日かかる場合あり</text>
+
+  <!-- Row 4: y=200 -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="226" fill="white" font-size="11" font-weight="700" text-anchor="middle">4</text>
+  <text x="84" y="217" fill="#1E293B" font-size="13" font-weight="700">報酬がASP経由で振り込まれる</text>
+  <text x="84" y="235" fill="#64748B" font-size="11">月次の確定・支払いサイクルで入金される</text>
+</svg>

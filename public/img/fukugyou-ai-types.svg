@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 188" role="img" aria-label="AI初心者でも始められる副業3カテゴリ">
+  <rect width="600" height="188" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">AI初心者でも始められる副業3カテゴリ</text>
+
+  <!-- Card 1 -->
+  <rect x="20" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="108" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">ライティング</text>
+  <text x="36" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">ブログ・SNS・商品説明</text>
+  <text x="36" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">1文字0.5〜3円</text>
+  <text x="36" y="126" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">AIで下書き生成</text>
+  <text x="36" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">相性◎</text>
+
+  <!-- Card 2 (highlighted) -->
+  <rect x="212" y="40" width="176" height="134" rx="10" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <rect x="212" y="40" width="176" height="32" rx="10" fill="#1D4ED8"/>
+  <rect x="212" y="58" width="176" height="14" fill="#1D4ED8"/>
+  <text x="300" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">画像・デザイン生成</text>
+  <text x="228" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">アイキャッチ・素材販売</text>
+  <text x="228" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Canva・Midjourney</text>
+  <text x="228" y="126" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">デザイン知識不要</text>
+  <text x="228" y="148" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 初心者向け</text>
+
+  <!-- Card 3 -->
+  <rect x="404" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="404" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="404" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="492" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">動画・音声</text>
+  <text x="420" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">字幕・議事録・台本</text>
+  <text x="420" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Whisper等を活用</text>
+  <text x="420" y="126" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">継続依頼されやすい</text>
+  <text x="420" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">需要◎</text>
+</svg>

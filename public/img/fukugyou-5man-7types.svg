@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 412" role="img" aria-label="月5万円を目指しやすい副業7選">
+  <rect width="600" height="412" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">月5万円を目指しやすい副業7選</text>
+
+  <!-- Row 1 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">1</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">Webライティング（クラウドソーシング）</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">1文字0.5〜3円・日本語が書ければ参入可能</text>
+
+  <!-- Row 2 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">2</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">プログラミング・Web制作</text>
+  <text x="84" y="130" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">LP制作2〜3件で月5万・時給換算が高い</text>
+
+  <!-- Row 3 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">3</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">データ入力・事務系の在宅ワーク</text>
+  <text x="84" y="182" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">時給800〜1,200円・スキルよりも正確性が評価される</text>
+
+  <!-- Row 4 (highlighted) -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="222" r="18" fill="#1D4ED8"/>
+  <text x="52" y="227" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">4</text>
+  <text x="84" y="215" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ハンドメイド・物販（メルカリ・minne）</text>
+  <text x="84" y="234" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 趣味を収入に変える・初期費用を抑えやすい</text>
+
+  <!-- Row 5 -->
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="279" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">5</text>
+  <text x="84" y="267" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">動画編集</text>
+  <text x="84" y="286" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">1本3,000〜15,000円・需要が最も高い副業のひとつ</text>
+
+  <!-- Row 6 -->
+  <rect x="20" y="304" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="326" r="18" fill="#2563EB"/>
+  <text x="52" y="331" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">6</text>
+  <text x="84" y="319" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">オンライン家庭教師・コーチング</text>
+  <text x="84" y="338" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">時給1,500〜3,000円・得意分野を活かせる</text>
+
+  <!-- Row 7 -->
+  <rect x="20" y="356" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="378" r="18" fill="#2563EB"/>
+  <text x="52" y="383" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">7</text>
+  <text x="84" y="371" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">SNS運用代行・Webマーケティング</text>
+  <text x="84" y="390" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">1アカウント2万〜5万円/月・実績がポートフォリオになる</text>
+</svg>

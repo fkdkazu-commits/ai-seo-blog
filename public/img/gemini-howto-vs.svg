@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 188" role="img" aria-label="Gemini・ChatGPT・Copilotの比較">
+  <rect width="600" height="188" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">Gemini・ChatGPT・Copilot 主要比較</text>
+
+  <!-- Card 1: Gemini (highlighted) -->
+  <rect x="20" y="40" width="176" height="134" rx="10" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <rect x="20" y="40" width="176" height="32" rx="10" fill="#1D4ED8"/>
+  <rect x="20" y="58" width="176" height="14" fill="#1D4ED8"/>
+  <text x="108" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Gemini（Google）</text>
+  <text x="36" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">Google連携</text>
+  <text x="36" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Gmail・Driveと</text>
+  <text x="36" y="124" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">ネイティブ連携</text>
+  <text x="36" y="148" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 無料で最新検索</text>
+
+  <!-- Card 2: ChatGPT -->
+  <rect x="212" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="212" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="212" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="300" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">ChatGPT（OpenAI）</text>
+  <text x="228" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">汎用性・プラグイン</text>
+  <text x="228" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Web検索は有料版</text>
+  <text x="228" y="124" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">GPT-5モデル</text>
+  <text x="228" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif">プラグイン豊富</text>
+
+  <!-- Card 3: Copilot -->
+  <rect x="404" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="404" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="404" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="492" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Copilot（Microsoft）</text>
+  <text x="420" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">Microsoft系連携</text>
+  <text x="420" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Word・Excelと統合</text>
+  <text x="420" y="124" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Web検索対応</text>
+  <text x="420" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif">Office利用者向け</text>
+</svg>

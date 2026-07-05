@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="PC・スマホ別 Gemini初期設定手順">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">PC・スマホ別 Gemini初期設定手順</text>
+
+  <rect x="20" y="44" width="270" height="76" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="155" y="64" text-anchor="middle" fill="#1E40AF" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">PCブラウザ</text>
+  <text x="36" y="84" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif">① gemini.google.com を開く</text>
+  <text x="36" y="100" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif">② Googleアカウントでログイン</text>
+  <text x="36" y="116" fill="#64748B" font-size="10" font-family="'Noto Sans JP',sans-serif">追加登録・カード不要。即チャット開始</text>
+
+  <rect x="310" y="44" width="270" height="76" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="445" y="64" text-anchor="middle" fill="#1E40AF" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">スマホアプリ</text>
+  <text x="326" y="84" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif">① 「Google Gemini」アプリをインストール</text>
+  <text x="326" y="100" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif">② Googleアカウントでログイン</text>
+  <text x="326" y="116" fill="#64748B" font-size="10" font-family="'Noto Sans JP',sans-serif">音声入力・Gemini Liveで移動中も使える</text>
+
+  <rect x="20" y="132" width="560" height="36" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="150" r="14" fill="#1D4ED8"/>
+  <text x="52" y="155" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">共通</text>
+  <text x="78" y="145" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">「＋」ボタンから画像・PDFを添付して質問できる</text>
+  <text x="78" y="162" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ AndroidではGoogleアシスタントの代替として設定可能</text>
+
+  <rect x="20" y="176" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <text x="300" y="191" text-anchor="middle" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">所要時間：PCは3分・スマホは5分で使い始められる</text>
+  <text x="300" y="207" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Googleアカウントがあれば追加費用ゼロで今日から使える</text>
+</svg>

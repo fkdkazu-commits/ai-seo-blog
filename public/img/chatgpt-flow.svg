@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 412" role="img" aria-label="ChatGPT×ブログ収益化の7ステップ">
+  <rect width="600" height="412" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">ChatGPT×ブログ収益化：7ステップの全体像</text>
+
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">1</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ASP案件を先に選定する</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">収益化できるジャンルを確認してからブログを開設する</text>
+
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">2</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">WordPressブログを開設する</text>
+  <text x="84" y="130" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月額1,000円前後のレンタルサーバー＋独自ドメイン</text>
+
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="170" r="18" fill="#1D4ED8"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">3</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ChatGPTでキーワード選定・構成案・本文下書きを生成</text>
+  <text x="84" y="182" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 「下書き生成ツール」として使う（完成品生成ではない）</text>
+
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="227" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">4</text>
+  <text x="84" y="215" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">人間が体験談・ファクトチェック・リライトを加える</text>
+  <text x="84" y="234" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">E-E-A-T対応のポイント・数値と固有名詞を公式で確認</text>
+
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="279" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">5</text>
+  <text x="84" y="267" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">SEO内部対策を施して公開する</text>
+  <text x="84" y="286" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">タイトル・メタ・内部リンクを整えてインデックスリクエスト</text>
+
+  <rect x="20" y="304" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="326" r="18" fill="#2563EB"/>
+  <text x="52" y="331" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">6</text>
+  <text x="84" y="319" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">SEO流入が安定するまで3〜6ヶ月継続する</text>
+  <text x="84" y="338" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">最初の3ヶ月はゼロでも正常なプロセス</text>
+
+  <rect x="20" y="356" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="378" r="18" fill="#2563EB"/>
+  <text x="52" y="383" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">7</text>
+  <text x="84" y="371" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">サーチコンソールで反応を確認し、改善・拡張する</text>
+  <text x="84" y="390" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">クリックが取れている記事の周辺キーワードで拡張</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="副業で月5万円を達成するまでの期間">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">副業で月5万円を達成するまでの期間目安</text>
+
+  <!-- Row 1 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif" font-weight="700">A</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">スキルゼロから始める場合</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">目安：3〜6ヶ月（学習＋実績積み上げ期間を含む）</text>
+
+  <!-- Row 2 (highlighted) -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="118" r="18" fill="#1D4ED8"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif" font-weight="700">B</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">既存スキルを活かす場合</text>
+  <text x="84" y="130" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 目安：1〜2ヶ月（本業経験を副業に転用できる）</text>
+
+  <!-- Row 3 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="10" font-family="sans-serif" font-weight="700">C</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">クラウドソーシング案件に集中する場合</text>
+  <text x="84" y="182" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">目安：2〜4ヶ月（実績・評価の積み上げが鍵）</text>
+</svg>

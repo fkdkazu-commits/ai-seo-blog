@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 256" role="img" aria-label="Search Console 検索パフォーマンスの4指標">
+  <rect width="600" height="256" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">検索パフォーマンスレポートの4指標</text>
+
+  <rect x="20" y="40" width="270" height="96" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="155" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">合計クリック数</text>
+  <text x="36" y="90" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">検索→自サイトへクリックされた回数</text>
+  <text x="36" y="110" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">実際に流入したユーザー数の指標</text>
+
+  <rect x="310" y="40" width="270" height="96" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="310" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="445" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">合計表示回数</text>
+  <text x="326" y="90" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">検索結果にサイトが表示された回数</text>
+  <text x="326" y="110" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">認知度の指標・インデックス確認にも使える</text>
+
+  <rect x="20" y="148" width="270" height="96" rx="10" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <rect x="20" y="148" width="270" height="32" rx="10" fill="#1D4ED8"/>
+  <rect x="20" y="166" width="270" height="14" fill="#1D4ED8"/>
+  <text x="155" y="170" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">平均CTR ★改善ポイント</text>
+  <text x="36" y="198" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">クリック率（クリック÷表示回数）</text>
+  <text x="36" y="218" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">低い→タイトル・メタの改善で増やせる</text>
+
+  <rect x="310" y="148" width="270" height="96" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="148" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="310" y="166" width="270" height="14" fill="#2563EB"/>
+  <text x="445" y="170" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">平均掲載順位</text>
+  <text x="326" y="198" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Google検索での平均表示順位</text>
+  <text x="326" y="218" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">8〜20位はリライトの優先候補</text>
+</svg>

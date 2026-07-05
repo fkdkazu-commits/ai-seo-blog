@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 195" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="195" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">Claude Code 料金プラン選択フロー</text>
+  <!-- Card 1: x=20 -->
+  <rect x="20" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="46" y="54" width="124" height="26" rx="13" fill="#2563EB"/>
+  <text x="108" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">個人・入門</text>
+  <text x="108" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">Pro $20/月</text>
+  <text x="108" y="124" text-anchor="middle" fill="#64748B" font-size="11">週1〜2回の軽い利用</text>
+  <text x="108" y="142" text-anchor="middle" fill="#64748B" font-size="11">まず試すならここ</text>
+  <text x="108" y="161" text-anchor="middle" fill="#1D4ED8" font-size="11" font-weight="600">★ 入門の第一歩</text>
+  <!-- Card 2: x=212 -->
+  <rect x="212" y="40" width="176" height="140" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <rect x="238" y="54" width="124" height="26" rx="13" fill="#7C3AED"/>
+  <text x="300" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">本格開発</text>
+  <text x="300" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">Max 5x $100/月</text>
+  <text x="300" y="124" text-anchor="middle" fill="#64748B" font-size="11">週3回以上・利用制限到達</text>
+  <text x="300" y="142" text-anchor="middle" fill="#64748B" font-size="11">Opusモデル強化</text>
+  <text x="300" y="161" text-anchor="middle" fill="#1D4ED8" font-size="11" font-weight="600">★ 制限を感じたら移行</text>
+  <!-- Card 3: x=404 -->
+  <rect x="404" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="430" y="54" width="124" height="26" rx="13" fill="#059669"/>
+  <text x="492" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">チーム・企業</text>
+  <text x="492" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">Team $25/席〜</text>
+  <text x="492" y="124" text-anchor="middle" fill="#64748B" font-size="11">5名以上のチーム</text>
+  <text x="492" y="142" text-anchor="middle" fill="#64748B" font-size="11">管理機能・共有設定</text>
+  <text x="492" y="161" text-anchor="middle" fill="#64748B" font-size="11">50名超はEnterprise</text>
+</svg>

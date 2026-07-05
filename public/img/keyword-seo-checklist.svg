@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="キーワード選定 失敗パターン自己診断チェックリスト 3フェーズ">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">キーワード選定チェックリスト — 3フェーズで確認する</text>
+
+  <!-- フェーズ① 選定前 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">前</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">選定前チェック（2項目）</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">ブログのテーマと読者の悩み・検索タイミングを言語化できているか</text>
+
+  <!-- フェーズ② 選定中 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="118" r="18" fill="#1D4ED8"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">中</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">選定中チェック（8項目） ← ここが最重要</text>
+  <text x="84" y="130" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">ツール確認・競合分析・検索意図確認の8項目を全てクリアする</text>
+
+  <!-- フェーズ③ 選定後 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">後</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">選定後チェック（3項目）</text>
+  <text x="84" y="182" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">タイトル配置・見出しへの関連語・公開後のSC確認の予定を立てる</text>
+</svg>

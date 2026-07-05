@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="キーワード選定7ステップ（STEP4・5が勝負を決める）">
+  <rect width="600" height="400" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">キーワード選定7ステップ（STEP 4・5が勝敗を左右する）</text>
+
+  <!-- STEP 1 (normal) -->
+  <rect x="20" y="40" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="62" r="18" fill="#2563EB"/>
+  <text x="52" y="67" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">01</text>
+  <text x="84" y="57" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ブログのメインテーマ（軸KW）を決める</text>
+  <text x="84" y="75" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">テーマを1つに絞り、E-E-A-Tの専門性を高める</text>
+
+  <!-- STEP 2 (normal) -->
+  <rect x="20" y="90" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="112" r="18" fill="#2563EB"/>
+  <text x="52" y="117" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">02</text>
+  <text x="84" y="107" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ラッコKWでサジェストKWを一括抽出する</text>
+  <text x="84" y="125" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Googleの検索候補からユーザーのリアルな需要を把握する</text>
+
+  <!-- STEP 3 (normal) -->
+  <rect x="20" y="140" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="162" r="18" fill="#2563EB"/>
+  <text x="52" y="167" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">03</text>
+  <text x="84" y="157" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">KWプランナーで検索ボリュームを確認する</text>
+  <text x="84" y="175" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">無料版は概算値。ビッグ/ミドル/スモールの大まかな区別に使う</text>
+
+  <!-- STEP 4 (★ highlighted) -->
+  <rect x="20" y="190" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="212" r="18" fill="#1D4ED8"/>
+  <text x="52" y="217" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">04</text>
+  <text x="84" y="207" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ビッグ・ミドル・スモールに分類する</text>
+  <text x="84" y="225" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 初心者はスモールKW（月10〜1,000回）を最優先する</text>
+
+  <!-- STEP 5 (★ highlighted) -->
+  <rect x="20" y="240" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="262" r="18" fill="#1D4ED8"/>
+  <text x="52" y="267" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">05</text>
+  <text x="84" y="257" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">実際に検索して競合サイトを確認する</text>
+  <text x="84" y="275" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 個人ブログが上位3件以上いれば「戦える」と判断する</text>
+
+  <!-- STEP 6 (normal) -->
+  <rect x="20" y="290" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="312" r="18" fill="#2563EB"/>
+  <text x="52" y="317" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">06</text>
+  <text x="84" y="307" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">検索意図（Know/Do/Go/Buy）を確認する</text>
+  <text x="84" y="325" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">上位記事のタイプと自分の記事タイプを合わせる</text>
+
+  <!-- STEP 7 (normal) -->
+  <rect x="20" y="340" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="362" r="18" fill="#2563EB"/>
+  <text x="52" y="367" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">07</text>
+  <text x="84" y="357" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">対策KWと優先順位を決定する</text>
+  <text x="84" y="375" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">「まず書く記事リスト」として確定させる</text>
+</svg>

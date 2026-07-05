@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 256" role="img" aria-label="Gemini活用成熟度4ステージ">
+  <rect width="600" height="256" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">Gemini活用成熟度モデル：4つのステージ</text>
+
+  <!-- Row 1 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Lv1</text>
+  <text x="84" y="59" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">入門：チャット画面で質問するだけ</text>
+  <text x="84" y="78" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">次のアクション → PTCFプロンプトをメール1本で試す</text>
+
+  <!-- Row 2 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Lv2</text>
+  <text x="84" y="111" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">定着：プロンプトを工夫して精度を上げている</text>
+  <text x="84" y="130" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">次のアクション → GmailサイドパネルでGeminiを使う</text>
+
+  <!-- Row 3 (highlighted) -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="170" r="18" fill="#1D4ED8"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Lv3</text>
+  <text x="84" y="163" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">連携：Google Workspaceと業務フローに組み込んでいる</text>
+  <text x="84" y="182" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 次のアクション → Deep ResearchかGemsを1つ試す</text>
+
+  <!-- Row 4 -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="227" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Lv4</text>
+  <text x="84" y="215" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">自動化：Gems・Deep Researchで定型業務を半自動化</text>
+  <text x="84" y="234" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">次のアクション → 個人か法人Workspaceかを再点検する</text>
+</svg>

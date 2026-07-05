@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 268" role="img" aria-label="ブログPV改善 状況別の優先施策フロー">
+  <rect width="600" height="268" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">状況別の優先施策フロー（AならX・BならY形式）</text>
+
+  <!-- Q1 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="71" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Q1</text>
+  <text x="84" y="58" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">記事数は？</text>
+  <text x="84" y="76" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">30以下→技術設定 / 30〜100→ハック1+3 / 100以上→ハック5+6</text>
+
+  <!-- Q2 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="123" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Q2</text>
+  <text x="84" y="110" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">CTR1%未満の記事が3件以上ある？</text>
+  <text x="84" y="129" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">ある→ハック2を今週実施（1記事15分×7記事=2時間で完了）</text>
+
+  <!-- Q3 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="175" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Q3</text>
+  <text x="84" y="162" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">順位20位以内なのにPVが増えない？</text>
+  <text x="84" y="181" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">CTR良好→内部リンク（ハック3） / 順位20位以下→KW選定（ハック4）</text>
+
+  <!-- Q4 -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="227" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">Q4</text>
+  <text x="84" y="214" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">YMYL分野（お金・健康・法律）？</text>
+  <text x="84" y="233" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">はい→E-E-A-T対応が必須 / いいえ→ハック4+1を組み合わせて進める</text>
+</svg>

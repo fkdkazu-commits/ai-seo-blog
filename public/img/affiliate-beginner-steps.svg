@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" fill="#1E40AF" font-size="13" font-weight="700" text-anchor="middle">アフィリエイト始め方 5ステップ全体像</text>
+
+  <!-- Row 1: y=44 -->
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" fill="white" font-size="11" font-weight="700" text-anchor="middle">1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">WordPressブログを開設する</text>
+  <text x="84" y="79" fill="#64748B" font-size="11">サーバー＋ドメイン取得・クイックスタートで即日開設</text>
+
+  <!-- Row 2: y=96 -->
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" fill="white" font-size="11" font-weight="700" text-anchor="middle">2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">ジャンルとキーワードを選定する</text>
+  <text x="84" y="131" fill="#64748B" font-size="11">ロングテールKW（3語以上）狙いが初心者の正解</text>
+
+  <!-- Row 3: y=148 -->
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" fill="white" font-size="11" font-weight="700" text-anchor="middle">3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">ASPに登録して広告案件を取得する</text>
+  <text x="84" y="183" fill="#64748B" font-size="11">A8.net・もしも・バリューコマースに登録</text>
+
+  <!-- Row 4: y=200 (highlight) -->
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="226" fill="white" font-size="11" font-weight="700" text-anchor="middle">4</text>
+  <text x="84" y="217" fill="#1E293B" font-size="13" font-weight="700">記事を書いてアフィリエイトリンクを設置する</text>
+  <text x="84" y="235" fill="#1D4ED8" font-size="11" font-weight="600">PR表記（ステマ規制対応）を忘れずに</text>
+
+  <!-- Row 5: y=252 -->
+  <rect x="20" y="252" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="274" r="18" fill="#2563EB"/>
+  <text x="52" y="278" fill="white" font-size="11" font-weight="700" text-anchor="middle">5</text>
+  <text x="84" y="269" fill="#1E293B" font-size="13" font-weight="700">アクセス解析で改善を継続する</text>
+  <text x="84" y="287" fill="#64748B" font-size="11">サーチコンソールで週1チェック・11〜20位の記事を優先強化</text>
+</svg>

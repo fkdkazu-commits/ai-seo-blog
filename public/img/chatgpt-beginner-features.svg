@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 188" role="img" aria-label="ChatGPTが得意な3カテゴリ">
+  <rect width="600" height="188" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">ChatGPTが得意な3カテゴリ</text>
+
+  <rect x="20" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="108" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Asking（尋ねる）</text>
+  <text x="36" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">調べもの・疑問への回答</text>
+  <text x="36" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">全会話の約49%</text>
+  <text x="36" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif">最もよく使われる用途</text>
+
+  <rect x="212" y="40" width="176" height="134" rx="10" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <rect x="212" y="40" width="176" height="32" rx="10" fill="#1D4ED8"/>
+  <rect x="212" y="58" width="176" height="14" fill="#1D4ED8"/>
+  <text x="300" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Doing（実行する）</text>
+  <text x="228" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">メール・要約・翻訳</text>
+  <text x="228" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">プログラム作成も</text>
+  <text x="228" y="148" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 副業活用の中心</text>
+
+  <rect x="404" y="40" width="176" height="134" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="404" y="40" width="176" height="32" rx="10" fill="#2563EB"/>
+  <rect x="404" y="58" width="176" height="14" fill="#2563EB"/>
+  <text x="492" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Expressing（表現する）</text>
+  <text x="420" y="90" fill="#1E293B" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="700">文章添削・アイデア出し</text>
+  <text x="420" y="108" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">創作補助にも対応</text>
+  <text x="420" y="148" fill="#2563EB" font-size="11" font-family="'Noto Sans JP',sans-serif">創造的な用途</text>
+</svg>

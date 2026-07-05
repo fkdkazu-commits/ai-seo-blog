@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="E-E-A-T 4要素と記事への盛り込み方">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">E-E-A-T 4要素と記事への盛り込み方</text>
+
+  <rect x="20" y="44" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="62" r="14" fill="#2563EB"/>
+  <text x="52" y="67" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">経験</text>
+  <text x="78" y="57" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Experience：実体験・数値・スクリーンショットを提示する</text>
+  <text x="78" y="74" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">「〜と言われています」→「実施した結果〜でした」に変える</text>
+
+  <rect x="20" y="88" width="560" height="36" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="106" r="14" fill="#1D4ED8"/>
+  <text x="52" y="111" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">専門性</text>
+  <text x="78" y="101" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Expertise：著者プロフィール・一次情報リンクを明示する</text>
+  <text x="78" y="118" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 公的機関・学術論文・公式ドキュメントへのリンクが有効</text>
+
+  <rect x="20" y="132" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="150" r="14" fill="#2563EB"/>
+  <text x="52" y="155" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">権威性</text>
+  <text x="78" y="145" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Authoritativeness：業界での実績・被リンクを積み上げる</text>
+  <text x="78" y="162" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">メディア掲載・登壇実績・専門サイトからの引用が評価される</text>
+
+  <rect x="20" y="176" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="194" r="14" fill="#2563EB"/>
+  <text x="52" y="199" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">信頼性</text>
+  <text x="78" y="189" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Trustworthiness：情報の正確性・更新日・出典を明記する</text>
+  <text x="78" y="206" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">誤情報・古い情報は評価を著しく下げるため定期リライトが必要</text>
+</svg>

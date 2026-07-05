@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 256" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="256" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">インストール〜初回起動の4ステップ</text>
+  <rect x="20" y="44" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="66" r="18" fill="#2563EB"/>
+  <text x="52" y="70" text-anchor="middle" fill="white" font-size="11" font-weight="700">1</text>
+  <text x="84" y="61" fill="#1E293B" font-size="13" font-weight="700">前提環境の確認</text>
+  <text x="84" y="79" fill="#64748B" font-size="11">Node.js v18以上・macOS/Linux/WSL・Anthropicの有料アカウントを準備</text>
+  <rect x="20" y="96" width="560" height="44" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="118" r="18" fill="#2563EB"/>
+  <text x="52" y="122" text-anchor="middle" fill="white" font-size="11" font-weight="700">2</text>
+  <text x="84" y="113" fill="#1E293B" font-size="13" font-weight="700">npm install -g @anthropic-ai/claude-code</text>
+  <text x="84" y="131" fill="#1D4ED8" font-size="11" font-weight="600">npmでグローバルインストール。最新機能をすぐ使うならnpm推奨</text>
+  <rect x="20" y="148" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="170" r="18" fill="#2563EB"/>
+  <text x="52" y="174" text-anchor="middle" fill="white" font-size="11" font-weight="700">3</text>
+  <text x="84" y="165" fill="#1E293B" font-size="13" font-weight="700">プロジェクトディレクトリで claude を実行・ログイン</text>
+  <text x="84" y="183" fill="#64748B" font-size="11">初回はブラウザが開きAnthropicアカウント認証。以降は再ログイン不要</text>
+  <rect x="20" y="200" width="560" height="44" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="222" r="18" fill="#2563EB"/>
+  <text x="52" y="226" text-anchor="middle" fill="white" font-size="11" font-weight="700">4</text>
+  <text x="84" y="217" fill="#1E293B" font-size="13" font-weight="700">信頼確認とターミナル設定</text>
+  <text x="84" y="235" fill="#64748B" font-size="11">「Yes, proceed」でアクセス許可→推奨キーバインド設定を受け入れて完了</text>
+</svg>

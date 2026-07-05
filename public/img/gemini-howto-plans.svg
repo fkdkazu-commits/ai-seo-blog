@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" role="img" aria-label="Gemini 無料・有料プランの判断基準">
+  <rect width="600" height="220" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">Gemini プラン別 こんな人に向いている</text>
+
+  <rect x="20" y="44" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="62" r="14" fill="#2563EB"/>
+  <text x="52" y="67" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">無料</text>
+  <text x="78" y="57" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">無料版（0円）：週数回のメール下書き・要約・軽いアイデア出し</text>
+  <text x="78" y="74" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">15GB・3.2万トークン。まずここから試してみましょう</text>
+
+  <rect x="20" y="88" width="560" height="36" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="52" cy="106" r="14" fill="#1D4ED8"/>
+  <text x="52" y="111" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">Plus</text>
+  <text x="78" y="101" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">AI Plus（月725円）：毎日使いたい・NotebookLMも活用したい</text>
+  <text x="78" y="118" fill="#1D4ED8" font-size="11" font-family="'Noto Sans JP',sans-serif" font-weight="600">★ 週3回以上制限に当たるならここへ移行するのがおすすめ</text>
+
+  <rect x="20" y="132" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="150" r="14" fill="#2563EB"/>
+  <text x="52" y="155" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">Pro</text>
+  <text x="78" y="145" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">AI Pro（月2,900円）：長文PDF一括分析・Deep Research毎日</text>
+  <text x="78" y="162" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">5TB・100万トークン（日本語約50万文字分）</text>
+
+  <rect x="20" y="176" width="560" height="36" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="194" r="14" fill="#2563EB"/>
+  <text x="52" y="199" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">法人</text>
+  <text x="78" y="189" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">Workspace（法人）：顧客情報・社外秘データを扱う業務は必須</text>
+  <text x="78" y="206" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">個人プランでの業務利用は利用規約上のリスクがある</text>
+</svg>

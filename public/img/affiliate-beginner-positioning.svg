@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" fill="#1E40AF" font-size="13" font-weight="700" text-anchor="middle">ジャンル選びポジショニングマップ（縦：収益単価 / 横：競合強度）</text>
+
+  <!-- Card 1: 中級者向け (x=20, y=40) -->
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#0891B2"/>
+  <rect x="20" y="58" width="270" height="14" fill="#0891B2"/>
+  <text x="155" y="62" fill="white" font-size="12" font-weight="700" text-anchor="middle">中級者向け（高単価×競合弱〜中）</text>
+  <rect x="20" y="40" width="270" height="120" rx="10" fill="white" stroke="#BAE6FD" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#0891B2"/>
+  <rect x="20" y="58" width="270" height="14" fill="#0891B2"/>
+  <text x="155" y="62" fill="white" font-size="12" font-weight="700" text-anchor="middle">中級者向け（高単価×競合弱〜中）</text>
+  <text x="36" y="94" fill="#1E293B" font-size="12" font-weight="700">転職・人材紹介 / ウォーターサーバー</text>
+  <text x="36" y="113" fill="#64748B" font-size="11">脱毛（ニッチ特化）</text>
+  <text x="36" y="148" fill="#0891B2" font-size="11" font-weight="600">ある程度の実績・ドメイン力が必要</text>
+
+  <!-- Card 2: 上級者向け (x=310, y=40) -->
+  <rect x="310" y="40" width="270" height="120" rx="10" fill="white" stroke="#FECACA" stroke-width="1.5"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#DC2626"/>
+  <rect x="310" y="58" width="270" height="14" fill="#DC2626"/>
+  <text x="445" y="62" fill="white" font-size="12" font-weight="700" text-anchor="middle">上級者向け（高単価×競合最強）</text>
+  <text x="326" y="94" fill="#1E293B" font-size="12" font-weight="700">クレジットカード / FX・投資 / 保険</text>
+  <text x="326" y="113" fill="#64748B" font-size="11">大手メディア・公式サイトが上位独占</text>
+  <text x="326" y="148" fill="#DC2626" font-size="11" font-weight="600">初心者が参入しても上位表示はほぼ不可能</text>
+
+  <!-- Card 3: 初心者向け（推奨）(x=20, y=174) -->
+  <rect x="20" y="174" width="270" height="120" rx="10" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+  <rect x="20" y="174" width="270" height="32" rx="10" fill="#059669"/>
+  <rect x="20" y="192" width="270" height="14" fill="#059669"/>
+  <text x="155" y="196" fill="white" font-size="12" font-weight="700" text-anchor="middle">初心者向け（推奨）低単価×競合弱</text>
+  <text x="36" y="228" fill="#1E293B" font-size="12" font-weight="700">育児グッズ / 趣味×物販 / 地域特化</text>
+  <text x="36" y="247" fill="#64748B" font-size="11">月間検索数1,000〜30,000程度のKWを狙う</text>
+  <text x="36" y="282" fill="#059669" font-size="11" font-weight="600">個人ブログが上位に入りやすい穴場ジャンル</text>
+
+  <!-- Card 4: 非推奨 (x=310, y=174) -->
+  <rect x="310" y="174" width="270" height="120" rx="10" fill="white" stroke="#FDE68A" stroke-width="1.5"/>
+  <rect x="310" y="174" width="270" height="32" rx="10" fill="#D97706"/>
+  <rect x="310" y="192" width="270" height="14" fill="#D97706"/>
+  <text x="445" y="196" fill="white" font-size="12" font-weight="700" text-anchor="middle">非推奨（低単価×競合強）</text>
+  <text x="326" y="228" fill="#1E293B" font-size="12" font-weight="700">ファッション全般 / 美容全般</text>
+  <text x="326" y="247" fill="#64748B" font-size="11">Amazon全般（物販単価が低すぎる）</text>
+  <text x="326" y="282" fill="#D97706" font-size="11" font-weight="600">低単価＋高競合の最悪パターン</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="240" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">実際の使用者の声：2つの事例</text>
+  <!-- Case 1 -->
+  <rect x="20" y="40" width="560" height="84" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="4" height="84" rx="2" fill="#2563EB"/>
+  <text x="40" y="62" fill="#1E293B" font-size="13" font-weight="700">ケース1：HOKUTO社エンジニア（使用3週間）</text>
+  <text x="40" y="82" fill="#64748B" font-size="11">音声入力で指示速度3倍・権限設計で安全性確保。「音声は150〜200語/分、</text>
+  <text x="40" y="98" fill="#64748B" font-size="11">タイピングの約3倍の速度。背景・理由・期待結果を自然に含めて話せる」</text>
+  <text x="40" y="114" fill="#1D4ED8" font-size="11" font-weight="600">→ 3週間で実務ワークフローを確立（出典：Zenn HOKUTO Tech Blog）</text>
+  <!-- Case 2 -->
+  <rect x="20" y="136" width="560" height="84" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <rect x="20" y="136" width="4" height="84" rx="2" fill="#2563EB"/>
+  <text x="40" y="158" fill="#1E293B" font-size="13" font-weight="700">ケース2：NekoByte氏（使用半年）</text>
+  <text x="40" y="178" fill="#64748B" font-size="11">「週1回AI無し開発日」ルールで基礎力を維持。AIレビュー依頼で心理的</text>
+  <text x="40" y="194" fill="#64748B" font-size="11">ハードルが低下し、学習効果という副次的メリットも確認</text>
+  <text x="40" y="210" fill="#1D4ED8" font-size="11" font-weight="600">→ 半年で働き方が変わった体験談（出典：Qiita NekoByte）</text>
+</svg>

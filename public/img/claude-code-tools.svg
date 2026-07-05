@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 195" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">
+  <rect width="600" height="195" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-weight="700">3ツールの役割分担：使い分けの判断基準</text>
+  <!-- Card 1: GitHub Copilot x=20 -->
+  <rect x="20" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="46" y="54" width="124" height="26" rx="13" fill="#0891B2"/>
+  <text x="108" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">GitHub Copilot</text>
+  <text x="108" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">$10/月〜</text>
+  <text x="108" y="124" text-anchor="middle" fill="#64748B" font-size="11">インライン補完が目的</text>
+  <text x="108" y="142" text-anchor="middle" fill="#64748B" font-size="11">タイピング中の即提案</text>
+  <text x="108" y="161" text-anchor="middle" fill="#64748B" font-size="11">GH Enterprise連携有利</text>
+  <!-- Card 2: Cursor x=212 -->
+  <rect x="212" y="40" width="176" height="140" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="238" y="54" width="124" height="26" rx="13" fill="#7C3AED"/>
+  <text x="300" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">Cursor</text>
+  <text x="300" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">IDEから離れない</text>
+  <text x="300" y="124" text-anchor="middle" fill="#64748B" font-size="11">視覚的なDiff確認</text>
+  <text x="300" y="142" text-anchor="middle" fill="#64748B" font-size="11">補完＋チャット統合</text>
+  <text x="300" y="161" text-anchor="middle" fill="#64748B" font-size="11">GUI重視のチーム向け</text>
+  <!-- Card 3: Claude Code x=404 -->
+  <rect x="404" y="40" width="176" height="140" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <rect x="430" y="54" width="124" height="26" rx="13" fill="#2563EB"/>
+  <text x="492" y="71" text-anchor="middle" fill="white" font-size="11" font-weight="700">Claude Code ★</text>
+  <text x="492" y="104" text-anchor="middle" fill="#1E293B" font-size="13" font-weight="700">タスク委譲型</text>
+  <text x="492" y="124" text-anchor="middle" fill="#1D4ED8" font-size="11" font-weight="600">大規模変更・設計相談</text>
+  <text x="492" y="142" text-anchor="middle" fill="#1D4ED8" font-size="11" font-weight="600">Issue→PR自動化</text>
+  <text x="492" y="161" text-anchor="middle" fill="#64748B" font-size="11">エージェント動作が必要</text>
+</svg>
