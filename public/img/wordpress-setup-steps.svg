@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 515" role="img" aria-label="WordPressブログ開設4ステップのフロー図">
+  <defs>
+    <filter id="card-shadow" x="-4%" y="-4%" width="108%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1E40AF" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="515" rx="14" fill="#EFF6FF"/>
+
+  <!-- Title -->
+  <text x="300" y="32" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">WordPressブログ開設フロー（所要時間：10〜30分）</text>
+
+  <!-- ── Step 1 ── -->
+  <rect x="24" y="46" width="552" height="84" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <circle cx="72" cy="88" r="24" fill="#2563EB"/>
+  <text x="72" y="83" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">STEP</text>
+  <text x="72" y="98" text-anchor="middle" fill="white" font-size="16" font-family="sans-serif" font-weight="700">1</text>
+  <text x="112" y="81" fill="#1E293B" font-size="15" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">レンタルサーバーを契約する</text>
+  <text x="112" y="103" fill="#64748B" font-size="12" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">エックスサーバー・ConoHa WINGなどから選ぶ</text>
+
+  <!-- Arrow 1 -->
+  <path d="M297 132 L297 152 L290 152 L300 166 L310 152 L303 152 L303 132 Z" fill="#2563EB"/>
+
+  <!-- ── Step 2 ── -->
+  <rect x="24" y="168" width="552" height="84" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <circle cx="72" cy="210" r="24" fill="#2563EB"/>
+  <text x="72" y="205" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">STEP</text>
+  <text x="72" y="220" text-anchor="middle" fill="white" font-size="16" font-family="sans-serif" font-weight="700">2</text>
+  <text x="112" y="203" fill="#1E293B" font-size="15" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">独自ドメインを取得する</text>
+  <text x="112" y="225" fill="#64748B" font-size="12" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">example.com のようなブログ専用のURLを取得</text>
+
+  <!-- Arrow 2 -->
+  <path d="M297 254 L297 274 L290 274 L300 288 L310 274 L303 274 L303 254 Z" fill="#2563EB"/>
+
+  <!-- ── Step 3 ── -->
+  <rect x="24" y="290" width="552" height="84" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <circle cx="72" cy="332" r="24" fill="#2563EB"/>
+  <text x="72" y="327" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">STEP</text>
+  <text x="72" y="342" text-anchor="middle" fill="white" font-size="16" font-family="sans-serif" font-weight="700">3</text>
+  <text x="112" y="325" fill="#1E293B" font-size="15" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">ドメインを紐付け・WordPressをインストール</text>
+  <text x="112" y="347" fill="#64748B" font-size="12" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">かんたんセットアップ機能で1画面からまとめて完了</text>
+
+  <!-- Arrow 3 -->
+  <path d="M297 376 L297 396 L290 396 L300 410 L310 396 L303 396 L303 376 Z" fill="#2563EB"/>
+
+  <!-- ── Step 4 ── -->
+  <rect x="24" y="412" width="552" height="84" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5" filter="url(#card-shadow)"/>
+  <circle cx="72" cy="454" r="24" fill="#2563EB"/>
+  <text x="72" y="449" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif" font-weight="700">STEP</text>
+  <text x="72" y="464" text-anchor="middle" fill="white" font-size="16" font-family="sans-serif" font-weight="700">4</text>
+  <text x="112" y="447" fill="#1E293B" font-size="15" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">パーマリンクなど最低限の初期設定を行う</text>
+  <text x="112" y="469" fill="#64748B" font-size="12" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif">記事を書き始める前に必ず完了させる設定</text>
+</svg>
