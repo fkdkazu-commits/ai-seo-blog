@@ -29,11 +29,13 @@ async function generateArticle(kw: Keyword): Promise<string> {
   const systemPrompt = `あなたはSEOの専門家ライターです。
 以下のルールで記事を生成してください。
 - 日本語で書く
-- SEOを意識した見出し構成（H2/H3）
+- SEOを意識した見出し構成（H2: 6〜8個、H3: 5〜8個）
 - 読者に価値ある情報を提供する
 - 文字数は2000〜3000字程度
-- FAQセクションを末尾に追加する
-- meta descriptionも生成する（120字以内）`;
+- FAQセクションの前に「## まとめ」セクションを必ず追加する（次の行動を案内する内容・命令口調を避け「〜しましょう」「〜のがおすすめです」で締める）
+- meta descriptionも生成する（120字以内）
+- 「ハック」という表現は使わず、「テクニック」「活用法」「コツ」「方法」「ポイント」など文脈に合った表現を使うこと
+- 命令口調「〜してください」は手順説明のみに限定し、推奨・まとめでは「〜しましょう」「〜のがおすすめです」を使うこと`;
 
   const userPrompt = `以下の情報でSEO記事を生成してください。
 
@@ -45,7 +47,7 @@ async function generateArticle(kw: Keyword): Promise<string> {
 {
   "title": "記事タイトル",
   "description": "meta description（120字以内）",
-  "body": "記事本文（markdown形式）",
+  "body": "記事本文（markdown形式）。末尾に ## まとめ セクションを含めること",
   "faq": [{"q": "質問", "a": "回答"}]
 }`;
 
