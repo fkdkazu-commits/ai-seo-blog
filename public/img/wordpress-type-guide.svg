@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 308" role="img" aria-label="タイプ別スタートガイド">
+  <rect width="600" height="308" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">あなたはどのタイプ？ スタート方針を決めよう</text>
+
+  <!-- Card 1: 収益化優先（左上） -->
+  <rect x="20" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="40" width="270" height="32" rx="10" fill="#2563EB"/>
+  <rect x="20" y="58" width="270" height="14" fill="#2563EB"/>
+  <text x="155" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">収益化を最優先したい</text>
+  <text x="36" y="94" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ WordPress.org ＋ ASP登録</text>
+  <text x="36" y="113" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">独自ドメインとASPを開設初週に準備</text>
+  <text x="36" y="148" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">収益に直結する設定を最初に固める</text>
+
+  <!-- Card 2: 発信メイン（右上） -->
+  <rect x="310" y="40" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="40" width="270" height="32" rx="10" fill="#0891B2"/>
+  <rect x="310" y="58" width="270" height="14" fill="#0891B2"/>
+  <text x="445" y="62" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">記録・発信をメインにしたい</text>
+  <text x="326" y="94" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ 無料テーマ ＋ 記事本数優先</text>
+  <text x="326" y="113" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">Cocoonで開設し収益設定は後回し</text>
+  <text x="326" y="148" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">発信の習慣づくりを最優先にする</text>
+
+  <!-- Card 3: 会社バレ防止（左下） -->
+  <rect x="20" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="20" y="174" width="270" height="32" rx="10" fill="#7C3AED"/>
+  <rect x="20" y="192" width="270" height="14" fill="#7C3AED"/>
+  <text x="155" y="196" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">会社にバレずに始めたい</text>
+  <text x="36" y="228" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ 普通徴収 ＋ 就業規則を確認</text>
+  <text x="36" y="247" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">住民税を自分で納付する設定を選択</text>
+  <text x="36" y="282" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">開設前に会社の就業規則を確認する</text>
+
+  <!-- Card 4: スマホのみ（右下） -->
+  <rect x="310" y="174" width="270" height="120" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="310" y="174" width="270" height="32" rx="10" fill="#059669"/>
+  <rect x="310" y="192" width="270" height="14" fill="#059669"/>
+  <text x="445" y="196" text-anchor="middle" fill="white" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">スマホのみで作業したい</text>
+  <text x="326" y="228" fill="#1E293B" font-size="12" font-family="'Noto Sans JP',sans-serif" font-weight="700">→ かんたんセットアップ対応サーバー</text>
+  <text x="326" y="247" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">下書きはスマホ・公開作業はPCが効率的</text>
+  <text x="326" y="282" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">スマホ対応サーバーを最初に選ぶ</text>
+</svg>

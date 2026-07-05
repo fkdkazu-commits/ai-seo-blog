@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" role="img" aria-label="WordPress開設に必要な3つの準備">
+  <rect width="600" height="200" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">WordPress開設に必要な3つの準備</text>
+
+  <!-- Card 1: サーバー -->
+  <rect x="20" y="40" width="176" height="145" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="108" cy="82" r="26" fill="#2563EB"/>
+  <text x="108" y="78" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">サーバー</text>
+  <text x="108" y="91" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">契約</text>
+  <text x="108" y="120" text-anchor="middle" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">レンタルサーバー</text>
+  <text x="108" y="139" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">月額1,000円前後</text>
+  <text x="108" y="157" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">エックスサーバー等</text>
+
+  <!-- Card 2: テーマ -->
+  <rect x="212" y="40" width="176" height="145" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="300" cy="82" r="26" fill="#2563EB"/>
+  <text x="300" y="78" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">テーマ</text>
+  <text x="300" y="91" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">選択</text>
+  <text x="300" y="120" text-anchor="middle" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">WordPressテーマ</text>
+  <text x="300" y="139" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">無料〜買い切り</text>
+  <text x="300" y="157" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">Cocoon（無料）が定番</text>
+
+  <!-- Card 3: ASP -->
+  <rect x="404" y="40" width="176" height="145" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="492" cy="82" r="26" fill="#2563EB"/>
+  <text x="492" y="78" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">ASP</text>
+  <text x="492" y="91" text-anchor="middle" fill="white" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">登録</text>
+  <text x="492" y="120" text-anchor="middle" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">ASP登録</text>
+  <text x="492" y="139" text-anchor="middle" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">登録無料</text>
+  <text x="492" y="157" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">A8.net / もしもAFF</text>
+</svg>

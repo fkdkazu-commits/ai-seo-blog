@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" role="img" aria-label="副業ブログ開始前チェックリストの概要">
+  <rect width="600" height="120" rx="14" fill="#EFF6FF"/>
+
+  <!-- Left: Label -->
+  <text x="32" y="44" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">開設前チェック</text>
+  <text x="32" y="65" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">7項目を確認して</text>
+  <text x="32" y="81" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">5個以上でGO！</text>
+
+  <!-- 7 check circles: filled (blue) for 1-5, empty for 6-7 -->
+  <!-- Circle positions: cx = 180 + i*50, cy=60, r=22 -->
+
+  <!-- Check 1 (filled) -->
+  <circle cx="180" cy="60" r="22" fill="#2563EB"/>
+  <text x="180" y="56" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="180" y="69" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">1</text>
+
+  <!-- Check 2 (filled) -->
+  <circle cx="234" cy="60" r="22" fill="#2563EB"/>
+  <text x="234" y="56" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="234" y="69" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">2</text>
+
+  <!-- Check 3 (filled) -->
+  <circle cx="288" cy="60" r="22" fill="#2563EB"/>
+  <text x="288" y="56" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="288" y="69" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">3</text>
+
+  <!-- Check 4 (filled) -->
+  <circle cx="342" cy="60" r="22" fill="#2563EB"/>
+  <text x="342" y="56" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="342" y="69" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">4</text>
+
+  <!-- Check 5 (filled) -->
+  <circle cx="396" cy="60" r="22" fill="#2563EB"/>
+  <text x="396" y="56" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="396" y="69" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">5</text>
+
+  <!-- Check 6 (empty) -->
+  <circle cx="450" cy="60" r="22" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <text x="450" y="56" text-anchor="middle" fill="#CBD5E1" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="450" y="69" text-anchor="middle" fill="#CBD5E1" font-size="14" font-family="sans-serif" font-weight="700">6</text>
+
+  <!-- Check 7 (empty) -->
+  <circle cx="504" cy="60" r="22" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <text x="504" y="56" text-anchor="middle" fill="#CBD5E1" font-size="9" font-family="sans-serif">チェック</text>
+  <text x="504" y="69" text-anchor="middle" fill="#CBD5E1" font-size="14" font-family="sans-serif" font-weight="700">7</text>
+
+  <!-- GO badge -->
+  <rect x="534" y="38" width="50" height="44" rx="8" fill="#16A34A"/>
+  <text x="559" y="57" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">5/7</text>
+  <text x="559" y="73" text-anchor="middle" fill="white" font-size="11" font-family="sans-serif" font-weight="700">GO!</text>
+
+  <!-- Progress dots row -->
+  <text x="300" y="106" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">5個以上にチェックがついたら開設作業を始めましょう</text>
+</svg>

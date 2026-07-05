@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 244" role="img" aria-label="開設1〜3ヶ月のPV推移イメージ">
+  <rect width="600" height="244" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="26" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">開設1〜3ヶ月のPV推移イメージ</text>
+
+  <!-- Chart card -->
+  <rect x="20" y="38" width="560" height="180" rx="10" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+
+  <!-- Y-axis guide lines -->
+  <line x1="84" y1="62" x2="556" y2="62" stroke="#F1F5F9" stroke-width="1"/>
+  <line x1="84" y1="96" x2="556" y2="96" stroke="#F1F5F9" stroke-width="1"/>
+  <line x1="84" y1="130" x2="556" y2="130" stroke="#F1F5F9" stroke-width="1"/>
+  <line x1="84" y1="164" x2="556" y2="164" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Y-axis labels (scale: 0–1300PV across 102px) -->
+  <text x="78" y="168" text-anchor="end" fill="#94A3B8" font-size="9" font-family="sans-serif">0</text>
+  <text x="78" y="134" text-anchor="end" fill="#94A3B8" font-size="9" font-family="sans-serif">400</text>
+  <text x="78" y="100" text-anchor="end" fill="#94A3B8" font-size="9" font-family="sans-serif">800</text>
+  <text x="78" y="66" text-anchor="end" fill="#94A3B8" font-size="9" font-family="sans-serif">1,200</text>
+
+  <!-- Bar 1: 1ヶ月目 ~50PV → h≈4 (show min 6) -->
+  <rect x="130" y="158" width="80" height="6" rx="3" fill="#93C5FD"/>
+  <text x="170" y="153" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">〜数十</text>
+
+  <!-- Bar 2: 2ヶ月目 ~300PV → h=(300/1300)*102≈24 top=164-24=140 -->
+  <rect x="260" y="140" width="80" height="24" rx="3" fill="#3B82F6"/>
+  <text x="300" y="135" text-anchor="middle" fill="#3B82F6" font-size="10" font-family="'Noto Sans JP',sans-serif">〜300</text>
+
+  <!-- Bar 3: 3ヶ月目 ~1000PV → h=(1000/1300)*102≈78 top=164-78=86 -->
+  <rect x="390" y="86" width="80" height="78" rx="3" fill="#2563EB"/>
+  <text x="430" y="81" text-anchor="middle" fill="#2563EB" font-size="10" font-family="'Noto Sans JP',sans-serif" font-weight="700">900〜1,300</text>
+
+  <!-- X-axis month labels -->
+  <text x="170" y="183" text-anchor="middle" fill="#64748B" font-size="12" font-family="'Noto Sans JP',sans-serif">1ヶ月目</text>
+  <text x="300" y="183" text-anchor="middle" fill="#64748B" font-size="12" font-family="'Noto Sans JP',sans-serif">2ヶ月目</text>
+  <text x="430" y="183" text-anchor="middle" fill="#64748B" font-size="12" font-family="'Noto Sans JP',sans-serif">3ヶ月目</text>
+
+  <!-- Footer note -->
+  <text x="300" y="230" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="'Noto Sans JP',sans-serif">※ 目安の数値です。開設後1〜2ヶ月はPVがほぼゼロの時期が続くのが普通です</text>
+</svg>

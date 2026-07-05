@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 232" role="img" aria-label="開設時に済ませる3つの設定">
+  <rect width="600" height="232" rx="14" fill="#EFF6FF"/>
+  <text x="300" y="28" text-anchor="middle" fill="#1E40AF" font-size="13" font-family="'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif" font-weight="700">開設時に済ませる3つの設定</text>
+
+  <!-- Row 1: WordPress.org -->
+  <rect x="20" y="44" width="560" height="52" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="70" r="18" fill="#2563EB"/>
+  <text x="52" y="75" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">①</text>
+  <text x="84" y="64" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">WordPress.orgを選ぶ</text>
+  <text x="84" y="83" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">「.com」（無料ブログ版）と混同しないよう注意</text>
+
+  <!-- Row 2: パーマリンク -->
+  <rect x="20" y="106" width="560" height="52" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="132" r="18" fill="#2563EB"/>
+  <text x="52" y="137" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">②</text>
+  <text x="84" y="126" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">パーマリンクを「投稿名」形式に設定する</text>
+  <text x="84" y="145" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">記事を書く前に1回だけ設定。後から変更するとURLが壊れる</text>
+
+  <!-- Row 3: SSL・ドメイン -->
+  <rect x="20" y="168" width="560" height="52" rx="8" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
+  <circle cx="52" cy="194" r="18" fill="#2563EB"/>
+  <text x="52" y="199" text-anchor="middle" fill="white" font-size="14" font-family="sans-serif" font-weight="700">③</text>
+  <text x="84" y="188" fill="#1E293B" font-size="13" font-family="'Noto Sans JP',sans-serif" font-weight="700">独自ドメインを選び https:// を確認する</text>
+  <text x="84" y="207" fill="#64748B" font-size="11" font-family="'Noto Sans JP',sans-serif">初期ドメインを選ぶとSSL設定でつまずく原因になる</text>
+</svg>
