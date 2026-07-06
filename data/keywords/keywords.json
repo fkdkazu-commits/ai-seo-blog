@@ -227,5 +227,12 @@
       "SNS"
     ],
     "generated": false
+  },
+  {
+    "keyword": "シニア犬 フード",
+    "intent": "シニア犬 フードについて調べている人",
+    "target": "一般ユーザー",
+    "tags": [],
+    "generated": false
   }
 ]
