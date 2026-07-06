@@ -139,6 +139,14 @@
     .tags-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .tags-list span { font-size: 0.75rem; background: #fff; border: 1px solid #e5e7eb; color: #4b5563; padding: 0.2em 0.75em; border-radius: 9999px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
 
+    /* 参考文献 */
+    .ref-section { margin: 2.5rem 0 1.5rem; padding: 1.25rem 1.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem; }
+    .ref-section-title { font-size: 0.75rem; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; }
+    .ref-list { list-style: decimal; padding-left: 1.5rem; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .ref-list li { font-size: 0.78rem; color: #6b7280; line-height: 1.6; }
+    .ref-list a { color: #3b82f6; text-decoration: none; word-break: break-all; }
+    .ref-list a:hover { text-decoration: underline; }
+
     @media (max-width: 640px) {
       .page { padding: 1.5rem 1rem 4rem; }
       h1.art-title { font-size: 1.25rem; }
@@ -203,8 +211,8 @@
 
     <div class="art-body" id="article-body">
 
-      <p>7歳を過ぎた犬の代謝は、成犬期比で約20%低下します。そのため、同じフードを与え続けるとカロリー過剰と筋肉量の減少が同時に進み、体重増加・関節の硬直・消化不良へとつながります。</p>
-      <p>これらの多くは、フードの切り替えで改善できます。シニア犬に必要なタンパク質の目安は体重1kgあたり2.55〜3.95g。脂質とカロリーは抑えながら、タンパク質は成犬期より多く確保するのが基本です。</p>
+      <p>7歳を過ぎた犬の代謝は、成犬期比で<a href="https://ks-online.jp/blogs/tips/6-7%E6%AD%B3%E3%81%AF-%E3%83%97%E3%83%AC%E3%82%B7%E3%83%8B%E3%82%A2%E6%9C%9F-%E5%85%83%E6%B0%97%E3%81%A7%E9%95%B7%E7%94%9F%E3%81%8D%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E7%9F%A5%E3%81%A3%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E8%80%81%E5%8C%96%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%B3%E3%81%A8%E3%82%B1%E3%82%A2-%E7%8D%A3%E5%8C%BB%E5%B8%AB%E3%82%A2%E3%83%89%E3%83%90%E3%82%A4%E3%82%B9" target="_blank" rel="noopener">約20%低下</a>します。そのため、同じフードを与え続けるとカロリー過剰と筋肉量の減少が同時に進み、体重増加・関節の硬直・消化不良へとつながります。</p>
+      <p>これらの多くは、フードの切り替えで改善できます。シニア犬に必要な<a href="https://rubigohan.com/dog-protein/" target="_blank" rel="noopener">タンパク質の目安は体重1kgあたり2.55〜3.95g</a>。脂質とカロリーは抑えながら、タンパク質は成犬期より多く確保するのが基本です。</p>
       <p>まず手元のフードの成分表を確認することが、健康寿命を延ばす出発点になります。</p>
 
       <h2>シニア犬の体に起きる変化と栄養ニーズの転換</h2>
@@ -239,7 +247,7 @@
           </tbody>
         </table>
       </div>
-      <p>タンパク質を高めに設定する理由は筋肉量の維持にあります。腎機能が正常な犬に対してタンパク質制限は必要ありません。1日の維持カロリーは体重（kg）の0.75乗×70×0.8〜1.0で算出でき、体重5kgのシニア犬であれば約190〜240 kcal/日が目安です。</p>
+      <p>タンパク質を高めに設定する理由は筋肉量の維持にあります。腎機能が正常な犬に対してタンパク質制限は必要ありません。1日の維持カロリーは体重（kg）の0.75乗×70×0.8〜1.0で算出でき、体重5kgのシニア犬であれば約190〜240 kcal/日が目安です。<small style="color:#9ca3af;font-size:0.75rem;">（目安値は<a href="https://bv-foodtesting.jp/column/231120.html" target="_blank" rel="noopener">AAFCO栄養基準</a>・<a href="https://www.env.go.jp/nature/dobutsu/aigo/2_data/pamph/petfood_guide/pdf/full.pdf" target="_blank" rel="noopener">環境省ペットフード・ガイドライン</a>参考）</small></p>
 
       <h3>成分表の読み方と避けるべき原材料</h3>
       <p>フードの成分表は重量順に原材料が並んでいます。最初の3〜4品目がフードの主成分です。</p>
@@ -277,7 +285,7 @@
           </tbody>
         </table>
       </div>
-      <p>11歳以上になるとリン（P）の摂りすぎが腎臓に負担をかけるリスクが高まります。リン含量が0.6%以下のフードを選ぶのが安全です。</p>
+      <p>11歳以上になるとリン（P）の摂りすぎが腎臓に負担をかけるリスクが高まります。<a href="https://www.purinainstitute.com/ja/centresquare/therapeutic-nutrition/chronic-kidney-disease-ckd-in-dogs" target="_blank" rel="noopener">リン含量が0.6%以下のフード</a>を選ぶのが安全です。</p>
 
       <h2>よくある失敗パターンと見直しポイント</h2>
       <p>シニア犬のフード選びでよくある失敗は主に2つあります。どちらも「問題ない」と思ってしまいがちなケースで、気づかないうちに体への負担が積み重なっています。</p>
@@ -303,7 +311,7 @@
       <div class="flow-list">
         <div class="flow-card">
           <span class="flow-label">関節疾患</span>
-          <p>グルコサミン1,000mg/kg以上・EPA+DHAが1.5〜2.5%配合されたフードを選びましょう。カロリーは維持カロリーの90%に抑えるのがおすすめです。</p>
+          <p><a href="https://www.jstage.jst.go.jp/article/jpan/27/2/27_134/_article/-char/ja" target="_blank" rel="noopener">グルコサミン1,000mg/kg以上</a>・EPA+DHAが1.5〜2.5%配合されたフードを選びましょう。カロリーは維持カロリーの90%に抑えるのがおすすめです。</p>
         </div>
         <div class="flow-card">
           <span class="flow-label">慢性腎臓病（CKD）</span>
@@ -414,6 +422,18 @@
       </ol>
       <p>この3点が揃っていれば、今のフードを継続しながら定期的な体重測定と血液検査でモニタリングするのがおすすめです。1つでも外れているなら、本記事のマトリクスと判断フローを使ってフードを選び直しましょう。年齢・体格・健康状態に合ったフードへの切り替えが、10歳以降の生活の質を大きく左右します。</p>
 
+    </div>
+
+    <div class="ref-section">
+      <div class="ref-section-title">参考文献・出典</div>
+      <ol class="ref-list">
+        <li>MERIEUX NUTRISCIENCES JAPAN「グローバルで採用されているAAFCO栄養基準」― <a href="https://bv-foodtesting.jp/column/231120.html" target="_blank" rel="noopener">bv-foodtesting.jp/column/231120.html</a></li>
+        <li>環境省「飼い主のためのペットフード・ガイドライン〜犬・猫の健康を守るために〜」― <a href="https://www.env.go.jp/nature/dobutsu/aigo/2_data/pamph/petfood_guide/pdf/full.pdf" target="_blank" rel="noopener">env.go.jp …/petfood_guide/pdf/full.pdf</a></li>
+        <li>Purina Institute「犬の慢性腎臓病（CKD）― 治療的栄養」― <a href="https://www.purinainstitute.com/ja/centresquare/therapeutic-nutrition/chronic-kidney-disease-ckd-in-dogs" target="_blank" rel="noopener">purinainstitute.com/ja/.../chronic-kidney-disease-ckd-in-dogs</a></li>
+        <li>ペット栄養学会誌 27巻2号（2024）「ペットフードで使用される主なグリコサミノグリカン、DHA・EPA源原料」― <a href="https://www.jstage.jst.go.jp/article/jpan/27/2/27_134/_article/-char/ja" target="_blank" rel="noopener">J-STAGE jpan/27/2/27_134</a></li>
+        <li>るびごはん（犬の栄養学）「タンパク質の基準値と実際に与えるべき量【シニア犬は腎臓病に要注意】」― <a href="https://rubigohan.com/dog-protein/" target="_blank" rel="noopener">rubigohan.com/dog-protein/</a></li>
+        <li>いぬのきもちWEB MAGAZINE「犬は『7才からシニア』といわれているけれど実際は？」― <a href="https://dog.benesse.ne.jp/withdog/content/?id=216051" target="_blank" rel="noopener">dog.benesse.ne.jp/withdog/content/?id=216051</a></li>
+      </ol>
     </div>
 
     <div class="share-section">
