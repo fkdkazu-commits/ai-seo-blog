@@ -151,6 +151,19 @@
     "generated": true
   },
   {
+    "keyword": "シニア犬 フード",
+    "slug": "senior-dog-food",
+    "intent": "シニア犬に適したフードの選び方・成分・おすすめを知りたい",
+    "target": "7歳以上のシニア犬を飼育している30〜60代の飼い主",
+    "tags": [
+      "老犬 フード",
+      "シニア犬 おすすめ",
+      "高齢犬 食事",
+      "シニア犬 タンパク質"
+    ],
+    "generated": true
+  },
+  {
     "keyword": "AI ライティング ツール 比較",
     "slug": "ai-writing-tools",
     "intent": "AI文章生成ツールの種類・違い・選び方を比較したい",
@@ -226,13 +239,6 @@
       "副業",
       "SNS"
     ],
-    "generated": false
-  },
-  {
-    "keyword": "シニア犬 フード",
-    "intent": "シニア犬 フードについて調べている人",
-    "target": "一般ユーザー",
-    "tags": [],
     "generated": false
   }
 ]

@@ -147,6 +147,13 @@ async function waitForInputBox(page: Page, timeoutMs = 300_000): Promise<void> {
 }
 
 async function submitPrompt(page: Page, promptText: string): Promise<void> {
+  // 動画・モーダル等のオーバーレイをEscapeで閉じる
+  const overlay = await page.$('div[id="_r_fc_"]');
+  if (overlay) {
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(1000);
+  }
+
   let inputBox = null;
   for (const selector of INPUT_SELECTORS) {
     inputBox = await page.$(selector);
@@ -154,8 +161,8 @@ async function submitPrompt(page: Page, promptText: string): Promise<void> {
   }
   if (!inputBox) throw new Error('入力ボックスが見つかりません');
 
-  // 一度クリックしてフォーカスを当てる
-  await inputBox.click();
+  // force: true でオーバーレイ残存時もクリックを通す
+  await inputBox.click({ force: true });
   await page.waitForTimeout(500);
   await inputBox.fill(promptText);
   await page.waitForTimeout(500);
