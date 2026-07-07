@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7歳から変わるシニア犬のフード選び：体重維持・関節ケアまで獣医師監修の基準で解説</title>
+  <meta name="description" content="7歳以上のシニア犬向けフード選びを解説。タンパク質28〜38%・カロリー3,200〜3,500kcal/kgの目安数値、体格別・疾患別の判断フロー、チェックリスト、よくある失敗例も紹介。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+    }
+    a { color: inherit; }
+
+    /* Header */
+    .site-header { border-bottom: 1px solid #e5e7eb; background: #fff; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+    .site-header-inner { max-width: 1024px; margin: 0 auto; padding: 0 1.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .site-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .site-logo-icon { width: 1.75rem; height: 1.75rem; border-radius: 0.5rem; background: #2563eb; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.7rem; font-weight: 900; }
+    .site-logo-text { font-weight: 700; color: #111827; font-size: 0.95rem; }
+    .site-nav a { padding: 0.375rem 0.75rem; border-radius: 0.5rem; color: #4b5563; font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+
+    /* Draft bar */
+    .draft-bar { background: #1e3a8a; color: #bfdbfe; font-size: 0.7rem; letter-spacing: 0.08em; text-align: center; padding: 0.35rem 1rem; }
+    .draft-bar strong { color: #fff; }
+
+    /* Page */
+    .page { max-width: 768px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+
+    /* Breadcrumb */
+    .breadcrumb { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; font-size: 0.75rem; color: #9ca3af; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: #9ca3af; text-decoration: none; }
+    .breadcrumb a:hover { color: #3b82f6; }
+
+    /* Hero */
+    .hero { position: relative; margin-bottom: 2rem; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e40af 100%); height: 220px; display: flex; align-items: flex-end; }
+    .hero-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%); }
+    .hero-dog { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -65%); font-size: 5rem; opacity: 0.18; pointer-events: none; }
+    .hero-text { position: relative; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .tag-pill { font-size: 0.72rem; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 0.2em 0.7em; border-radius: 9999px; font-weight: 500; }
+
+    /* Title */
+    h1.art-title { font-size: clamp(1.25rem, 4vw, 1.75rem); font-weight: 700; line-height: 1.45; color: #111827; letter-spacing: -0.01em; margin-bottom: 1rem; }
+
+    /* Meta bar */
+    .meta-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.75rem; color: #6b7280; padding-bottom: 1.25rem; margin-bottom: 1.75rem; border-bottom: 1px solid #e5e7eb; }
+    .meta-chip { display: flex; align-items: center; gap: 0.4em; background: #f3f4f6; padding: 0.25em 0.75em; border-radius: 9999px; }
+    .meta-chip.blue { background: #eff6ff; color: #2563eb; }
+    .meta-chip svg { width: 0.875rem; height: 0.875rem; flex-shrink: 0; }
+
+    /* TOC */
+    .toc-box { background: linear-gradient(135deg, #eff6ff, #eef2ff); border: 1px solid #dbeafe; border-radius: 1rem; margin-bottom: 2.5rem; overflow: hidden; }
+    .toc-header { background: linear-gradient(to right, #2563eb, #6366f1); padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+    .toc-header svg { width: 1rem; height: 1rem; }
+    .toc-header span { font-weight: 700; color: #fff; font-size: 0.875rem; }
+    #toc-inline { padding: 1.25rem; }
+    .toc-group { margin-bottom: 0.375rem; }
+    .toc-h2-label { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.75rem; background: #fff; border: 1px solid #dbeafe; border-radius: 0.5rem; color: #1e3a8a; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: all 0.15s; }
+    .toc-h2-label:hover { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+    .toc-num { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; background: linear-gradient(135deg, #3b82f6, #6366f1); color: #fff; font-size: 0.7rem; font-weight: 800; border-radius: 6px; flex-shrink: 0; }
+    .toc-h3-list { list-style: none; margin: 0.2rem 0 0.375rem 0.7rem; padding: 0.25rem 0 0.25rem 0.75rem; border-left: 2px solid #dbeafe; }
+    .toc-h3-list a { display: flex; align-items: center; gap: 0.4em; padding: 0.25rem 0.5rem; color: #4b5563; font-size: 0.78rem; text-decoration: none; border-radius: 0.375rem; transition: all 0.15s; }
+    .toc-h3-list a::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #93c5fd; flex-shrink: 0; }
+    .toc-h3-list a:hover { color: #1d4ed8; background: #eff6ff; }
+    .toc-h3-list a:hover::before { background: #3b82f6; }
+
+    /* Article body */
+    .art-body { font-size: 0.95rem; color: #374151; line-height: 1.9; }
+    .art-body p { margin-bottom: 1.1rem; }
+    .art-body strong { font-weight: 700; color: #111827; }
+    .art-body a { color: #2563eb; text-decoration: none; }
+    .art-body a:hover { text-decoration: underline; }
+
+    .art-body h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2.75rem; margin-bottom: 1rem; padding: 0.65rem 1rem; background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%); border-left: 4px solid #3b82f6; border-radius: 0 10px 10px 0; color: #1e3a5f; scroll-margin-top: 80px; }
+    .art-body h3 { font-size: 1rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.6rem; padding-left: 0.875rem; border-left: 3px solid #6366f1; color: #312e81; scroll-margin-top: 80px; }
+
+    /* blockquote: 単独使用のみ（verdict/注記用） */
+    .art-body blockquote { border: none; background: linear-gradient(135deg, #f0f9ff, #f5f3ff); border-left: 4px solid #818cf8; border-radius: 0 12px 12px 0; padding: 1rem 1.25rem; font-style: normal; color: #312e81; margin: 1.5rem 0; }
+    .art-body blockquote p { margin: 0 0 0.4rem; }
+    .art-body blockquote p:last-child { margin: 0; }
+
+    /* flow-list: 判断フロー専用（blockquote連続を廃止） */
+    .flow-list { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.25rem 0; }
+    .flow-card { background: #fff; border: 1px solid #dbeafe; border-radius: 0.75rem; padding: 0.9rem 1.1rem; font-size: 0.875rem; line-height: 1.75; color: #1f2937; display: flex; gap: 0.75rem; align-items: flex-start; }
+    .flow-label { background: linear-gradient(135deg, #3b82f6, #6366f1); color: #fff; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.2em 0.6em; border-radius: 0.375rem; white-space: nowrap; flex-shrink: 0; margin-top: 0.2em; line-height: 1.6; }
+    .flow-card p { margin: 0; }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .art-body table { width: 100%; border-collapse: collapse; font-size: 0.875rem; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .art-body thead tr { background-color: #1e40af; }
+    .art-body th { padding: 11px 16px; text-align: left; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.03em; color: #fff; }
+    .art-body td { padding: 10px 16px; border-bottom: 1px solid #e2e8f0; color: #1f2937; font-size: 0.875rem; background: #fff; }
+    .art-body tbody tr:last-child td { border-bottom: none; }
+    .art-body tbody tr:nth-child(even) td { background: #f1f5f9; }
+
+    /* Lists */
+    .art-body ul { background: linear-gradient(135deg, #f8fafc, #f0f9ff); border: 1px solid #dbeafe; border-left: 4px solid #60a5fa; border-radius: 0 12px 12px 0; padding: 1rem 1rem 1rem 2.25rem; margin: 1.25rem 0; list-style: disc; }
+    .art-body ul li { margin: 0.35rem 0; color: #1f2937; font-size: 0.95rem; }
+    .art-body ul li::marker { color: #3b82f6; }
+    .art-body ol { background: linear-gradient(135deg, #f8fafc, #f0f9ff); border: 1px solid #dbeafe; border-left: 4px solid #60a5fa; border-radius: 0 12px 12px 0; padding: 1rem 1rem 1rem 2.5rem; margin: 1.25rem 0; list-style: decimal; }
+    .art-body ol li { margin: 0.35rem 0; color: #1f2937; font-size: 0.95rem; }
+    .art-body ol li::marker { color: #2563eb; font-weight: 700; }
+    .art-body ul ul, .art-body ul ol, .art-body ol ul, .art-body ol ol { background: none; border: none; border-left: 2px solid #e2e8f0; border-radius: 0; padding: 0.25rem 0 0.25rem 1.25rem; margin: 0.25rem 0; }
+
+    /* checklist-card: 複数グループを1枚にまとめる */
+    .checklist-card { border: 1px solid #dbeafe; border-radius: 0.75rem; overflow: hidden; margin: 1.25rem 0; }
+    .checklist-group { padding: 1rem 1.25rem; background: #fff; }
+    .checklist-group + .checklist-group { border-top: 1px solid #e2e8f0; }
+    .checklist-group-title { font-size: 0.78rem; font-weight: 700; color: #1e40af; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4em; }
+    .checklist-group-title::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; flex-shrink: 0; }
+    .checklist-items { list-style: none; padding: 0; margin: 0; background: none; border: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .checklist-items li { display: flex; align-items: flex-start; gap: 0.55em; font-size: 0.875rem; line-height: 1.65; color: #1f2937; margin: 0; }
+    .checklist-items li::before { content: '✓'; color: #3b82f6; font-weight: 700; flex-shrink: 0; font-size: 0.85em; margin-top: 0.1em; }
+    .checklist-items li::marker { display: none; }
+    .checklist-verdict { background: linear-gradient(135deg, #eff6ff, #eef2ff); border-top: 1px solid #dbeafe; padding: 1rem 1.25rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; color: #1e3a8a; line-height: 1.65; }
+
+    /* Share */
+    .share-section { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb; }
+    .share-label { font-size: 0.7rem; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .share-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .share-btn { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; padding: 0.6rem 1.25rem; border-radius: 0.75rem; font-weight: 500; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.15s; }
+    .share-btn.x { background: #000; color: #fff; }
+    .share-btn.x:hover { background: #1f2937; }
+    .share-btn.line { background: #06C755; color: #fff; }
+    .share-btn.line:hover { opacity: 0.88; }
+
+    /* Tags */
+    .tags-footer { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #f3f4f6; }
+    .tags-label { font-size: 0.7rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .tags-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tags-list span { font-size: 0.75rem; background: #fff; border: 1px solid #e5e7eb; color: #4b5563; padding: 0.2em 0.75em; border-radius: 9999px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+
+    @media (max-width: 640px) {
+      .page { padding: 1.5rem 1rem 4rem; }
+      h1.art-title { font-size: 1.25rem; }
+      .art-body h2 { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="draft-bar">
+  <strong>DRAFT PREVIEW</strong> — クライアント確認用（KW: シニア犬 フード）
+</div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="#" class="site-logo">
+      <div class="site-logo-icon">AI</div>
+      <span class="site-logo-text">AIメディア</span>
+    </a>
+    <nav class="site-nav"><a href="#">記事一覧</a></nav>
+  </div>
+</header>
+
+<main class="page">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="#">ホーム</a><span>›</span>
+    <a href="#">記事一覧</a><span>›</span>
+    <span style="color:#374151;">7歳から変わるシニア犬のフード選び</span>
+  </nav>
+
+  <article>
+    <div class="hero">
+      <div class="hero-dog">🐕</div>
+      <div class="hero-gradient"></div>
+      <div class="hero-text">
+        <span class="tag-pill">シニア犬</span>
+        <span class="tag-pill">フード・栄養</span>
+        <span class="tag-pill">健康管理</span>
+      </div>
+    </div>
+
+    <h1 class="art-title">7歳から変わるシニア犬のフード選び：体重維持・関節ケアまで獣医師監修の基準で解説</h1>
+
+    <div class="meta-bar">
+      <span class="meta-chip">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        2026/07/06 公開
+      </span>
+      <span class="meta-chip blue" id="reading-time">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        計算中...
+      </span>
+    </div>
+
+    <div class="toc-box">
+      <div class="toc-header">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color:rgba(255,255,255,0.8);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>目次</span>
+      </div>
+      <nav id="toc-inline"></nav>
+    </div>
+
+    <div class="art-body" id="article-body">
+
+      <p>7歳を過ぎた犬の代謝は徐々に低下します。同じフードを与え続けるとカロリー過剰と筋肉量の減少が同時に進み、体重増加・関節の硬直・消化不良へとつながります。</p>
+      <p>これらの多くは、フードの切り替えで改善できます。シニア犬に必要なタンパク質は成犬期と同水準以上を確保しつつ、脂質とカロリーは抑えるのが基本です。</p>
+      <p>まず手元のフードの成分表を確認することが、健康寿命を延ばす出発点になります。</p>
+
+      <h2>シニア犬の体に起きる変化と栄養ニーズの転換</h2>
+      <p>フードを変えるべきタイミングを知るには、まずシニア犬の体で何が起きているかを把握することが大切です。7歳以降に起こる3つの変化と、切り替えのサインを整理します。</p>
+
+      <h3>代謝・筋肉量の変化：7歳以降のメカニズム</h3>
+      <p>犬は7歳前後から「シニア期」に入ります。大型犬は5〜6歳がその境界になることも多いです。</p>
+      <p><strong>第一に、基礎代謝の低下です。</strong>安静時に消費するカロリーが加齢とともに減少します。同じ量を食べ続ければ、自然と太りやすくなります。</p>
+      <p><strong>第二に、筋肉量（除脂肪体重）の減少です。</strong>「サルコペニア」と呼ばれるこの現象は7歳以降に加速します。筋肉が減ると関節への負担が増え、運動量がさらに落ちる悪循環に入ります。</p>
+      <p><strong>第三に、消化・吸収能力の低下です。</strong>腸の絨毛が萎縮し、栄養素を吸収する効率が下がります。同じタンパク質量を摂っても、実際に利用できる量が減ります。</p>
+
+      <h3>フード切り替えのタイミング：見逃せない3つのサイン</h3>
+      <p>以下の3つのサインのうち1つでも当てはまる場合は、フードの見直しを検討しましょう。いずれも「老化のせい」と見過ごされやすいですが、フードが原因のケースが少なくありません。</p>
+      <ul>
+        <li><strong>サイン1：体重が3ヶ月で5%以上変動している</strong>　増減どちらも、エネルギーバランスが崩れているサインです。</li>
+        <li><strong>サイン2：毛並みのツヤが失われてきた</strong>　必須脂肪酸やビタミンEの不足が原因になることが多いです。</li>
+        <li><strong>サイン3：食後2時間以内に排泄リズムが乱れている</strong>　フードの粒の大きさや成分が合っていないケースです。</li>
+      </ul>
+
+      <h2>シニアフードの成分基準と読み方</h2>
+      <p>「シニア対応」と書かれていても、成分の中身は成犬用と大差ない商品が少なくありません。パッケージの表示ではなく、成分表の数値で判断する必要があります。確認すべき3つの栄養素と、避けるべき原材料の見分け方を紹介します。</p>
+
+      <h3>タンパク質・脂質・カロリーの目安数値</h3>
+      <p>確認すべき数値は3つです。いずれも「乾燥重量比」（水分を除いた状態）で表記されています。パッケージ裏の成分表と照らし合わせてみましょう。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>栄養素</th><th>目安（乾燥重量比）</th><th>成犬期との比較</th></tr></thead>
+          <tbody>
+            <tr><td>タンパク質</td><td><a href="https://blog.pljapan.com/2025/09/04/%E7%8A%AC-%E3%82%BF%E3%83%B3%E3%83%91%E3%82%AF%E8%B3%AA-%E5%BF%85%E8%A6%81%E9%87%8F/" target="_blank" rel="noopener">18〜22%</a></td><td>成犬期（AAFCO最低基準18%）と同水準。腎機能低下時は要調整</td></tr>
+            <tr><td>脂質</td><td>10〜15%</td><td>成犬期（15〜20%）より低め</td></tr>
+            <tr><td>カロリー密度</td><td>3,200〜3,500 kcal/kg</td><td>成犬期比で約10〜20%減</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>タンパク質を高めに設定する理由は筋肉量の維持にあります。腎機能が正常な犬に対してタンパク質制限は必要ありません。1日の維持カロリーは体重（kg）の0.75乗×70×0.8〜1.0で算出でき、体重5kgのシニア犬であれば約190〜240 kcal/日が目安です。</p>
+
+      <h3>成分表の読み方と避けるべき原材料</h3>
+      <p>フードの成分表は重量順に原材料が並んでいます。最初の3〜4品目がフードの主成分です。</p>
+      <ul>
+        <li>1番目の原材料が「肉・魚・卵」のいずれかになっているか確認しましょう</li>
+        <li>「チキンミール」「サーモンミール」のように動物名が明記されているか確認します（「ミートミール」は原料が特定できないため避けましょう）</li>
+        <li>人工保存料（BHA・BHT・エトキシキン）が含まれていないかチェックしましょう</li>
+      </ul>
+
+      <h2>サイズ・ステージ別フード選択マトリクス</h2>
+      <p>適切なフードは犬の体格と年齢によって異なります。小型・中型・大型犬それぞれのカロリー密度の目安と、7〜10歳・11歳以上のステージ別優先項目を表でまとめました。</p>
+
+      <h3>体格別（小型・中型・大型犬）の基準値</h3>
+      <p>体格によってカロリーの消費量と関節への負担が異なります。愛犬の体重で該当する行を確認し、現在のフードのカロリー密度と比べてみましょう。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>体格</th><th>体重</th><th>カロリー密度目安</th><th>特記事項</th></tr></thead>
+          <tbody>
+            <tr><td>小型犬</td><td>10kg未満</td><td>3,400〜3,600 kcal/kg</td><td>小粒（直径8mm以下）・CoQ10配合</td></tr>
+            <tr><td>中型犬</td><td>10〜25kg</td><td>3,200〜3,500 kcal/kg</td><td>標準設計のシニアフードが合いやすい</td></tr>
+            <tr><td>大型犬</td><td>25kg以上</td><td>3,000〜3,200 kcal/kg</td><td>グルコサミン1,000mg/kg以上が必要です</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>大型犬はシニア期が早く、5〜6歳から切り替えを検討するのがおすすめです。胃拡張・捻転の予防として、1回の食事量を2〜3回に分けることが有効です。</p>
+
+      <h3>年齢ステージ（7〜10歳・11歳以上）別対応</h3>
+      <p>同じシニア期でも、7〜10歳と11歳以上では体の課題と優先すべき栄養素が変わります。現在の年齢に合わせて、フードに求める条件を確認しましょう。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ステージ</th><th>主な課題</th><th>フード選びの優先項目</th></tr></thead>
+          <tbody>
+            <tr><td>7〜10歳</td><td>代謝低下・筋肉量維持</td><td>高タンパク・低脂肪・関節サポート成分</td></tr>
+            <tr><td>11歳以上</td><td>内臓機能低下・消化力の衰え</td><td>消化性の高いタンパク源・リン制限・食感調整</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>11歳以上になるとリン（P）の摂りすぎが腎臓に負担をかけるリスクが高まります。リン含量が0.6%以下のフードを選ぶのが安全です。</p>
+
+      <h2>よくある失敗パターンと見直しポイント</h2>
+      <p>シニア犬のフード選びでよくある失敗は主に2つあります。どちらも「問題ない」と思ってしまいがちなケースで、気づかないうちに体への負担が積み重なっています。</p>
+
+      <h3>若犬用フードを続けるリスク</h3>
+      <p>最も多い失敗が「成犬用フードをシニア期以降も与え続けること」です。成犬用フードの脂質は15〜20%に設定されていることが多く、1年以内に体重が10〜15%増えるケースがあります。肥満が進むと関節への負担が増し、軟骨がすり減る速度が上がる悪循環に入ります。</p>
+      <p>「まだ元気だから同じフードでいい」という判断が、3〜4年後の関節疾患・心疾患につながる例は少なくありません。7歳になった時点でフードを見直すことが、予防の観点で最も費用対効果が高いです。</p>
+
+      <h3>「シニア対応」表示を鵜呑みにする落とし穴</h3>
+      <p>日本ではペットフードの栄養基準に法的拘束力が弱く、「シニア」の定義はメーカーが独自に設定しています。成分表で実際に確認すべき項目は次の通りです。</p>
+      <ul>
+        <li><a href="https://blog.pljapan.com/2025/09/04/%E7%8A%AC-%E3%82%BF%E3%83%B3%E3%83%91%E3%82%AF%E8%B3%AA-%E5%BF%85%E8%A6%81%E9%87%8F/" target="_blank" rel="noopener">タンパク質が乾燥重量比18%以上あるか</a></li>
+        <li>脂質が15%以下か</li>
+        <li>グルコサミン・コンドロイチンの含有量が明記されているか</li>
+        <li>カロリー密度が3,500 kcal/kg以下か</li>
+      </ul>
+
+      <h2>症状・疾患別フード選び判断フロー</h2>
+      <p>関節・腎臓・心臓などの疾患がある場合、一般的なシニアフードでは対応が不十分なことがあります。診断別に選ぶべきフードの条件を整理しました。当てはまる診断がある場合はかかりつけ獣医師にも確認しましょう。</p>
+
+      <h3>関節・腎臓・心臓ケアが必要な場合</h3>
+      <p>以下のいずれかの診断を受けている場合、一般的なシニアフードでは栄養管理が不十分なことがあります。診断名に合ったフードの条件を確認しましょう。</p>
+      <div class="flow-list">
+        <div class="flow-card">
+          <span class="flow-label">関節疾患</span>
+          <p>グルコサミン1,000mg/kg以上・EPA+DHAが1.5〜2.5%配合されたフードを選びましょう。カロリーは維持カロリーの90%に抑えるのがおすすめです。</p>
+        </div>
+        <div class="flow-card">
+          <span class="flow-label">慢性腎臓病（CKD）</span>
+          <p><a href="https://www.hills.co.jp/dog-food/prescription-diet-kd-current-kidney-care-dry" target="_blank" rel="noopener">リン含量0.3%前後・タンパク質14〜16%程度</a>の腎臓サポートフードを選びましょう。獣医師の血液検査結果と照らして調整するのが安心です。</p>
+        </div>
+        <div class="flow-card">
+          <span class="flow-label">心疾患</span>
+          <p><a href="https://recommend-dog.com/article/health/dog-heart-disease-diet-guide" target="_blank" rel="noopener">ナトリウム含量0.15〜0.25%</a>のフードを選びましょう（ACVIM 2019コンセンサス・ステージC目安）。タウリン・カルニチン配合のものが心筋機能をサポートします。</p>
+        </div>
+      </div>
+
+      <h3>肥満犬・低体重犬へのアプローチ</h3>
+      <p>体重が理想値から大きく外れている場合は、フードの内容だけでなく給与量の見直しも必要です。愛犬の状態に合わせて、どちらのケースに近いか確認してください。</p>
+      <div class="flow-list">
+        <div class="flow-card">
+          <span class="flow-label">肥満（理想体重の15%超）</span>
+          <p>カロリー密度3,000 kcal/kg以下の減量用フードを選びましょう。給与量は維持カロリーの70〜80%に設定し、8〜12週間かけて目標体重に近づけていくのがおすすめです。</p>
+        </div>
+        <div class="flow-card">
+          <span class="flow-label">低体重（理想体重の10%未満）</span>
+          <p>消化性の高い高カロリーフード（3,600 kcal/kg以上）に切り替えましょう。1回の食事量を増やすより、食事回数を1日3回にする方が消化への負担が少なくなります。</p>
+        </div>
+      </div>
+
+      <h2>今のフードを続けてよいか自己診断チェックリスト</h2>
+      <p>現在のフードが愛犬に合っているかどうか、成分面・体の状態面の10項目で確認できます。✓の数で次のアクションが変わります。</p>
+
+      <div class="checklist-card">
+        <div class="checklist-group">
+          <div class="checklist-group-title">栄養面の確認（成分表で照合）</div>
+          <ul class="checklist-items">
+            <li><a href="https://blog.pljapan.com/2025/09/04/%E7%8A%AC-%E3%82%BF%E3%83%B3%E3%83%91%E3%82%AF%E8%B3%AA-%E5%BF%85%E8%A6%81%E9%87%8F/" target="_blank" rel="noopener">タンパク質が乾燥重量比18%以上ある</a></li>
+            <li>脂質が15%以下になっている</li>
+            <li>カロリー密度が3,500 kcal/kg以下である</li>
+            <li>1番目の原材料が肉・魚・卵のいずれかである</li>
+            <li>BHA・BHT・エトキシキンが含まれていない</li>
+          </ul>
+        </div>
+        <div class="checklist-group">
+          <div class="checklist-group-title">体の状態の確認（愛犬を観察して照合）</div>
+          <ul class="checklist-items">
+            <li>過去3ヶ月で体重変動が体重の5%未満に収まっている</li>
+            <li>毛並みにツヤがあり、抜け毛が急増していない</li>
+            <li>1日2回の排泄リズムが安定している</li>
+            <li>食後に嘔吐・軟便が起きていない</li>
+            <li>食欲が安定していて残すことが少ない</li>
+          </ul>
+        </div>
+        <div class="checklist-verdict">
+          <p><strong>10項目すべて✓</strong> → 現在のフードを継続して問題ありません</p>
+          <p><strong>栄養面で2つ以上✗</strong> → 成分の優れたフードへの切り替えが必要です</p>
+          <p><strong>体の状態で2つ以上✗</strong> → フードの変更または獣医師への相談をおすすめします</p>
+        </div>
+      </div>
+
+      <h2>シニアフードへの切り替え実践ステップ</h2>
+      <p>切り替えを決めたら、急激なフード変更は禁物です。消化トラブルを防ぎながら新しいフードに移行する手順と、食欲が落ちたときの対処法を解説します。</p>
+
+      <h3>移行期間の進め方と量の調整</h3>
+      <p>7〜14日間の移行期間を設けるのが基本です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>期間</th><th>旧フード</th><th>新フード</th></tr></thead>
+          <tbody>
+            <tr><td>1〜3日目</td><td>75%</td><td>25%</td></tr>
+            <tr><td>4〜6日目</td><td>50%</td><td>50%</td></tr>
+            <tr><td>7〜9日目</td><td>25%</td><td>75%</td></tr>
+            <tr><td>10日目〜</td><td>0%</td><td>100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>消化が敏感な犬は各ステップを3日ずつ延ばして21日間かけて移行してください。</p>
+
+      <h3>食欲低下・消化不良時の対処法</h3>
+      <p>新しいフードへの切り替え後に食欲が落ちた場合は、以下の3ステップを順番に試してみましょう。いずれも道具なしですぐ実践できる方法です。</p>
+      <ol>
+        <li><strong>ウェットフードを少量混ぜる</strong>　乾燥フードに10〜20%混ぜると、香りと水分量が増えて食欲が戻ることが多いです。</li>
+        <li><strong>フードを少量のお湯でふやかす</strong>　水温は40〜50℃が適切です。沸騰したお湯は栄養素を破壊するため使わないでください。</li>
+        <li><strong>食器の高さを調整する</strong>　床から体高の1/3程度の高さに置いてください。首への負担が減り、食事量が改善するケースがあります。</li>
+      </ol>
+      <p>軟便が3日以上続く場合は移行スケジュールを1ステップ戻して獣医師に相談しましょう。</p>
+
+      <h2>よくある質問</h2>
+      <p>飼い主からよく寄せられる5つの疑問に答えます。フード選びで迷いやすいポイントを中心にまとめました。</p>
+
+      <h3>シニア犬にウェットフードだけを与えてもよいですか？</h3>
+      <p>ウェットフードは水分補給の観点で優れており、シニア犬の腎臓をサポートします。ただし、カロリー密度が低く、必要量を確保するために大量に与える必要があります。歯垢もつきやすいため、ドライとウェットを7:3〜6:4で組み合わせるのが現実的な選択肢です。</p>
+
+      <h3>グレインフリーフードはシニア犬に向いていますか？</h3>
+      <p>消化に優れる面がある一方、一部の犬種（ゴールデン・レトリーバー、ラブラドールなど）で拡張型心筋症との関連を示す報告があります。心疾患リスクの高い犬種には慎重な判断が必要で、かかりつけ獣医師に相談のうえ選ぶのが安全です。</p>
+
+      <h3>7歳になっても元気なら切り替えは不要ですか？</h3>
+      <p>外見上の元気さと内臓機能の低下は連動しません。7歳で血液検査をすると、すでに腎機能・肝機能の数値が低下している犬は少なくありません。シニアフードへの切り替えは「7歳になった時点」で行うのが予防医学の観点で正しいです。</p>
+
+      <h3>手作り食はシニア犬に有効ですか？</h3>
+      <p>成分をコントロールできる利点があります。ただし、カルシウム・リン比（1.2:1〜1.4:1）の管理を誤ると骨代謝に悪影響が出ます。市販フードの補完として週2〜3回に留めるのがリスクの低い方法です。</p>
+
+      <h3>おやつもシニア用に変えるべきですか？</h3>
+      <p>おやつが1日の総カロリーの10%を超えると、フードの栄養バランスが崩れます。シニア犬には関節サポート成分（コラーゲン・グルコサミン）が含まれた低カロリーのおやつを選ぶのがおすすめです。成犬用の高カロリーおやつは量を半分以下に絞りましょう。</p>
+
+      <h2>まとめ：愛犬の健康寿命を延ばすフード選びの第一歩</h2>
+
+      <p>シニア犬のフード選びは「何歳になったか」だけで判断するのではなく、体格・体重・疾患の有無を組み合わせて決めるのが基本です。7歳を起点に、まず以下の3点を確認しましょう。</p>
+      <ol>
+        <li>現在のフードの<a href="https://blog.pljapan.com/2025/09/04/%E7%8A%AC-%E3%82%BF%E3%83%B3%E3%83%91%E3%82%AF%E8%B3%AA-%E5%BF%85%E8%A6%81%E9%87%8F/" target="_blank" rel="noopener">タンパク質が乾燥重量比18%以上あるか</a></li>
+        <li>カロリー密度が3,500 kcal/kg以下か</li>
+        <li>過去3ヶ月の体重変動が5%未満に収まっているか</li>
+      </ol>
+      <p>この3点が揃っていれば、今のフードを継続しながら定期的な体重測定と血液検査でモニタリングするのがおすすめです。1つでも外れているなら、本記事のマトリクスと判断フローを使ってフードを選び直しましょう。年齢・体格・健康状態に合ったフードへの切り替えが、10歳以降の生活の質を大きく左右します。</p>
+
+    </div>
+
+    <div class="share-section">
+      <p class="share-label">この記事をシェアする</p>
+      <div class="share-buttons">
+        <a href="#" class="share-btn x" id="share-x">𝕏 でシェア</a>
+        <a href="#" class="share-btn line" id="share-line">LINE でシェア</a>
+      </div>
+    </div>
+
+    <div class="tags-footer">
+      <p class="tags-label">タグ</p>
+      <div class="tags-list">
+        <span>シニア犬</span><span>フード・栄養</span><span>健康管理</span><span>犬の食事</span>
+      </div>
+    </div>
+  </article>
+</main>
+
+<script>
+  var body = document.getElementById('article-body');
+  if (body) {
+    var chars = body.innerText.replace(/\s+/g, '').length;
+    var min = Math.max(1, Math.ceil(chars / 600));
+    var rt = document.getElementById('reading-time');
+    if (rt) rt.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" style="width:0.875rem;height:0.875rem;flex-shrink:0;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>約' + min + '分で読めます';
+  }
+  var headings = Array.from(document.querySelectorAll('#article-body h2, #article-body h3'));
+  var toc = document.getElementById('toc-inline');
+  var tocNum = 0;
+  if (toc && headings.length > 0) {
+    var currentGroup = null, currentH3List = null;
+    headings.forEach(function(h, i) {
+      if (!h.id) h.id = 'h-' + i;
+      if (h.tagName === 'H2') {
+        tocNum++;
+        currentGroup = document.createElement('div');
+        currentGroup.className = 'toc-group';
+        var a = document.createElement('a');
+        a.href = '#' + h.id; a.className = 'toc-h2-label';
+        var num = document.createElement('span');
+        num.className = 'toc-num'; num.textContent = String(tocNum);
+        a.appendChild(num); a.appendChild(document.createTextNode(h.textContent || ''));
+        currentGroup.appendChild(a); toc.appendChild(currentGroup); currentH3List = null;
+      } else {
+        if (!currentH3List) {
+          currentH3List = document.createElement('ul');
+          currentH3List.className = 'toc-h3-list';
+          if (currentGroup) currentGroup.appendChild(currentH3List);
+          else toc.appendChild(currentH3List);
+        }
+        var li = document.createElement('li');
+        var a2 = document.createElement('a');
+        a2.href = '#' + h.id; a2.textContent = h.textContent || '';
+        li.appendChild(a2); currentH3List.appendChild(li);
+      }
+    });
+  }
+  var url = encodeURIComponent(location.href), text = encodeURIComponent(document.title);
+  var sx = document.getElementById('share-x'), sl = document.getElementById('share-line');
+  if (sx) sx.href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + text;
+  if (sl) sl.href = 'https://line.me/R/msg/text/?' + text + '%0A' + url;
+</script>
+</body>
+</html>
